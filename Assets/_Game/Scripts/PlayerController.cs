@@ -6,16 +6,18 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 6.0F;
-    public float jumpSpeed = 8.0F;
-    public float gravity = 20.0F;
-    private Vector3 moveDirection = Vector3.zero;
+    public float jumpHeight = 1;
+    public float gravity = -9.81f;
 
-    private Rigidbody playerRigidbody;
+    private CharacterController controller;
+    private Vector3 velocity;
     PlayerInputActions playerInputActions;
+    private bool canJump;
+    private int numberOfJumps;
     void Awake()
     {
-        playerRigidbody = GetComponent<Rigidbody>();
-        
+        controller = GetComponent<CharacterController>();
+
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Jump.performed += Jump;
@@ -23,17 +25,37 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        float horizontalValue = playerInputActions.Player.Movement.ReadValue<float>();
-        Vector3 movementVector = new Vector3(horizontalValue, 0, 0);
-        playerRigidbody.MovePosition(transform.position + movementVector * Time.fixedDeltaTime * speed);
+        Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();
+        if(controller.isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+            numberOfJumps = 0;
+        }
+        Vector3 moveVector = new Vector3(inputVector.x, 0, 0);
+        controller.Move(moveVector * speed * Time.deltaTime);
+
+        if(canJump)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            canJump = false;
+        }
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity*Time.deltaTime);
 
     }
 
     private void Jump(InputAction.CallbackContext context)
     {
-        playerRigidbody.AddForce(Vector2.up * jumpSpeed, ForceMode.Impulse);
+        Debug.Log(numberOfJumps);
+        if (controller.isGrounded || numberOfJumps<1)
+        {
+            Debug.Log("Jump");
+            canJump = true;
+            numberOfJumps++;
+        }
+       
     }
 
 
