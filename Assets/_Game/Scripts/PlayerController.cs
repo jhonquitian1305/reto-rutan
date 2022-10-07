@@ -5,15 +5,28 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 6.0F;
-    public float jumpHeight = 1;
-    public float gravity = -9.81f;
+    private PlayerInputActions playerInputActions;
+
+    //Movement
+    public float moveSpeed = 800f;
+    public float rotateSpeed = 3f;
+    public float jumpHeight = 2;
+    public float gravity = -20f;
 
     private CharacterController controller;
     private Vector3 velocity;
-    PlayerInputActions playerInputActions;
+    private Vector3 moveDirection;
     private bool canJump;
     private int numberOfJumps;
+
+    //Shoot
+    public float fireRate;
+    public GameObject spellBall;
+    public Transform hand;
+
+    private float cycleTime;
+
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -21,44 +34,58 @@ public class PlayerController : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Jump.performed += Jump;
- 
-
+        playerInputActions.Player.Shoot.performed += Shoot;
     }
-
     private void Update()
     {
+        Move();
+    }
+    private void Shoot(InputAction.CallbackContext context)
+    {
+        if(Time.time> cycleTime)
+        {
+            cycleTime = Time.time + fireRate;
+            if (spellBall != null)
+            {
+                Instantiate(spellBall, hand.position, Quaternion.identity);
+            }
+        }
+    }
+    private void Move()
+    {
         Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();
-        if(controller.isGrounded && velocity.y < 0)
+
+        if (controller.isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
             numberOfJumps = 0;
         }
-        Vector3 moveVector = new Vector3(inputVector.x, 0, 0);
-        controller.Move(moveVector * speed * Time.deltaTime);
 
-        if(canJump)
+        moveDirection = new Vector3(inputVector.x, 0, 0).normalized;
+        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+
+        if (canJump)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
             canJump = false;
         }
+
         velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity*Time.deltaTime);
+        controller.Move(velocity * Time.deltaTime);
 
+        if (moveDirection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotateSpeed * Time.deltaTime);
+        }
     }
-
     private void Jump(InputAction.CallbackContext context)
     {
-        Debug.Log(numberOfJumps);
-        if (controller.isGrounded || numberOfJumps<1)
+        if (controller.isGrounded || numberOfJumps < 1)
         {
-            Debug.Log("Jump");
             canJump = true;
             numberOfJumps++;
         }
-       
     }
-
-
-    // Update is called once per frame
 
 }
