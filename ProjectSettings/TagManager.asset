@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - DeadZone
   layers:
   - Default
   - TransparentFX
@@ -12,7 +13,7 @@ TagManager:
   - Scenario
   - Water
   - UI
-  - 
+  - Projectil
   - 
   - 
   - 

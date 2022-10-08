@@ -22,7 +22,7 @@ public class SpellBall : MonoBehaviour
         {
             spellDirection = Vector3.left;
         }
-        Invoke("Disable", 2);
+        Invoke("Disable", 10);
     }
 
 

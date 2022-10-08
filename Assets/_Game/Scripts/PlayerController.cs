@@ -90,4 +90,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.transform.CompareTag("DeadZone"))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
 }

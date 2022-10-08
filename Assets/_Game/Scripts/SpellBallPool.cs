@@ -8,7 +8,7 @@ public class SpellBallPool : MonoBehaviour
     public GameObject spellBallPrefab;
 
     private List<GameObject> pooledSpellBalls = new List<GameObject>();
-    private int amountToPool = 10;
+    private int amountToPool = 20;
     void Awake()
     {
         if (instance == null)
