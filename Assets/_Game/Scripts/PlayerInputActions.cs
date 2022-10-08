@@ -101,7 +101,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""WASD"",
+                    ""name"": ""AD"",
                     ""id"": ""1b3cda82-5e49-4a98-a516-d2ccb13ca0f5"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -200,7 +200,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""Arrows"",
                     ""id"": ""3e82df25-5285-46e0-b27f-7fda6e45f481"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",

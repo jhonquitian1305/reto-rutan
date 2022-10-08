@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
 
     //Shoot
     public float fireRate;
-    public GameObject spellBall;
     public Transform hand;
 
     private float cycleTime;
@@ -45,9 +44,12 @@ public class PlayerController : MonoBehaviour
         if(Time.time> cycleTime)
         {
             cycleTime = Time.time + fireRate;
+            GameObject spellBall = SpellBallPool.instance.GetPooledSpellBall();
             if (spellBall != null)
             {
-                Instantiate(spellBall, hand.position, Quaternion.identity);
+                spellBall.transform.position = hand.position;
+                spellBall.transform.rotation = Quaternion.identity;
+                spellBall.SetActive(true);
             }
         }
     }
