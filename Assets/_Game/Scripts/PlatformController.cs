@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,14 @@ public class PlatformController : MonoBehaviour
     public float speed = 2f;
 
     private int waypointsIndex = 0;
-    void Update()
+
+    private Vector3 playerScale;
+    void OnEnable()
+    {
+        playerScale = GameObject.FindWithTag("Player").transform.localScale;
+    }
+
+    void FixedUpdate()
     {
         MovePlatform();
     }
@@ -31,19 +39,20 @@ public class PlatformController : MonoBehaviour
         transform.position = Vector3.MoveTowards(platform, waypointTarget, platformSpeed);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collider.CompareTag("Player"))
         {
-            collision.gameObject.transform.SetParent(transform);
+            collider.transform.parent = transform;
         }
     }
 
-    void OnCollisionExit(Collision collision)
+    void OnTriggerExit(Collider collider)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collider.CompareTag("Player"))
         {
-            collision.gameObject.transform.SetParent(null); 
+            collider.transform.parent = null;
+            collider.transform.localScale = playerScale;
         }
     }
 }
