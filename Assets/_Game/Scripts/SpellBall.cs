@@ -7,14 +7,18 @@ public class SpellBall : MonoBehaviour
 
     public float spellMoveSpeed = 20f;
 
+
+    private GameObject originGameObject;
     private Vector3 spellDirection;
-    private GameObject character;
+
+    public GameObject OriginGameObject { get => originGameObject; set => originGameObject = value; }
+
     // Start is called before the first frame update
 
-    private void OnEnable()
+    void Start()
     {
-        character = GameObject.FindWithTag("Player");
-        if (character.transform.rotation.y >= 0)    
+        transform.parent = GameObject.Find("SpellBallParent").transform;
+        if (OriginGameObject.transform.localEulerAngles.y >= 0 && OriginGameObject.transform.localEulerAngles.y < 180)
         {
             spellDirection = Vector3.right;
         }
@@ -22,15 +26,9 @@ public class SpellBall : MonoBehaviour
         {
             spellDirection = Vector3.left;
         }
-        Invoke("Disable", 10);
+        Invoke("Disable", 5);
     }
 
-
-    void Start()
-    {
-        
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -55,15 +53,14 @@ public class SpellBall : MonoBehaviour
             {
                 enemy.TakeDamage(50);
             }
+            Disable();
         }
-        gameObject.SetActive(false);
     }
 
     private void Disable()
     {
-        if (gameObject.activeInHierarchy)
-        {
-            gameObject.SetActive(false);
-        }
+
+       Destroy(gameObject);
+        
     }
 }
