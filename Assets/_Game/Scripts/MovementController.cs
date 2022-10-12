@@ -21,6 +21,7 @@ public class MovementController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        CheckIfGrounded();
         Move();
         Rotate();
     }
@@ -58,26 +59,30 @@ public class MovementController : MonoBehaviour
         }
     }
 
+    private void CheckIfGrounded()
+    {
+        RaycastHit[] hits;
+
+        float distance = (GetComponent<CapsuleCollider>().height / 2) + 0.2f;
+        Vector2 positionToCheck = transform.position;
+        hits = Physics.RaycastAll(positionToCheck, Vector3.down, distance);
+
+        //if a collider was hit, we are grounded
+        if (hits.Length > 0)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.transform.CompareTag("DeadZone"))
         {
             gameObject.SetActive(false);
-        }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.layer==3)
-        {
-            isGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.layer == 3)
-        {
-            isGrounded = false;
         }
     }
 
