@@ -55,6 +55,10 @@ public class SpellBall : MonoBehaviour
             }
             Disable();
         }
+        if (collision.transform.CompareTag("ground"))
+        {
+            Disable();
+        }
     }
 
     private void Disable()
