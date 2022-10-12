@@ -10,14 +10,16 @@ public class MovementController : MonoBehaviour
     public float rotationSpeed = 10f;
 
     private Vector2 moveInputVector;
-    private Rigidbody rigidBody;
-    private bool isGrounded;
+    public Rigidbody rigidBody;
+    public bool isGrounded;
     private bool canDoubleJump;
+    PlayerInputController inputController;
     public Vector2 MoveInputVector { get => moveInputVector; set => moveInputVector = value; }
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
+        inputController = GetComponent<PlayerInputController>();
     }
     void FixedUpdate()
     {
@@ -63,7 +65,7 @@ public class MovementController : MonoBehaviour
     {
         RaycastHit[] hits;
 
-        float distance = (GetComponent<CapsuleCollider>().height / 2) + 0.2f;
+        float distance = (GetComponent<CapsuleCollider>().height / 2);
         Vector2 positionToCheck = transform.position;
         hits = Physics.RaycastAll(positionToCheck, Vector3.down, distance);
 

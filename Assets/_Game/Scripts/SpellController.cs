@@ -7,7 +7,7 @@ public class SpellController : MonoBehaviour
 {
     private float cycleTime;
 
-    public float fireRate = 0.5f;
+    public float fireRate = 1f;
     public GameObject spellBallPrefab;
     public Transform originPoint;
 
