@@ -10,15 +10,17 @@ public class MovementController : MonoBehaviour
     public float rotationSpeed = 10f;
 
     private Vector2 moveInputVector;
-    public Rigidbody rigidBody;
+    private Rigidbody rigidBody;
     public bool isGrounded;
     private bool canDoubleJump;
     PlayerInputController inputController;
     public Vector2 MoveInputVector { get => moveInputVector; set => moveInputVector = value; }
+    public Rigidbody RigidBody { get => rigidBody; set => rigidBody = value; }
+    public bool CanDoubleJump { get => canDoubleJump; set => canDoubleJump = value; }
 
     void Awake()
     {
-        rigidBody = GetComponent<Rigidbody>();
+        RigidBody = GetComponent<Rigidbody>();
         inputController = GetComponent<PlayerInputController>();
     }
     void FixedUpdate()
@@ -29,7 +31,7 @@ public class MovementController : MonoBehaviour
     }
     public void Move()
     {
-        rigidBody.velocity = new Vector3(moveInputVector.x * moveSpeed, rigidBody.velocity.y);
+        RigidBody.velocity = new Vector3(moveInputVector.x * moveSpeed, RigidBody.velocity.y);
         
     }
 
@@ -37,27 +39,27 @@ public class MovementController : MonoBehaviour
     {
         if (moveInputVector.x != 0)
         {
-            Quaternion currentRotation = rigidBody.rotation;
+            Quaternion currentRotation = RigidBody.rotation;
             Quaternion targetRotation = Quaternion.LookRotation(moveInputVector);
             Quaternion newRotation = Quaternion.Slerp(
                 currentRotation, // mix where the rig points now
                 targetRotation,  // with where it should point
                 rotationSpeed * Time.fixedDeltaTime); // with this ratio
-            rigidBody.MoveRotation(newRotation);
+            RigidBody.MoveRotation(newRotation);
         }
     }
     public void Jump()
     {
         if (isGrounded)
         {
-            rigidBody.velocity = new Vector3(moveInputVector.x * moveSpeed, jumpForce);
+            RigidBody.velocity = new Vector3(moveInputVector.x * moveSpeed, jumpForce);
 
-            canDoubleJump = true;
+            CanDoubleJump = true;
         }
-        else if (canDoubleJump)
+        else if (CanDoubleJump)
         {
-            rigidBody.velocity = Vector3.up * jumpForce;
-            canDoubleJump = false;
+            RigidBody.velocity = Vector3.up * jumpForce;
+            CanDoubleJump = false;
         }
     }
 
@@ -78,6 +80,7 @@ public class MovementController : MonoBehaviour
         {
             isGrounded = false;
         }
+        
     }
 
     private void OnTriggerEnter(Collider collider)

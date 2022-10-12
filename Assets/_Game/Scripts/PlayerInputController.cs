@@ -46,7 +46,10 @@ public class PlayerInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameObject.FindWithTag("Player").GetComponent<MovementController>().isGrounded)
+        {
+            //anim.SetBool("jump", false);
+        }
     }
 
     public void ShootPerformed(InputAction.CallbackContext ctx)
@@ -65,9 +68,12 @@ public class PlayerInputController : MonoBehaviour
 
     public void MovementPerformed(InputAction.CallbackContext ctx)
     {
+        
         GetComponent<MovementController>().MoveInputVector = ctx.ReadValue<Vector2>();
-
-
+        if (!GameObject.FindWithTag("Player").GetComponent<MovementController>().isGrounded)
+        {
+            return;
+        }
         if (ctx.canceled)
         {
             anim.SetBool("run", false);
@@ -76,16 +82,16 @@ public class PlayerInputController : MonoBehaviour
         {
             anim.SetBool("run", true);
             anim.SetBool("shoot", false);
-            anim.SetBool("jump", false);
+            //anim.SetBool("jump", false);
         }
     }
 
     public void JumpPerformed(InputAction.CallbackContext ctx)
     {
-        if (ctx.canceled)
-        {
-            anim.SetBool("jump", false);
-        }
+        //if (ctx.canceled)
+        //{
+        //    anim.SetBool("jump", false);
+        //}
 
         if (ctx.performed)
         {
@@ -104,11 +110,11 @@ public class PlayerInputController : MonoBehaviour
     }
     public void UnFreezePosition()
     {
-        movementController.rigidBody.constraints = RigidbodyConstraints.None;
-        movementController.rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+        movementController.RigidBody.constraints = RigidbodyConstraints.None;
+        movementController.RigidBody.constraints = RigidbodyConstraints.FreezeRotation;
     }
     public void FreezePosition()
     {
-        movementController.rigidBody.constraints = RigidbodyConstraints.FreezeAll;
+        movementController.RigidBody.constraints = RigidbodyConstraints.FreezeAll;
     }
 }
