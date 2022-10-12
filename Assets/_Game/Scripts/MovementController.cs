@@ -13,7 +13,6 @@ public class MovementController : MonoBehaviour
     private Rigidbody rigidBody;
     private bool isGrounded;
     private bool canDoubleJump;
-
     public Vector2 MoveInputVector { get => moveInputVector; set => moveInputVector = value; }
 
     void Awake()
