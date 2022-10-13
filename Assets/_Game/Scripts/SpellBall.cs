@@ -18,14 +18,7 @@ public class SpellBall : MonoBehaviour
     void Start()
     {
         transform.parent = GameObject.Find("SpellBallParent").transform;
-        if (OriginGameObject.transform.localEulerAngles.y >= 0 && OriginGameObject.transform.localEulerAngles.y < 180)
-        {
-            spellDirection = Vector3.right;
-        }
-        else
-        {
-            spellDirection = Vector3.left;
-        }
+        spellDirection = originGameObject.transform.forward;
         Invoke("Disable", 5);
     }
 

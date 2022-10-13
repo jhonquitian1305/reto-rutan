@@ -710,7 +710,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 827211174}
-  waitShoot: 0
 --- !u!1 &859696729
 GameObject:
   m_ObjectHideFlags: 3
@@ -1213,7 +1212,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  waitShoot: 0
 --- !u!54 &1003328573
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1762,7 +1760,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350459153}
-  m_LocalRotation: {x: 0.100498244, y: 0.7017199, z: -0.10102564, w: 0.6980567}
+  m_LocalRotation: {x: 0.10049824, y: 0.70171994, z: -0.10102564, w: 0.69805664}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2385,11 +2383,11 @@ MonoBehaviour:
     Value: 0.5
     m_SpeedMode: 0
     m_MaxSpeed: 1
-    m_AccelTime: 0.2
+    m_AccelTime: 0.6
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
-    m_InvertInput: 0
+    m_InvertInput: 1
     m_MinValue: 0
     m_MaxValue: 1
     m_Wrap: 0
@@ -2408,7 +2406,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 125
+    m_MaxSpeed: 70
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
