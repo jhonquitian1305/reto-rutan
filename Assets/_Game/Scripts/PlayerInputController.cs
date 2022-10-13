@@ -7,13 +7,10 @@ public class PlayerInputController : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
     public Animator anim;
-    public float waitShoot;
-    MovementController movementController;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        movementController = GetComponent<MovementController>();
     }
     private void OnEnable()
     {
@@ -30,6 +27,7 @@ public class PlayerInputController : MonoBehaviour
     private void OnDisable()
     {
         playerInputActions.Player.Shoot.performed -= ShootPerformed;
+        playerInputActions.Player.Shoot.canceled -= ShootPerformed;
         playerInputActions.Player.Movement.performed -= MovementPerformed;
         playerInputActions.Player.Movement.canceled -= MovementPerformed;
         playerInputActions.Player.Jump.performed -= JumpPerformed;
@@ -46,7 +44,7 @@ public class PlayerInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindWithTag("Player").GetComponent<MovementController>().isGrounded)
+        if (GetComponent<MovementController>().IsGrounded)
         {
             //anim.SetBool("jump", false);
         }
@@ -70,7 +68,7 @@ public class PlayerInputController : MonoBehaviour
     {
         
         GetComponent<MovementController>().MoveInputVector = ctx.ReadValue<Vector2>();
-        if (!GameObject.FindWithTag("Player").GetComponent<MovementController>().isGrounded)
+        if (!GameObject.FindWithTag("Player").GetComponent<MovementController>().IsGrounded)
         {
             return;
         }
@@ -110,11 +108,11 @@ public class PlayerInputController : MonoBehaviour
     }
     public void UnFreezePosition()
     {
-        movementController.RigidBody.constraints = RigidbodyConstraints.None;
-        movementController.RigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
     }
     public void FreezePosition()
     {
-        movementController.RigidBody.constraints = RigidbodyConstraints.FreezeAll;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 }
