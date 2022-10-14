@@ -5,15 +5,17 @@ public class LaserPointer : MonoBehaviour
 {
     private LineRenderer lineRenderer;
     public LayerMask layerMask;
-    public Vector3 laserOffset = new Vector3(1,1,1);
+    public Vector2 laserOffset=new(0.3f, 0.24f);
+    public float range = 10;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
 
-        lineRenderer.startWidth = 0.15f;
-        lineRenderer.endWidth = 0.15f;
+        lineRenderer.startWidth = 0.3f;
+        lineRenderer.endWidth = 0.01f;
 
     }
 
@@ -26,12 +28,16 @@ public class LaserPointer : MonoBehaviour
     private void DrawLaser()
     {
         Vector3 startPosition = transform.position;
+        startPosition += transform.forward * laserOffset.x;
+        startPosition += transform.right * laserOffset.y;
         startPosition.y += 0.05f;
 
         Vector3 finalDirection = transform.forward;
+
         lineRenderer.SetPosition(0, startPosition);
+
         RaycastHit hit;
-        if (Physics.Raycast(startPosition, finalDirection, out hit, layerMask, 5000, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(startPosition, finalDirection, out hit, range, layerMask, QueryTriggerInteraction.Ignore))
         {
             if (hit.collider)
             {
@@ -41,7 +47,8 @@ public class LaserPointer : MonoBehaviour
         }
         else
         {
-            lineRenderer.SetPosition(1, finalDirection * 5000);
+            lineRenderer.SetPosition(1, finalDirection*range*1.1f+startPosition);
         }
+
     }
 }

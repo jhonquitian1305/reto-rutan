@@ -32,7 +32,6 @@ public class MovementController : MonoBehaviour
         CheckIfGrounded();
         Move();
         Rotate();
-        Debug.Log(isGrounded);
     }
     public void Move()
     {
