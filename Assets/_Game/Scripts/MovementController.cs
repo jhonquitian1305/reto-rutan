@@ -8,71 +8,71 @@ public class MovementController : MonoBehaviour
     public float moveSpeed = 10f;
     public float jumpForce = 5f;
     public float rotationSpeed = 10f;
+    public Transform groundCheck;
+    public LayerMask ground;
 
     private Vector2 moveInputVector;
     private Rigidbody rigidBody;
-    public bool isGrounded;
+    private bool isGrounded;
     private bool canDoubleJump;
-    PlayerInputController inputController;
+    private Transform cameraTransform;
+    private Vector3 moveVector;
+
     public Vector2 MoveInputVector { get => moveInputVector; set => moveInputVector = value; }
-    public Rigidbody RigidBody { get => rigidBody; set => rigidBody = value; }
-    public bool CanDoubleJump { get => canDoubleJump; set => canDoubleJump = value; }
+    public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
 
     void Awake()
     {
-        RigidBody = GetComponent<Rigidbody>();
-        inputController = GetComponent<PlayerInputController>();
+        Cursor.lockState = CursorLockMode.Locked;
+        rigidBody = GetComponent<Rigidbody>();
+        cameraTransform = Camera.main.transform;
     }
     void FixedUpdate()
     {
         CheckIfGrounded();
         Move();
         Rotate();
+        Debug.Log(isGrounded);
     }
     public void Move()
     {
-        RigidBody.velocity = new Vector3(moveInputVector.x * moveSpeed, RigidBody.velocity.y);
-        
+        moveVector = new Vector3(moveInputVector.x * moveSpeed, rigidBody.velocity.y, moveInputVector.y * moveSpeed);
+
+        moveVector = moveVector.x * cameraTransform.right.normalized + moveVector.z * cameraTransform.forward.normalized;
+        moveVector.y = rigidBody.velocity.y;
+
+        rigidBody.velocity = moveVector;
     }
 
     private void Rotate()
     {
-        if (moveInputVector.x != 0)
+        Vector3 targetVector = moveVector;
+        targetVector.y = 0;
+
+        if (targetVector != Vector3.zero)
         {
-            Quaternion currentRotation = RigidBody.rotation;
-            Quaternion targetRotation = Quaternion.LookRotation(moveInputVector);
-            Quaternion newRotation = Quaternion.Slerp(
-                currentRotation, // mix where the rig points now
-                targetRotation,  // with where it should point
-                rotationSpeed * Time.fixedDeltaTime); // with this ratio
-            RigidBody.MoveRotation(newRotation);
+            rigidBody.transform.rotation = Quaternion.Slerp(rigidBody.transform.rotation, Quaternion.LookRotation(targetVector), Time.deltaTime * rotationSpeed);
         }
     }
+
     public void Jump()
     {
         if (isGrounded)
         {
-            RigidBody.velocity = new Vector3(moveInputVector.x * moveSpeed, jumpForce);
+            rigidBody.velocity = new Vector3(moveInputVector.x * moveSpeed, jumpForce);
 
-            CanDoubleJump = true;
+            canDoubleJump = true;
         }
-        else if (CanDoubleJump)
+        else if (canDoubleJump)
         {
-            RigidBody.velocity = Vector3.up * jumpForce;
-            CanDoubleJump = false;
+            rigidBody.velocity = Vector3.up * jumpForce;
+            canDoubleJump = false;
         }
     }
 
     private void CheckIfGrounded()
     {
-        RaycastHit[] hits;
-
-        float distance = (GetComponent<CapsuleCollider>().height / 2);
-        Vector2 positionToCheck = transform.position;
-        hits = Physics.RaycastAll(positionToCheck, Vector3.down, distance);
-
-        //if a collider was hit, we are grounded
-        if (hits.Length > 0)
+        if(Physics.CheckSphere(groundCheck.position, .1f, ground))
         {
             isGrounded = true;
         }
@@ -80,15 +80,31 @@ public class MovementController : MonoBehaviour
         {
             isGrounded = false;
         }
-        
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collider.gameObject.transform.CompareTag("DeadZone"))
+        //if (other.gameObject.transform.CompareTag("Ground"))
+        //{
+        //    isGrounded = true;
+        //    Debug.Log("Grounded");
+        //}
+        if (other.gameObject.transform.CompareTag("DeadZone"))
         {
             gameObject.SetActive(false);
         }
     }
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.transform.CompareTag("Ground"))
+    //    {
+    //        isGrounded = false;
+    //        Debug.Log("Not Grounded");
+    //    }
+        
+    //}
+
+
 
 }

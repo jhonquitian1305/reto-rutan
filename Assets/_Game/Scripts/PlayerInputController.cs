@@ -6,14 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerInputController : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
-    public Animator anim;
-    public float waitShoot;
-    MovementController movementController;
-
     private void Awake()
     {
-        anim = GetComponent<Animator>();
-        movementController = GetComponent<MovementController>();
     }
     private void OnEnable()
     {
@@ -30,6 +24,7 @@ public class PlayerInputController : MonoBehaviour
     private void OnDisable()
     {
         playerInputActions.Player.Shoot.performed -= ShootPerformed;
+        playerInputActions.Player.Shoot.canceled -= ShootPerformed;
         playerInputActions.Player.Movement.performed -= MovementPerformed;
         playerInputActions.Player.Movement.canceled -= MovementPerformed;
         playerInputActions.Player.Jump.performed -= JumpPerformed;
@@ -39,82 +34,26 @@ public class PlayerInputController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FreezePosition();
-        UnFreezePosition();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindWithTag("Player").GetComponent<MovementController>().isGrounded)
-        {
-            //anim.SetBool("jump", false);
-        }
     }
 
     public void ShootPerformed(InputAction.CallbackContext ctx)
     {
-            if (ctx.canceled)
-            {
-                anim.SetBool("shoot", false);
-            }
-            else if (ctx.performed)
-            {
-                anim.SetBool("run", false);
-                anim.SetBool("shoot", true);
-                anim.SetBool("jump", false);
-            }
+        GetComponent<SpellController>().Shoot();
     }
 
     public void MovementPerformed(InputAction.CallbackContext ctx)
     {
-        
         GetComponent<MovementController>().MoveInputVector = ctx.ReadValue<Vector2>();
-        if (!GameObject.FindWithTag("Player").GetComponent<MovementController>().isGrounded)
-        {
-            return;
-        }
-        if (ctx.canceled)
-        {
-            anim.SetBool("run", false);
-        }
-        if (ctx.performed)
-        {
-            anim.SetBool("run", true);
-            anim.SetBool("shoot", false);
-            //anim.SetBool("jump", false);
-        }
     }
 
     public void JumpPerformed(InputAction.CallbackContext ctx)
     {
-        //if (ctx.canceled)
-        //{
-        //    anim.SetBool("jump", false);
-        //}
-
-        if (ctx.performed)
-        {
-            anim.SetBool("run", false);
-            anim.SetBool("shoot", false);
-            anim.SetBool("jump", true);
-        }
         GetComponent<MovementController>().Jump();
-    }
-
-    IEnumerator WaitForShoot()
-    {
-
-        yield return new WaitForSeconds(0.5f);
-        GetComponent<SpellController>().Shoot();
-    }
-    public void UnFreezePosition()
-    {
-        movementController.RigidBody.constraints = RigidbodyConstraints.None;
-        movementController.RigidBody.constraints = RigidbodyConstraints.FreezeRotation;
-    }
-    public void FreezePosition()
-    {
-        movementController.RigidBody.constraints = RigidbodyConstraints.FreezeAll;
     }
 }

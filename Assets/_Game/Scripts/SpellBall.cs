@@ -18,14 +18,7 @@ public class SpellBall : MonoBehaviour
     void Start()
     {
         transform.parent = GameObject.Find("SpellBallParent").transform;
-        if (OriginGameObject.transform.localEulerAngles.y >= 0 && OriginGameObject.transform.localEulerAngles.y < 180)
-        {
-            spellDirection = Vector3.right;
-        }
-        else
-        {
-            spellDirection = Vector3.left;
-        }
+        spellDirection = originGameObject.transform.forward;
         Invoke("Disable", 5);
     }
 
@@ -44,19 +37,20 @@ public class SpellBall : MonoBehaviour
         transform.Translate(spellVelocity * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.transform.CompareTag("Enemy"))
+        if (collider.transform.CompareTag("Enemy"))
         {
-            IDamage enemy = collision.gameObject.GetComponent<Enemy>();
+            IDamage enemy = collider.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(50);
             }
             Disable();
         }
-        if (collision.transform.CompareTag("ground"))
+        if (collider.gameObject.layer == 3)
         {
+            Debug.Log("aa");
             Disable();
         }
     }
