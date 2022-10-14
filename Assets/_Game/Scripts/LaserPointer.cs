@@ -1,53 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class LaserPointer : MonoBehaviour
 {
-    private LineRenderer lr;
-    private Transform startPoint;
-    private Transform finalPoint;
-    private bool canCast;
-
-    public bool CanCast { get => canCast; set => canCast = value; }
+    private LineRenderer lineRenderer;
+    public LayerMask layerMask;
+    public Vector3 laserOffset = new Vector3(1,1,1);
 
     // Start is called before the first frame update
     void Start()
     {
-        lr = GetComponent<LineRenderer>();
-        startPoint = transform;
-        finalPoint=GameObject.FindWithTag("Player").transform;
+        lineRenderer = GetComponent<LineRenderer>();
+
+        lineRenderer.startWidth = 0.15f;
+        lineRenderer.endWidth = 0.15f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canCast)
-        {
-            CastLaser();
-        }
-        else
-        {
-            lr.enabled = false;
-        }
+        DrawLaser();
     }
 
-    private void CastLaser()
+    private void DrawLaser()
     {
-        lr.enabled = true;
-        lr.SetPosition(0, startPoint.position);
+        Vector3 startPosition = transform.position;
+        startPosition.y += 0.05f;
+
+        Vector3 finalDirection = transform.forward;
+        lineRenderer.SetPosition(0, startPosition);
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, finalPoint.forward, out hit))
+        if (Physics.Raycast(startPosition, finalDirection, out hit, layerMask, 5000, QueryTriggerInteraction.Ignore))
         {
             if (hit.collider)
             {
-                lr.SetPosition(1, hit.point);
+                lineRenderer.SetPosition(1, hit.point);
             }
 
         }
         else
         {
-            lr.SetPosition(1, finalPoint.forward * 5000);
+            lineRenderer.SetPosition(1, finalDirection * 5000);
         }
     }
 }
