@@ -7,7 +7,7 @@ public class SpellController : MonoBehaviour
 {
     private float cycleTime;
 
-    public float fireRate = 1f;
+    public float fireRate = 2f;
     public GameObject spellBallPrefab;
     public Transform originPoint;
 
@@ -18,17 +18,30 @@ public class SpellController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public float CooldownTime()
     {
-        
+       if(cycleTime - Time.time > 0)
+        {
+            return cycleTime - Time.time;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    public float CooldownPercentage()
+    {
+        return 1-(CooldownTime() / fireRate);
     }
 
     public void Shoot()
     {
+        Vector3 originPosition = originPoint.position + originPoint.forward*0.5f;
         if (Time.time > cycleTime)
         {
             cycleTime = Time.time + fireRate;
-            GameObject spellBall = Instantiate(spellBallPrefab, originPoint.position, Quaternion.identity);
+            GameObject spellBall = Instantiate(spellBallPrefab, originPosition, Quaternion.identity);
             spellBall.GetComponent<SpellBall>().OriginGameObject = gameObject;
         }
     }

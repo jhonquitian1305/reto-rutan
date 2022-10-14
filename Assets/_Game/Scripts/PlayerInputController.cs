@@ -14,6 +14,7 @@ public class PlayerInputController : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
 
+        playerInputActions.Player.Shoot.started += ShootPerformed;
         playerInputActions.Player.Shoot.performed += ShootPerformed;
         playerInputActions.Player.Shoot.canceled += ShootPerformed;
         playerInputActions.Player.Movement.performed += MovementPerformed;
@@ -23,6 +24,7 @@ public class PlayerInputController : MonoBehaviour
 
     private void OnDisable()
     {
+        playerInputActions.Player.Shoot.started -= ShootPerformed;
         playerInputActions.Player.Shoot.performed -= ShootPerformed;
         playerInputActions.Player.Shoot.canceled -= ShootPerformed;
         playerInputActions.Player.Movement.performed -= MovementPerformed;
@@ -44,7 +46,15 @@ public class PlayerInputController : MonoBehaviour
 
     public void ShootPerformed(InputAction.CallbackContext ctx)
     {
-        GetComponent<SpellController>().Shoot();
+        if (ctx.started)
+        {
+            GetComponent<LaserPointer>().EnableLaser(true);
+        }
+        else if (ctx.canceled)
+        {
+            GetComponent<SpellController>().Shoot();
+            GetComponent<LaserPointer>().EnableLaser(false);
+        }
     }
 
     public void MovementPerformed(InputAction.CallbackContext ctx)
