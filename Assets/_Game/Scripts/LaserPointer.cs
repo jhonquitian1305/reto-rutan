@@ -5,7 +5,7 @@ public class LaserPointer : MonoBehaviour
 {
     private LineRenderer lineRenderer;
     public LayerMask layerMask;
-    public Vector2 laserOffset=new(0.3f, 0.24f);
+    public Vector3 laserOffset=new(0.24f, 0.02f, 0.3f);
     public float range = 10;
 
     // Start is called before the first frame update
@@ -32,9 +32,9 @@ public class LaserPointer : MonoBehaviour
     private void DrawLaser()
     {
         Vector3 startPosition = transform.position;
-        startPosition += transform.forward * laserOffset.x;
-        startPosition += transform.right * laserOffset.y;
-        startPosition.y += 0.05f;
+        startPosition += transform.forward * laserOffset.z;
+        startPosition += transform.right * laserOffset.x;
+        startPosition.y += laserOffset.y;
 
         Vector3 finalDirection = transform.forward;
 
