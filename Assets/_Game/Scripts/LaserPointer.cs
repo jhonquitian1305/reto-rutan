@@ -7,7 +7,6 @@ public class LaserPointer : MonoBehaviour
     public LayerMask layerMask;
     public Vector2 laserOffset=new(0.3f, 0.24f);
     public float range = 10;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -16,13 +15,18 @@ public class LaserPointer : MonoBehaviour
 
         lineRenderer.startWidth = 0.3f;
         lineRenderer.endWidth = 0.01f;
-
+        EnableLaser(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         DrawLaser();
+    }
+
+    public void EnableLaser(bool enabled)
+    {
+        lineRenderer.enabled = enabled;
     }
 
     private void DrawLaser()

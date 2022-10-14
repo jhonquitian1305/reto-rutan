@@ -5,8 +5,7 @@ using UnityEngine;
 public class SpellBall : MonoBehaviour
 {
 
-    public float spellMoveSpeed = 20f;
-
+    public float spellMoveSpeed = 5f;
 
     private GameObject originGameObject;
     private Vector3 spellDirection;
@@ -19,11 +18,11 @@ public class SpellBall : MonoBehaviour
     {
         transform.parent = GameObject.Find("SpellBallParent").transform;
         spellDirection = originGameObject.transform.forward;
-        Invoke("Disable", 5);
+        Invoke("Disable", 0.8f);
     }
 
 
-    // Update is called once per frame
+    // Update is called once per frames
     void Update()
     {
         SpellMovement();
@@ -37,28 +36,21 @@ public class SpellBall : MonoBehaviour
         transform.Translate(spellVelocity * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collider.transform.CompareTag("Enemy"))
+        if (collision.transform.CompareTag("Enemy"))
         {
-            IDamage enemy = collider.gameObject.GetComponent<Enemy>();
+            IDamage enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(50);
             }
-            Disable();
         }
-        if (collider.gameObject.layer == 3)
-        {
-            Debug.Log("aa");
-            Disable();
-        }
+        Disable();
     }
 
     private void Disable()
-    {
-
+    { 
        Destroy(gameObject);
-        
     }
 }
