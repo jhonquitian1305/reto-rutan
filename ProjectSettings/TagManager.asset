@@ -7,12 +7,12 @@ TagManager:
   - Enemy
   - DeadZone
   - Platform
-  - ground
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - Scenario
   - Water
   - UI
   - 
