@@ -37,19 +37,20 @@ public class SpellBall : MonoBehaviour
         transform.Translate(spellVelocity * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.transform.CompareTag("Enemy"))
+        if (collider.transform.CompareTag("Enemy"))
         {
-            IDamage enemy = collision.gameObject.GetComponent<Enemy>();
+            IDamage enemy = collider.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(50);
             }
             Disable();
         }
-        if (collision.transform.CompareTag("ground"))
+        if (collider.gameObject.layer == 3)
         {
+            Debug.Log("aa");
             Disable();
         }
     }

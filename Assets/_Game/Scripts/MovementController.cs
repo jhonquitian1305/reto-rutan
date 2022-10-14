@@ -8,6 +8,8 @@ public class MovementController : MonoBehaviour
     public float moveSpeed = 10f;
     public float jumpForce = 5f;
     public float rotationSpeed = 10f;
+    public Transform groundCheck;
+    public LayerMask ground;
 
     private Vector2 moveInputVector;
     private Rigidbody rigidBody;
@@ -30,6 +32,7 @@ public class MovementController : MonoBehaviour
         CheckIfGrounded();
         Move();
         Rotate();
+        Debug.Log(isGrounded);
     }
     public void Move()
     {
@@ -69,14 +72,7 @@ public class MovementController : MonoBehaviour
 
     private void CheckIfGrounded()
     {
-        RaycastHit[] hits;
-
-        float distance = (GetComponent<CapsuleCollider>().height / 2);
-        Vector2 positionToCheck = transform.position;
-        hits = Physics.RaycastAll(positionToCheck, Vector3.down, distance);
-
-        //if a collider was hit, we are grounded
-        if (hits.Length > 0)
+        if(Physics.CheckSphere(groundCheck.position, .1f, ground))
         {
             isGrounded = true;
         }
@@ -84,15 +80,31 @@ public class MovementController : MonoBehaviour
         {
             isGrounded = false;
         }
-        
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collider.gameObject.transform.CompareTag("DeadZone"))
+        //if (other.gameObject.transform.CompareTag("Ground"))
+        //{
+        //    isGrounded = true;
+        //    Debug.Log("Grounded");
+        //}
+        if (other.gameObject.transform.CompareTag("DeadZone"))
         {
             gameObject.SetActive(false);
         }
     }
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.transform.CompareTag("Ground"))
+    //    {
+    //        isGrounded = false;
+    //        Debug.Log("Not Grounded");
+    //    }
+        
+    //}
+
+
 
 }
