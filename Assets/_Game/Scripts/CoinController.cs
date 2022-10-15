@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CoinController : MonoBehaviour
 {
+    public PlayerData playerData;
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.transform.CompareTag("Player"))
         {
-            ScoreController.Instance.IncreasePoints();
+            playerData.score++;
             Destroy(gameObject);
         }
     }
