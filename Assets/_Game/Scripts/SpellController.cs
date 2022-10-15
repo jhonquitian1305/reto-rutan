@@ -39,7 +39,6 @@ public class SpellController : MonoBehaviour
 
     public void Shoot()
     {
-        float rotationAngle;
         Vector3 originPosition = originPoint.position + originPoint.forward*0.5f;
         if (Time.time > cycleTime)
         {

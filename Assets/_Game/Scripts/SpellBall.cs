@@ -5,7 +5,8 @@ using UnityEngine;
 public class SpellBall : MonoBehaviour
 {
 
-    public float spellMoveSpeed = 5f;
+    public float spellMoveSpeed = 7f;
+    public float spellRange = 7f;
 
     private GameObject originGameObject;
     private Vector3 spellDirection;
@@ -19,8 +20,9 @@ public class SpellBall : MonoBehaviour
     {
         transform.parent = GameObject.Find("SpellBallParent").transform;
         spellDirection = originGameObject.transform.forward;
+        float timeToDestroy = (spellRange / spellMoveSpeed) - 0.1f;
 
-        Invoke("Disable", 0.8f);
+        Invoke("Disable", timeToDestroy);
 
         GetComponent<ParticleSystem>().Play();
         ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;

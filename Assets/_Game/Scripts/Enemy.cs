@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamage
 {
-    public float attackDamage = 10f;
-    public float attackSpeed = 1f;
+    public float meleeAttackDamage = 10f;
+    public float meleeAttackSpeed = 1f;
 
-    private float attackCooldown;
+    public float rangeAttackDamage = 10f;
+    public float rangeAttackSpeed = 1f;
+
+    private float meleeAttackCooldown;
+    private float rangeAttackCooldown;
     public void TakeDamage(float damage)
     {
         Destroy(gameObject);
@@ -21,22 +25,32 @@ public class Enemy : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
+        SetCooldowns();
+    }
+     
+    private void SetCooldowns()
+    {
+        meleeAttackCooldown -= Time.deltaTime;
+        rangeAttackCooldown -= Time.deltaTime;
     }
 
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (attackCooldown <= 0)
+            if (meleeAttackCooldown <= 0)
             {
+                collision.gameObject.GetComponent<HealthSystem>().UpdateHealth(-meleeAttackDamage);
+                meleeAttackCooldown = meleeAttackSpeed;
+            }
+        }
+    }
 
-                collision.gameObject.GetComponent<HealthSystem>().UpdateHealth(-attackDamage);
-                attackCooldown = attackSpeed;
-            }
-            else
-            {
-                attackCooldown -= Time.deltaTime;
-            }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            
         }
     }
 }
