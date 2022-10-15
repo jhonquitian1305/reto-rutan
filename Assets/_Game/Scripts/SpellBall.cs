@@ -9,6 +9,7 @@ public class SpellBall : MonoBehaviour
 
     private GameObject originGameObject;
     private Vector3 spellDirection;
+    public Vector3 rotation;
 
     public GameObject OriginGameObject { get => originGameObject; set => originGameObject = value; }
 
@@ -16,14 +17,14 @@ public class SpellBall : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("bola");
         transform.parent = GameObject.Find("SpellBallParent").transform;
         spellDirection = originGameObject.transform.forward;
+
         Invoke("Disable", 0.8f);
+
         GetComponent<ParticleSystem>().Play();
         ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
         em.enabled = true;
-
     }
 
 
@@ -38,7 +39,7 @@ public class SpellBall : MonoBehaviour
 
 
         Vector3 spellVelocity = spellDirection * spellMoveSpeed;
-        transform.Translate(spellVelocity * Time.deltaTime);
+        transform.Translate(spellVelocity * Time.deltaTime, Space.World);
     }
 
     private void OnCollisionEnter(Collision collision)
