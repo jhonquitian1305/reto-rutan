@@ -16,9 +16,14 @@ public class SpellBall : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("bola");
         transform.parent = GameObject.Find("SpellBallParent").transform;
         spellDirection = originGameObject.transform.forward;
         Invoke("Disable", 0.8f);
+        GetComponent<ParticleSystem>().Play();
+        ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
+        em.enabled = true;
+
     }
 
 
