@@ -48,12 +48,12 @@ public class PlayerInputController : MonoBehaviour
     {
         if (ctx.started)
         {
-            GetComponent<LaserPointer>().EnableLaser(true);
+            GetComponent<SpellController>().EnableIndicator(true);
         }
         else if (ctx.canceled)
         {
             GetComponent<SpellController>().Shoot();
-            GetComponent<LaserPointer>().EnableLaser(false);
+            GetComponent<SpellController>().EnableIndicator(false);
         }
     }
 

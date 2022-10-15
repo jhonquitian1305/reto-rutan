@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class SpellController : MonoBehaviour
 {
@@ -10,11 +11,12 @@ public class SpellController : MonoBehaviour
     public float fireRate = 2f;
     public GameObject spellBallPrefab;
     public Transform originPoint;
+    public Image spellIndicatorImage;
 
 
     void Start()
     {
-        
+        spellIndicatorImage.enabled = false;
     }
 
     // Update is called once per frame
@@ -44,5 +46,10 @@ public class SpellController : MonoBehaviour
             GameObject spellBall = Instantiate(spellBallPrefab, originPosition, Quaternion.identity);
             spellBall.GetComponent<SpellBall>().OriginGameObject = gameObject;
         }
+    }
+
+    public void EnableIndicator(bool enabled)
+    {
+        spellIndicatorImage.enabled = enabled;
     }
 }
