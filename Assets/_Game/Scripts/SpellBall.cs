@@ -10,7 +10,6 @@ public class SpellBall : MonoBehaviour
 
     private GameObject originGameObject;
     private Vector3 spellDirection;
-    public Vector3 rotation;
 
     public GameObject OriginGameObject { get => originGameObject; set => originGameObject = value; }
 
@@ -48,10 +47,10 @@ public class SpellBall : MonoBehaviour
     {
         if (collision.transform.CompareTag("Enemy"))
         {
-            IDamage enemy = collision.gameObject.GetComponent<Enemy>();
-            if (enemy != null)
+            EnemyHealthSystem enemyHealth = collision.gameObject.GetComponent<EnemyHealthSystem>();
+            if (enemyHealth != null)
             {
-                enemy.TakeDamage(50);
+                enemyHealth.UpdateHealth(-50);
             }
         }
         Disable();
