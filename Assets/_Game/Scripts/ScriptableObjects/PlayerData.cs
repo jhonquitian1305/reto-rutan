@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player Data", fileName = "New Player Data")]
 public class PlayerData : ScriptableObject
 {
-    public float currentHealth;
-    public float maxHealth;
-    public float score;
+    public int lives = 3;
+    public float maxHealth = 100;
+    public float currentHealth = 100;
+    public float score = 0;
 }
