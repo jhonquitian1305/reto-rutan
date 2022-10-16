@@ -5,9 +5,13 @@ using UnityEngine;
 public class PlayerHealthSystem : MonoBehaviour
 {
     public PlayerData playerData;
+    public float maxHealth = 100;
+    public int lives = 3;
     // Start is called before the first frame update
     void Start()
     {
+        playerData.maxHealth = maxHealth;
+        playerData.lives = lives;
         playerData.currentHealth = playerData.maxHealth;
     }
 
@@ -28,16 +32,23 @@ public class PlayerHealthSystem : MonoBehaviour
             playerData.currentHealth = 0;
             UpdateLives(-1);
         }
+        Debug.Log("VIDA PLAYER:" + playerData.currentHealth);
     }
 
     private void UpdateLives(int value)
     {
-        playerData.lives += value;
-        if (playerData.lives <= 0)
+        if (playerData.lives > 0 && value<0)
         {
-            //GAME OVER
-            return;
+            playerData.lives += value;
+            playerData.currentHealth = playerData.maxHealth; //Reinicia la vida
+            Debug.Log("Te moriste, te quedan estas vidas:"+playerData.lives);
         }
-        playerData.currentHealth = playerData.maxHealth; //Reinicia la vida
+
+
+        if(playerData.lives<=0)
+        {
+            playerData.currentHealth = 0;
+            Debug.Log("GAME OVER");
+        }
     }
 }

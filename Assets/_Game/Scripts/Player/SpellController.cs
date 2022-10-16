@@ -6,14 +6,16 @@ using UnityEngine.UI;
 
 public class SpellController : MonoBehaviour
 {
-    private float cycleTime;
+    public float spellDamage = 30f;
+    public float spellMoveSpeed = 7f;
+    public float spellRange = 7f;
+    public float spellCooldown = 2f;
 
-    public float fireRate = 2f;
     public GameObject spellBallPrefab;
     public Transform originPoint;
     public Image spellIndicatorImage;
 
-
+    private float cycleTime;
     void Start()
     {
         if (spellIndicatorImage != null) {
@@ -36,17 +38,21 @@ public class SpellController : MonoBehaviour
 
     public float CooldownPercentage()
     {
-        return 1-(CooldownTime() / fireRate);
+        return 1-(CooldownTime() / spellCooldown);
     }
 
     public void Shoot()
     {
-        Vector3 originPosition = originPoint.position + originPoint.forward*0.5f;
         if (Time.time > cycleTime)
         {
-            cycleTime = Time.time + fireRate;
+            Vector3 originPosition = originPoint.position + originPoint.forward * 0.5f;
             GameObject spellBall = Instantiate(spellBallPrefab, originPosition, transform.rotation);
-            spellBall.GetComponent<SpellBall>().OriginGameObject = gameObject;
+            spellBall.GetComponent<SpellBall>().originGameObject = gameObject;
+            spellBall.GetComponent<SpellBall>().spellDamage = spellDamage;
+            spellBall.GetComponent<SpellBall>().spellMoveSpeed = spellMoveSpeed;
+            spellBall.GetComponent<SpellBall>().spellRange = spellRange;
+
+            cycleTime = Time.time + spellCooldown;
         }
     }
 

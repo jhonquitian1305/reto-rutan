@@ -7,12 +7,10 @@ public class SpellBall : MonoBehaviour
 
     public float spellMoveSpeed = 7f;
     public float spellRange = 7f;
+    public float spellDamage = 10f;
+    public GameObject originGameObject;
 
-    private GameObject originGameObject;
     private Vector3 spellDirection;
-
-    public GameObject OriginGameObject { get => originGameObject; set => originGameObject = value; }
-
     // Start is called before the first frame update
 
     void Start()
@@ -21,7 +19,7 @@ public class SpellBall : MonoBehaviour
         spellDirection = originGameObject.transform.forward;
         float timeToDestroy = (spellRange / spellMoveSpeed) - 0.1f;
 
-        Invoke("Disable", timeToDestroy);
+        Invoke(nameof(Disable), timeToDestroy);
 
         GetComponent<ParticleSystem>().Play();
         ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
@@ -37,8 +35,6 @@ public class SpellBall : MonoBehaviour
 
     private void SpellMovement()
     {
-
-
         Vector3 spellVelocity = spellDirection * spellMoveSpeed;
         transform.Translate(spellVelocity * Time.deltaTime, Space.World);
     }
@@ -50,7 +46,15 @@ public class SpellBall : MonoBehaviour
             EnemyHealthSystem enemyHealth = collision.gameObject.GetComponent<EnemyHealthSystem>();
             if (enemyHealth != null)
             {
-                enemyHealth.UpdateHealth(-50);
+                enemyHealth.UpdateHealth(-spellDamage);
+            }
+        }
+        if (collision.transform.CompareTag("Player"))
+        {
+            PlayerHealthSystem playerHealth = collision.gameObject.GetComponent<PlayerHealthSystem>();
+            if (playerHealth != null)
+            {
+                playerHealth.UpdateHealth(-spellDamage);
             }
         }
         Disable();
@@ -59,5 +63,6 @@ public class SpellBall : MonoBehaviour
     private void Disable()
     { 
        Destroy(gameObject);
+
     }
 }
