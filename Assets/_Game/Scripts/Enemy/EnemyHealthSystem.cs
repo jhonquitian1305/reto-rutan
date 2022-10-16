@@ -23,9 +23,10 @@ public class EnemyHealthSystem : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        else if (currentHealth < 0)
+        else if (currentHealth <= 0)
         {
             currentHealth = 0;
+            Debug.Log("Enemigo muerto");
         }
         Debug.Log("Vida del enemigo:" + currentHealth);
     }
