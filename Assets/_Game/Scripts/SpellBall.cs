@@ -17,7 +17,7 @@ public class SpellBall : MonoBehaviour
     {
         transform.parent = GameObject.Find("SpellBallParent").transform;
         spellDirection = originGameObject.transform.forward;
-        float timeToDestroy = (spellRange / spellMoveSpeed) - 0.1f;
+        float timeToDestroy = (spellRange / spellMoveSpeed);
 
         Invoke(nameof(Disable), timeToDestroy);
 

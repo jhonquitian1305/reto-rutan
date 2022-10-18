@@ -29,21 +29,16 @@ public class EnemyRangeAttack : MonoBehaviour
         cooldownLeft -= Time.deltaTime;
     }
 
-    private void OnTriggerStay(Collider other)
+    public void RangeAttack()
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (cooldownLeft <= 0)
         {
-            if (cooldownLeft <= 0)
-            {
-                Vector3 originPosition = originPoint.position + originPoint.forward * 0.5f;
-                GameObject spellBall = Instantiate(spellBallPrefab, originPosition, transform.rotation);
-                spellBall.GetComponent<SpellBall>().originGameObject = gameObject;
-                spellBall.GetComponent<SpellBall>().spellDamage = spellDamage;
-                spellBall.GetComponent<SpellBall>().spellMoveSpeed = spellMoveSpeed;
-                spellBall.GetComponent<SpellBall>().spellRange = spellRange;
-
-                cooldownLeft = spellCooldown;
-            }
+            GameObject spellBall = Instantiate(spellBallPrefab, originPoint.position, transform.rotation);
+            spellBall.GetComponent<SpellBall>().originGameObject = gameObject;
+            spellBall.GetComponent<SpellBall>().spellDamage = spellDamage;
+            spellBall.GetComponent<SpellBall>().spellMoveSpeed = spellMoveSpeed;
+            spellBall.GetComponent<SpellBall>().spellRange = spellRange;
+            cooldownLeft = spellCooldown;
         }
     }
 }
