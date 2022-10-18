@@ -10,7 +10,7 @@ public class MovementController : MonoBehaviour
     public float rotationSpeed = 10f;
     public Transform groundCheck;
     public LayerMask ground;
-
+    public AnimationController playerAnim;
     private Vector2 moveInputVector;
     private Rigidbody rigidBody;
     private bool isGrounded;
@@ -21,6 +21,11 @@ public class MovementController : MonoBehaviour
     public Vector2 MoveInputVector { get => moveInputVector; set => moveInputVector = value; }
     public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
 
+
+    private void Start()
+    {
+        playerAnim = GetComponent<AnimationController>();
+    }
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -59,7 +64,6 @@ public class MovementController : MonoBehaviour
         if (isGrounded)
         {
             rigidBody.velocity = new Vector3(moveInputVector.x * moveSpeed, jumpForce);
-
             canDoubleJump = true;
         }
         else if (canDoubleJump)

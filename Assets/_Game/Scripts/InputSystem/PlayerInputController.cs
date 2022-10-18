@@ -1,11 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerInputController : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
+    private AnimationController playerAnim;
+    private Rigidbody rb;
+
+    void Start()
+    {
+        playerAnim = GetComponent<AnimationController>();
+        rb = GetComponent<Rigidbody>();
+    }
+
     private void Awake()
     {
     }
@@ -34,10 +44,6 @@ public class PlayerInputController : MonoBehaviour
         playerInputActions.Player.Disable();
     }
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -52,14 +58,28 @@ public class PlayerInputController : MonoBehaviour
         }
         else if (ctx.canceled)
         {
-            GetComponent<SpellController>().Shoot();
-            GetComponent<SpellController>().EnableIndicator(false);
+            if (Time.time > GetComponent<SpellController>().cycleTime)
+            {
+                rb.constraints = RigidbodyConstraints.FreezeAll;
+                playerAnim.AttackAnimation();
+                //GetComponent<SpellController>().Shoot();
+                GetComponent<SpellController>().EnableIndicator(false);
+                Invoke("playerAnim.FinishAttack()", 2f);
+            }
         }
     }
 
     public void MovementPerformed(InputAction.CallbackContext ctx)
     {
+
         GetComponent<MovementController>().MoveInputVector = ctx.ReadValue<Vector2>();
+        if (ctx.performed)
+        {
+            playerAnim.RunAnim();
+        }else if (ctx.canceled)
+        {
+            playerAnim.StopRun();
+        }
     }
 
     public void JumpPerformed(InputAction.CallbackContext ctx)

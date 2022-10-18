@@ -15,7 +15,9 @@ public class SpellController : MonoBehaviour
     public Transform originPoint;
     public Image spellIndicatorImage;
 
-    private float cycleTime;
+    public float cycleTime;
+
+
     void Start()
     {
         if (spellIndicatorImage != null) {
@@ -51,7 +53,6 @@ public class SpellController : MonoBehaviour
             spellBall.GetComponent<SpellBall>().spellDamage = spellDamage;
             spellBall.GetComponent<SpellBall>().spellMoveSpeed = spellMoveSpeed;
             spellBall.GetComponent<SpellBall>().spellRange = spellRange;
-
             cycleTime = Time.time + spellCooldown;
         }
     }
