@@ -5,14 +5,9 @@ using UnityEngine;
 public class PlayerHealthSystem : MonoBehaviour
 {
     public PlayerData playerData;
-    public float maxHealth = 100;
-    public int lives = 3;
     // Start is called before the first frame update
     void Start()
     {
-        playerData.maxHealth = maxHealth;
-        playerData.lives = lives;
-        playerData.currentHealth = playerData.maxHealth;
     }
 
     // Update is called once per frame

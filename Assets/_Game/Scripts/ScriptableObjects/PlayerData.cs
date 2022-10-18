@@ -9,4 +9,12 @@ public class PlayerData : ScriptableObject
     public float maxHealth = 100;
     public float currentHealth = 100;
     public float score = 0;
+
+    public void SetPlayerData(int lives, int maxHealth, int currentHealth, int score)
+    {
+        this.lives = lives;
+        this.maxHealth = maxHealth;
+        this.currentHealth = currentHealth;
+        this.score = score;
+    }
 }
