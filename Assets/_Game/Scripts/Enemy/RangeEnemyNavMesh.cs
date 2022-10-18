@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,13 +6,15 @@ using UnityEngine.AI;
 
 public class RangeEnemyNavMesh : MonoBehaviour
 {
-    public NavMeshAgent navMeshAgent;
-
-    public Transform player;
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    public float sightRange;
     public LayerMask playerLayer;
+    public List<Transform> walkpoints;
 
+    private NavMeshAgent navMeshAgent;
+    private int currentWalkpointIndex=0;
+    private bool playerInSightRange, playerInAttackRange;
+    private float attackRange;
+    private Transform player;
     private EnemyRangeAttack enemyRangeAttack;
     private void Awake()
     {
@@ -20,6 +23,7 @@ public class RangeEnemyNavMesh : MonoBehaviour
         enemyRangeAttack = GetComponent<EnemyRangeAttack>();
 
         attackRange = enemyRangeAttack.spellRange;
+        currentWalkpointIndex = 0;
     }
 
     private void Update()
@@ -28,8 +32,27 @@ public class RangeEnemyNavMesh : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
 
+        if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
+    }
+
+    private void Patroling()
+    {
+        Vector3 distanceToWalkPoint = transform.position - walkpoints[currentWalkpointIndex].position;
+        if (distanceToWalkPoint.magnitude < 1f)
+        {
+            if (currentWalkpointIndex < walkpoints.Count - 1)
+            {
+                currentWalkpointIndex++;
+            }
+            else
+            {
+                currentWalkpointIndex = 0;
+            }
+        }
+        navMeshAgent.SetDestination(walkpoints[currentWalkpointIndex].position);
+
     }
 
     private void ChasePlayer()
