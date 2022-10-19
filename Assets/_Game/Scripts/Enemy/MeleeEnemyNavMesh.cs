@@ -29,7 +29,7 @@ public class MeleeEnemyNavMesh : MonoBehaviour
 
         if (!playerInSightRange) Patroling();
         else if (playerInSightRange) ChasePlayer();
-
+        
     }
 
     private void Patroling()

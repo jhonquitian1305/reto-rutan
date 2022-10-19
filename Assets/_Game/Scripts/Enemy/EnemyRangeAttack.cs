@@ -13,17 +13,38 @@ public class EnemyRangeAttack : MonoBehaviour
 
     private float cooldownLeft;
 
+    private Vector3 enemyTransformForward;
+
+    private LayerMask spellBallLayer;
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
         SetCooldownLeft();
+        enemyTransformForward = gameObject.transform.forward;
     }
 
+    public bool PlayerInSight()
+    {
+        LayerMask spellBallLayer = spellBallPrefab.layer;
+        Vector3 rayOrigin = transform.position;
+        rayOrigin.y = originPoint.position.y;
+        Debug.DrawRay(rayOrigin, enemyTransformForward * spellRange, Color.green);
+        RaycastHit hit;
+        if (Physics.Raycast(rayOrigin, enemyTransformForward, out hit, spellRange))
+        {
+            if (hit.collider.gameObject.CompareTag("Player"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     private void SetCooldownLeft()
     {
         cooldownLeft -= Time.deltaTime;

@@ -12,7 +12,7 @@ public class RangeEnemyNavMesh : MonoBehaviour
 
     private NavMeshAgent navMeshAgent;
     private int currentWalkpointIndex=0;
-    private bool playerInSightRange, playerInAttackRange;
+    private bool playerInSightRange, playerInAttackRange, playerInAttackSight;
     private float attackRange;
     private Transform player;
     private EnemyRangeAttack enemyRangeAttack;
@@ -31,40 +31,47 @@ public class RangeEnemyNavMesh : MonoBehaviour
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
-
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
+        playerInAttackSight = enemyRangeAttack.PlayerInSight();
+        
+        if(!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        if (playerInAttackRange && playerInSightRange)
+        {
+            if(playerInAttackSight) AttackPlayer();
+            else ChasePlayer();
+        }
     }
 
     private void Patroling()
-    {
-        Vector3 distanceToWalkPoint = transform.position - walkpoints[currentWalkpointIndex].position;
-        if (distanceToWalkPoint.magnitude < 1f)
-        {
-            if (currentWalkpointIndex < walkpoints.Count - 1)
             {
-                currentWalkpointIndex++;
+                Vector3 distanceToWalkPoint = transform.position - walkpoints[currentWalkpointIndex].position;
+                if (distanceToWalkPoint.magnitude < 1f)
+                {
+                    if (currentWalkpointIndex < walkpoints.Count - 1)
+                    {
+                        currentWalkpointIndex++;
+                    }
+                    else
+                    {
+                        currentWalkpointIndex = 0;
+                    }
+                }
+                navMeshAgent.SetDestination(walkpoints[currentWalkpointIndex].position);
+
             }
-            else
+
+            private void ChasePlayer()
             {
-                currentWalkpointIndex = 0;
+                Vector3 distanceToPlayer = transform.position - player.position;
+                navMeshAgent.SetDestination(player.position);
+                transform.LookAt(player);
             }
-        }
-        navMeshAgent.SetDestination(walkpoints[currentWalkpointIndex].position);
 
-    }
-
-    private void ChasePlayer()
-    {
-        navMeshAgent.SetDestination(player.position);
-    }
-
-    private void AttackPlayer()
-    {
-        //Make sure enemy doesn't move
-        navMeshAgent.SetDestination(transform.position);
-        transform.LookAt(player);
-        enemyRangeAttack.RangeAttack();
-    }
+            private void AttackPlayer()
+            {
+                //Make sure enemy doesn't move
+                navMeshAgent.SetDestination(transform.position);
+                transform.LookAt(player);
+                enemyRangeAttack.RangeAttack();
+            }
 }
