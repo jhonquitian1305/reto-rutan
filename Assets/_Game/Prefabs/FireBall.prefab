@@ -4886,6 +4886,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a50c6cbb4e4fe428a038ce320275ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellMoveSpeed: 7
+  spellRange: 7
+  spellDamage: 10
+  originGameObject: {fileID: 0}
 --- !u!54 &2242639333651502371
 Rigidbody:
   m_ObjectHideFlags: 0

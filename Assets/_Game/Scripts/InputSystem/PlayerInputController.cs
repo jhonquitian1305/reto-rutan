@@ -58,27 +58,26 @@ public class PlayerInputController : MonoBehaviour
         }
         else if (ctx.canceled)
         {
-            if (Time.time > GetComponent<SpellController>().cycleTime)
+            if (GetComponent<SpellController>().CooldownTime()<=0)
             {
-                rb.constraints = RigidbodyConstraints.FreezeAll;
-                playerAnim.AttackAnimation();
-                //GetComponent<SpellController>().Shoot();
-                GetComponent<SpellController>().EnableIndicator(false);
-                Invoke("playerAnim.FinishAttack()", 2f);
+                //rb.constraints = RigidbodyConstraints.FreezeAll;
+                //playerAnim.AttackAnimation();
+                GetComponent<SpellController>().Shoot();
+                //Invoke("playerAnim.FinishAttack()", 2f);
             }
+            GetComponent<SpellController>().EnableIndicator(false);
         }
     }
 
     public void MovementPerformed(InputAction.CallbackContext ctx)
     {
-
         GetComponent<MovementController>().MoveInputVector = ctx.ReadValue<Vector2>();
         if (ctx.performed)
         {
-            playerAnim.RunAnim();
+            //playerAnim.RunAnim();
         }else if (ctx.canceled)
         {
-            playerAnim.StopRun();
+            //playerAnim.StopRun();
         }
     }
 

@@ -15,7 +15,7 @@ public class SpellController : MonoBehaviour
     public Transform originPoint;
     public Image spellIndicatorImage;
 
-    public float cycleTime;
+    private float cycleTime;
 
 
     void Start()
@@ -45,7 +45,7 @@ public class SpellController : MonoBehaviour
 
     public void Shoot()
     {
-        if (Time.time > cycleTime)
+        if (CooldownTime()<=0)
         {
             Vector3 originPosition = originPoint.position + originPoint.forward * 0.5f;
             GameObject spellBall = Instantiate(spellBallPrefab, originPosition, transform.rotation);
