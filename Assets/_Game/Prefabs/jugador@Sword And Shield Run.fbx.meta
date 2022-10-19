@@ -1,19 +1,12 @@
 fileFormatVersion: 2
-guid: c9682187ecc61f44c87c73e79346fdae
+guid: fb1358d614717c343bdb09c8b14aa17a
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: fc603a1ab1e31dd488c4632d2ce29b27, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: cirstal
-    second: {fileID: 2100000, guid: 6ccd45e684248604aa51b2dedf20593a, type: 2}
+      74: -203655887218126122
+    second: mixamo.com
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -85,8 +78,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - fb1358d614717c343bdb09c8b14aa17a
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
