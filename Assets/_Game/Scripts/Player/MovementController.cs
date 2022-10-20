@@ -35,9 +35,17 @@ public class MovementController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        CheckIfGrounded();
         Move();
         Rotate();
+        if (CheckIfFalling())
+        {
+            playerAnim.SetBool("isFalling", true);
+        }
+        else
+        {
+            playerAnim.SetBool("isFalling", false);
+        }
+        CheckIfGrounded();
     }
     public void Move()
     {
@@ -84,9 +92,13 @@ public class MovementController : MonoBehaviour
         //}
     }
 
-    private void CheckIfFalling()
+    private bool CheckIfFalling()
     {
-        Debug.Log(rigidBody.velocity.y);
+        if (rigidBody.velocity.y<0)
+        {
+            return true;
+        }
+        return false;
     }
 
     private void CheckIfGrounded()
@@ -95,11 +107,12 @@ public class MovementController : MonoBehaviour
         {
             isGrounded = true;
             playerAnim.SetBool("isJumping", false);
-
+            playerAnim.SetBool("isGrounded", true);
         }
         else
         {
             isGrounded = false;
+            playerAnim.SetBool("isGrounded", false);
         }
     }
 
