@@ -84,6 +84,11 @@ public class MovementController : MonoBehaviour
         //}
     }
 
+    private void CheckIfFalling()
+    {
+        Debug.Log(rigidBody.velocity.y);
+    }
+
     private void CheckIfGrounded()
     {
         if(Physics.CheckSphere(groundCheck.position, .1f, ground))
