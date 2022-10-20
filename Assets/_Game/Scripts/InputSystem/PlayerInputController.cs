@@ -7,14 +7,9 @@ using UnityEngine.InputSystem;
 public class PlayerInputController : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
-    private AnimationController playerAnim;
-    public Animator anim;
-    private Rigidbody rb;
 
     void Start()
     {
-        playerAnim = GetComponent<AnimationController>();
-        rb = GetComponent<Rigidbody>();
     }
 
     private void Awake()
@@ -31,6 +26,9 @@ public class PlayerInputController : MonoBehaviour
         playerInputActions.Player.Movement.performed += MovementPerformed;
         playerInputActions.Player.Movement.canceled += MovementPerformed;
         playerInputActions.Player.Jump.performed += JumpPerformed;
+        playerInputActions.Player.Melee.started += MeleePerformed;
+        playerInputActions.Player.Melee.performed += MeleePerformed;
+        playerInputActions.Player.Melee.canceled += MeleePerformed;
     }
 
     private void OnDisable()
@@ -41,6 +39,9 @@ public class PlayerInputController : MonoBehaviour
         playerInputActions.Player.Movement.performed -= MovementPerformed;
         playerInputActions.Player.Movement.canceled -= MovementPerformed;
         playerInputActions.Player.Jump.performed -= JumpPerformed;
+        playerInputActions.Player.Melee.started -= MeleePerformed;
+        playerInputActions.Player.Melee.performed -= MeleePerformed;
+        playerInputActions.Player.Melee.canceled -= MeleePerformed;
 
         playerInputActions.Player.Disable();
     }
@@ -50,6 +51,22 @@ public class PlayerInputController : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void MeleePerformed(InputAction.CallbackContext ctx)
+    {
+        if (ctx.started)
+        {
+
+        }
+        else if (ctx.performed)
+        {
+
+        }
+        else if (ctx.canceled)
+        {
+
+        }
     }
 
     public void ShootPerformed(InputAction.CallbackContext ctx)
