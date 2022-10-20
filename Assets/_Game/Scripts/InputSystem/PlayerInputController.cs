@@ -49,10 +49,7 @@ public class PlayerInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<MovementController>().IsGrounded)
-        {
-            anim.SetBool("jump", false);
-        }
+
     }
 
     public void ShootPerformed(InputAction.CallbackContext ctx)
@@ -77,19 +74,10 @@ public class PlayerInputController : MonoBehaviour
     public void MovementPerformed(InputAction.CallbackContext ctx)
     {
         GetComponent<MovementController>().MoveInputVector = ctx.ReadValue<Vector2>();
-        if (ctx.performed)
-        {
-            anim.SetBool("run",true);
-        }else if (ctx.canceled)
-        {
-            //playerAnim.StopRun();
-            anim.SetBool("run", false);
-        }
     }
 
     public void JumpPerformed(InputAction.CallbackContext ctx)
     {
-        anim.SetBool("jump", true);
         GetComponent<MovementController>().Jump();
     }
 }
