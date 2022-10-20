@@ -10,21 +10,22 @@ public class MovementController : MonoBehaviour
     public float rotationSpeed = 10f;
     public Transform groundCheck;
     public LayerMask ground;
-    public AnimationController playerAnim;
+    public Animator playerAnim;
+
     private Vector2 moveInputVector;
     private Rigidbody rigidBody;
-    private bool isGrounded;
     private bool canDoubleJump;
     private Transform cameraTransform;
     private Vector3 moveVector;
-
+    private bool isJumping;
+    private bool isGrounded;
     public Vector2 MoveInputVector { get => moveInputVector; set => moveInputVector = value; }
     public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
 
 
     private void Start()
     {
-        playerAnim = GetComponent<AnimationController>();
+        playerAnim = GetComponent<Animator>();
     }
     void Awake()
     {
@@ -34,18 +35,28 @@ public class MovementController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        CheckIfGrounded();
         Move();
         Rotate();
+        CheckIfFalling();
+        CheckIfGrounded();
     }
     public void Move()
     {
+       
         moveVector = new Vector3(moveInputVector.x * moveSpeed, rigidBody.velocity.y, moveInputVector.y * moveSpeed);
 
         moveVector = moveVector.x * cameraTransform.right.normalized + moveVector.z * cameraTransform.forward.normalized;
         moveVector.y = rigidBody.velocity.y;
 
         rigidBody.velocity = moveVector;
+        if (moveInputVector != Vector2.zero)
+        {
+            playerAnim.SetBool("isRunning", true);
+        }
+        else
+        {
+            playerAnim.SetBool("isRunning", false);
+        }
     }
 
     private void Rotate()
@@ -64,13 +75,25 @@ public class MovementController : MonoBehaviour
         if (isGrounded)
         {
             rigidBody.velocity = new Vector3(moveInputVector.x * moveSpeed, jumpForce);
-            canDoubleJump = true;
+            playerAnim.SetBool("isJumping",true);
+            //canDoubleJump = true;
         }
-        else if (canDoubleJump)
+        //else if (canDoubleJump)
+        //{
+        //    rigidBody.velocity = Vector3.up * jumpForce;
+        //    canDoubleJump = false;
+        //}
+    }
+
+    private bool CheckIfFalling()
+    {
+        if (rigidBody.velocity.y<0 && !isGrounded)
         {
-            rigidBody.velocity = Vector3.up * jumpForce;
-            canDoubleJump = false;
+            playerAnim.SetBool("isFalling", true);
+            return true;
         }
+        playerAnim.SetBool("isFalling", false);
+        return false;
     }
 
     private void CheckIfGrounded()
@@ -78,10 +101,13 @@ public class MovementController : MonoBehaviour
         if(Physics.CheckSphere(groundCheck.position, .1f, ground))
         {
             isGrounded = true;
+            playerAnim.SetBool("isJumping", false);
+            playerAnim.SetBool("isGrounded", true);
         }
         else
         {
             isGrounded = false;
+            playerAnim.SetBool("isGrounded", false);
         }
     }
 

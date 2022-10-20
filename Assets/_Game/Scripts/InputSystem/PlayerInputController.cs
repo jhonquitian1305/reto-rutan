@@ -7,14 +7,9 @@ using UnityEngine.InputSystem;
 public class PlayerInputController : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
-    private AnimationController playerAnim;
-    public Animator anim;
-    private Rigidbody rb;
 
     void Start()
     {
-        playerAnim = GetComponent<AnimationController>();
-        rb = GetComponent<Rigidbody>();
     }
 
     private void Awake()
@@ -31,6 +26,9 @@ public class PlayerInputController : MonoBehaviour
         playerInputActions.Player.Movement.performed += MovementPerformed;
         playerInputActions.Player.Movement.canceled += MovementPerformed;
         playerInputActions.Player.Jump.performed += JumpPerformed;
+        playerInputActions.Player.Melee.started += MeleePerformed;
+        playerInputActions.Player.Melee.performed += MeleePerformed;
+        playerInputActions.Player.Melee.canceled += MeleePerformed;
     }
 
     private void OnDisable()
@@ -41,6 +39,9 @@ public class PlayerInputController : MonoBehaviour
         playerInputActions.Player.Movement.performed -= MovementPerformed;
         playerInputActions.Player.Movement.canceled -= MovementPerformed;
         playerInputActions.Player.Jump.performed -= JumpPerformed;
+        playerInputActions.Player.Melee.started -= MeleePerformed;
+        playerInputActions.Player.Melee.performed -= MeleePerformed;
+        playerInputActions.Player.Melee.canceled -= MeleePerformed;
 
         playerInputActions.Player.Disable();
     }
@@ -49,9 +50,22 @@ public class PlayerInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<MovementController>().IsGrounded)
+
+    }
+
+    public void MeleePerformed(InputAction.CallbackContext ctx)
+    {
+        if (ctx.started)
         {
-            anim.SetBool("jump", false);
+
+        }
+        else if (ctx.performed)
+        {
+
+        }
+        else if (ctx.canceled)
+        {
+
         }
     }
 
@@ -77,19 +91,10 @@ public class PlayerInputController : MonoBehaviour
     public void MovementPerformed(InputAction.CallbackContext ctx)
     {
         GetComponent<MovementController>().MoveInputVector = ctx.ReadValue<Vector2>();
-        if (ctx.performed)
-        {
-            anim.SetBool("run",true);
-        }else if (ctx.canceled)
-        {
-            //playerAnim.StopRun();
-            anim.SetBool("run", false);
-        }
     }
 
     public void JumpPerformed(InputAction.CallbackContext ctx)
     {
-        anim.SetBool("jump", true);
         GetComponent<MovementController>().Jump();
     }
 }

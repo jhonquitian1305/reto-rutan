@@ -47,7 +47,7 @@ public class SpellController : MonoBehaviour
     {
         if (CooldownTime()<=0)
         {
-            Vector3 originPosition = originPoint.position + originPoint.forward * 0.5f;
+            Vector3 originPosition = originPoint.position;
             GameObject spellBall = Instantiate(spellBallPrefab, originPosition, transform.rotation);
             spellBall.GetComponent<SpellBall>().originGameObject = gameObject;
             spellBall.GetComponent<SpellBall>().spellDamage = spellDamage;
