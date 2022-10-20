@@ -9,7 +9,6 @@ public class PlayerAnimController : MonoBehaviour
     void Start()
     {
         playerAnim = GetComponent<Animator>();
-        playerAnim.SetBool("run", true);
 
     }
     // Update is called once per frame

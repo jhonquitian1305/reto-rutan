@@ -8,6 +8,7 @@ public class PlayerInputController : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
     private AnimationController playerAnim;
+    public Animator anim;
     private Rigidbody rb;
 
     void Start()
@@ -48,6 +49,10 @@ public class PlayerInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<MovementController>().IsGrounded)
+        {
+            anim.SetBool("jump", false);
+        }
     }
 
     public void ShootPerformed(InputAction.CallbackContext ctx)
@@ -74,15 +79,17 @@ public class PlayerInputController : MonoBehaviour
         GetComponent<MovementController>().MoveInputVector = ctx.ReadValue<Vector2>();
         if (ctx.performed)
         {
-            //playerAnim.RunAnim();
+            anim.SetBool("run",true);
         }else if (ctx.canceled)
         {
             //playerAnim.StopRun();
+            anim.SetBool("run", false);
         }
     }
 
     public void JumpPerformed(InputAction.CallbackContext ctx)
     {
+        anim.SetBool("jump", true);
         GetComponent<MovementController>().Jump();
     }
 }
