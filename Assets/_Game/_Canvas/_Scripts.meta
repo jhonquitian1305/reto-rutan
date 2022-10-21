@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Game/_Canvas/_Scripts.meta
 guid: 4b143fbd19c9d394cb2130f1a29b5313
 folderAsset: yes
+========
+guid: 16cb2ef41babd2940aba2ed173e30642
+>>>>>>>> e511f2b573c16879c6b9653a938b5a5ee51873e5:Assets/_Game/_Canvas/_SceneCanvas/_LevelPrueba01.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
