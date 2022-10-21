@@ -48,7 +48,7 @@ public class PlatformController : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             collider.transform.parent = transform;
-            charOnPlatformJumpForce = collider.GetComponent<MovementController>().jumpForce; 
+            charOnPlatformJumpForce = collider.GetComponent<CharMoveController>().jumpHeight; 
         }
     }
 
@@ -56,7 +56,7 @@ public class PlatformController : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
-            collider.GetComponent<MovementController>().jumpForce = charOnPlatformJumpForce + GetCurrentVelocityY();
+            collider.GetComponent<CharMoveController>().jumpHeight = charOnPlatformJumpForce + GetCurrentVelocityY();
         }
     }
 
@@ -66,7 +66,7 @@ public class PlatformController : MonoBehaviour
         {
             collider.transform.parent = null;
             collider.transform.localScale = playerScale;
-            collider.GetComponent<MovementController>().jumpForce = charOnPlatformJumpForce;
+            collider.GetComponent<CharMoveController>().jumpHeight = charOnPlatformJumpForce;
         }
     }
     private void SetCurrentVelocityY()
