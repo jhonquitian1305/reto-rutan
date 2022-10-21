@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MovementController : MonoBehaviour
+public class RbMoveController : MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float jumpForce = 5f;
     public float rotationSpeed = 10f;
-    public bool cameraLock = false;
     public Transform groundCheck;
     public LayerMask groundLayer;
+    public Animator playerAnim;
 
-
-    private Animator playerAnim;
     private Vector2 moveInputVector;
     private Rigidbody rigidBody;
     private bool canDoubleJump;
@@ -37,8 +35,8 @@ public class MovementController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Rotate(cameraLock);
         Move();
+        Rotate();
         CheckIfFalling();
         CheckIfGrounded();
     }
@@ -61,23 +59,15 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    private void Rotate(bool lockMode)
+    private void Rotate()
     {
-        if (!lockMode) {
-            Vector3 targetVector = moveVector;
-            targetVector.y = 0;
+        Vector3 targetVector = moveVector;
+        targetVector.y = 0;
 
-            if (targetVector != Vector3.zero)
-            {
-                rigidBody.transform.rotation = Quaternion.Slerp(rigidBody.transform.rotation, Quaternion.LookRotation(targetVector), Time.deltaTime * rotationSpeed);
-            }
-        }
-        else
+        if (targetVector != Vector3.zero)
         {
-            float targetAngle = cameraTransform.eulerAngles.y;
-            Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
-            rigidBody.MoveRotation(Quaternion.Lerp(transform.rotation, targetRotation, 1));
-        } 
+            rigidBody.transform.rotation = Quaternion.Slerp(rigidBody.transform.rotation, Quaternion.LookRotation(targetVector), Time.deltaTime * rotationSpeed);
+        }
     }
 
     public void Jump()
