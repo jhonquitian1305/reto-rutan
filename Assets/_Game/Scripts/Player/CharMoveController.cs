@@ -5,20 +5,25 @@ using UnityEngine;
 
     public class CharMoveController : MonoBehaviour
     {
+    [Header("Parametros movimiento")]
     public float playerSpeed = 5;
-    public float gravityValue = -9.81f;
+    private float gravityValue = -9.81f;
     public float jumpHeight = 5f;
     public bool lockCamera;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    public Animator playerAnim;
 
+    [Header("Actual Player Status")]
+    public bool isRunning;
+    public bool canMove;
+    public bool isJumping = false;
+    public bool isFalling = false;
+    private bool isGrounded;
 
     private Vector2 moveInputVector;
-    private Vector3 moveVector;
+    public Vector3 moveVector;
     private CharacterController controller;
     private Vector3 playerVelocity;
-    private bool isGrounded;
     private Transform cameraTransform;
 
     public Vector2 MoveInputVector { get => moveInputVector; set => moveInputVector = value; }
@@ -28,7 +33,7 @@ using UnityEngine;
         Cursor.lockState = CursorLockMode.Locked;
         controller = GetComponent<CharacterController>();
         cameraTransform = Camera.main.transform;
-        playerAnim = GetComponent<Animator>();
+        canMove = true;
     }
 
     void Update()
@@ -37,15 +42,27 @@ using UnityEngine;
         Move();
         Rotate();
         GravityAction();
+        CheckIfFalling();
     }
 
     private void Move()
     {
         //Movement
-        moveVector = new Vector3(moveInputVector.x, 0, moveInputVector.y);
-        moveVector = moveVector.x * cameraTransform.right.normalized + moveVector.z * cameraTransform.forward.normalized;
-        moveVector.y = 0;
-        controller.Move(moveVector * Time.deltaTime * playerSpeed);
+        if (canMove)
+        {
+            moveVector = new Vector3(moveInputVector.x, 0, moveInputVector.y);
+            moveVector = moveVector.x * cameraTransform.right.normalized + moveVector.z * cameraTransform.forward.normalized;
+            moveVector.y = 0;
+            controller.Move(moveVector * Time.deltaTime * playerSpeed);
+            if (moveInputVector != Vector2.zero)
+            {
+                isRunning = true;
+            }
+            else
+            {
+                isRunning = false;
+            }
+        }
     }
     public void Jump()
     {
@@ -85,18 +102,32 @@ using UnityEngine;
         if (Physics.CheckSphere(groundCheck.position, .1f, groundLayer))
         {
             isGrounded = true;
-            //playerAnim.SetBool("isJumping", false);
-            //playerAnim.SetBool("isGrounded", true);
             if (playerVelocity.y < 0)
             {
                 playerVelocity.y = 0f;
+                isJumping = false;
+                isFalling = false;
             }
         }
         else
         {
             isGrounded = false;
-            //playerAnim.SetBool("isGrounded", false);
+            isJumping = true;    
         }
     }
+        private void CheckIfFalling()
+    {
+        if (playerVelocity.y < 0 && !isGrounded)
+        {
+            isFalling = true;
+        }
+        else
+        {
+            isFalling= false;   
+        }
+
+    }
+
+
 
 }
