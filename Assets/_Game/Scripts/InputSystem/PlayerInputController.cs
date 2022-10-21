@@ -7,20 +7,21 @@ using UnityEngine.InputSystem;
 public class PlayerInputController : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
-    private AnimationController playerAnim;
+    //private AnimationController playerAnimController;
+    private CharMoveController playerMoveController;
+    private SpellController playerSpellController;
 
-    void Start()
-    {
-        playerAnim = GetComponent<AnimationController>();
-    }
 
-    private void Awake()
-    {
-    }
     private void OnEnable()
     {
+        //playerAnimController = GetComponent<AnimationController>();
+        playerMoveController = GetComponent<CharMoveController>();
+        playerSpellController = GetComponent<SpellController>();
+
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
+
+        playerInputActions.Player.LockCam.performed += LockCamera;
 
         playerInputActions.Player.Aim.started += Aim;
         playerInputActions.Player.Aim.canceled += Aim;
@@ -84,9 +85,9 @@ public class PlayerInputController : MonoBehaviour
 
         if (ctx.performed)
         {
-            if (GetComponent<SpellController>().CooldownTime()<=0)
+            if (playerSpellController.CooldownTime()<=0)
             {
-                GetComponent<SpellController>().Shoot();
+                playerSpellController.Shoot();
             }
         }
     }
@@ -95,20 +96,25 @@ public class PlayerInputController : MonoBehaviour
     {
         if (ctx.started)
         {
-            GetComponent<SpellController>().EnableIndicator(true);
+            playerSpellController.EnableIndicator(true);
         }else if (ctx.canceled)
         {
-            GetComponent<SpellController>().EnableIndicator(false);
+            playerSpellController.EnableIndicator(false);
         }
+    }
+
+    public void LockCamera(InputAction.CallbackContext ctx)
+    {
+        playerMoveController.lockCamera = !playerMoveController.lockCamera;
     }
 
     public void MovementPerformed(InputAction.CallbackContext ctx)
     {
-        GetComponent<CharMoveController>().MoveInputVector = ctx.ReadValue<Vector2>();
+        playerMoveController.MoveInputVector = ctx.ReadValue<Vector2>();
     }
 
     public void JumpPerformed(InputAction.CallbackContext ctx)
     {
-        GetComponent<CharMoveController>().Jump();
+        playerMoveController.Jump();
     }
 }
