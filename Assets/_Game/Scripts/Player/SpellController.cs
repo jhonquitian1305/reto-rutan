@@ -13,7 +13,7 @@ public class SpellController : MonoBehaviour
 
     public GameObject spellBallPrefab;
     public Transform originPoint;
-    public Image spellIndicatorImage;
+    public GameObject spellIndicator;
 
     private float cycleTime = 0;
 
@@ -22,8 +22,8 @@ public class SpellController : MonoBehaviour
 
     void Start()
     {
-        if (spellIndicatorImage != null) {
-            spellIndicatorImage.enabled = false;
+        if (spellIndicator != null) {
+            spellIndicator.SetActive(false);
         }
         playerAnim = GetComponent<AnimationController>();
     }
@@ -67,9 +67,9 @@ public class SpellController : MonoBehaviour
 
     public void EnableIndicator(bool enabled)
     {
-        if (spellIndicatorImage != null)
+        if (spellIndicator != null)
         {
-            spellIndicatorImage.enabled = enabled;
+            spellIndicator.SetActive(enabled);
         }
     }
 }

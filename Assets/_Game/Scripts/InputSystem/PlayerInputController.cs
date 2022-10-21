@@ -22,12 +22,18 @@ public class PlayerInputController : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
 
+        playerInputActions.Player.Aim.started += Aim;
+        playerInputActions.Player.Aim.canceled += Aim;
+
         playerInputActions.Player.Shoot.started += ShootPerformed;
         playerInputActions.Player.Shoot.performed += ShootPerformed;
         playerInputActions.Player.Shoot.canceled += ShootPerformed;
+
         playerInputActions.Player.Movement.performed += MovementPerformed;
         playerInputActions.Player.Movement.canceled += MovementPerformed;
+
         playerInputActions.Player.Jump.performed += JumpPerformed;
+
         playerInputActions.Player.Melee.started += MeleePerformed;
         playerInputActions.Player.Melee.performed += MeleePerformed;
         playerInputActions.Player.Melee.canceled += MeleePerformed;
@@ -35,6 +41,8 @@ public class PlayerInputController : MonoBehaviour
 
     private void OnDisable()
     {
+        playerInputActions.Player.Aim.started -= Aim;
+        playerInputActions.Player.Aim.canceled -= Aim;
         playerInputActions.Player.Shoot.started -= ShootPerformed;
         playerInputActions.Player.Shoot.performed -= ShootPerformed;
         playerInputActions.Player.Shoot.canceled -= ShootPerformed;
@@ -73,16 +81,23 @@ public class PlayerInputController : MonoBehaviour
 
     public void ShootPerformed(InputAction.CallbackContext ctx)
     {
-        if (ctx.started)
-        {
-            GetComponent<SpellController>().EnableIndicator(true);
-        }
-        else if (ctx.canceled)
+
+        if (ctx.performed)
         {
             if (GetComponent<SpellController>().CooldownTime()<=0)
             {
                 GetComponent<SpellController>().Shoot();
             }
+        }
+    }
+
+    public void Aim(InputAction.CallbackContext ctx)
+    {
+        if (ctx.started)
+        {
+            GetComponent<SpellController>().EnableIndicator(true);
+        }else if (ctx.canceled)
+        {
             GetComponent<SpellController>().EnableIndicator(false);
         }
     }
