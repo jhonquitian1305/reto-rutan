@@ -97,16 +97,18 @@ using UnityEngine;
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 1);
         }
     }
+
+
     private void CheckIfGrounded()
     {
-        if (Physics.CheckSphere(groundCheck.position, .02f, groundLayer))
+        if (Physics.CheckSphere(groundCheck.position, .3f, groundLayer))
         {
             isGrounded = true;
-            if (playerVelocity.y < 0)
+            isJumping = false;
+            isFalling = false;
+            if (Physics.CheckSphere(groundCheck.position, .02f, groundLayer) && playerVelocity.y < 0)
             {
                 playerVelocity.y = 0f;
-                isJumping = false;
-                isFalling = false;
             }
         }
         else
