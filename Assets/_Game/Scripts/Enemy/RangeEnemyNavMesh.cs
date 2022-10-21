@@ -22,7 +22,7 @@ public class RangeEnemyNavMesh : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemyRangeAttack = GetComponent<EnemyRangeAttack>();
 
-        attackRange = enemyRangeAttack.spellRange;
+        attackRange = enemyRangeAttack.spellRange-1;
         currentWalkpointIndex = 0;
     }
 
@@ -43,35 +43,41 @@ public class RangeEnemyNavMesh : MonoBehaviour
     }
 
     private void Patroling()
+    {
+        Vector3 distanceToWalkPoint = transform.position - walkpoints[currentWalkpointIndex].position;
+        if (distanceToWalkPoint.magnitude < 1f)
+        {
+            if (currentWalkpointIndex < walkpoints.Count - 1)
             {
-                Vector3 distanceToWalkPoint = transform.position - walkpoints[currentWalkpointIndex].position;
-                if (distanceToWalkPoint.magnitude < 1f)
-                {
-                    if (currentWalkpointIndex < walkpoints.Count - 1)
-                    {
-                        currentWalkpointIndex++;
-                    }
-                    else
-                    {
-                        currentWalkpointIndex = 0;
-                    }
-                }
-                navMeshAgent.SetDestination(walkpoints[currentWalkpointIndex].position);
-
+                currentWalkpointIndex++;
             }
-
-            private void ChasePlayer()
+            else
             {
-                Vector3 distanceToPlayer = transform.position - player.position;
-                navMeshAgent.SetDestination(player.position);
-                transform.LookAt(player);
+                currentWalkpointIndex = 0;
             }
+        }
+        navMeshAgent.SetDestination(walkpoints[currentWalkpointIndex].position);
+    }
 
-            private void AttackPlayer()
-            {
-                //Make sure enemy doesn't move
-                navMeshAgent.SetDestination(transform.position);
-                transform.LookAt(player);
-                enemyRangeAttack.RangeAttack();
-            }
+    private void ChasePlayer()
+    {
+        Vector3 distanceToPlayer = transform.position - player.position;
+        navMeshAgent.SetDestination(player.position);
+        transform.LookAt(player);
+    }
+
+    private void AttackPlayer()
+    {
+        Vector3 distanceToPlayer = transform.position - player.position;
+        if (distanceToPlayer.magnitude<4)
+        {
+            navMeshAgent.SetDestination(transform.position-transform.forward);
+        }
+        else
+        {
+            navMeshAgent.SetDestination(transform.position);
+        }
+        transform.LookAt(player);
+        enemyRangeAttack.RangeAttack();
+    }
 }
