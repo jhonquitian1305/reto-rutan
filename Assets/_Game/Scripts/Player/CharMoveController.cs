@@ -18,7 +18,7 @@ using UnityEngine;
     public bool canMove;
     public bool isJumping = false;
     public bool isFalling = false;
-    private bool isGrounded;
+    public bool isGrounded;
 
     private Vector2 moveInputVector;
     public Vector3 moveVector;
@@ -66,7 +66,7 @@ using UnityEngine;
     }
     public void Jump()
     {
-        if (isGrounded)
+        if (isGrounded && canMove)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
@@ -99,7 +99,7 @@ using UnityEngine;
     }
     private void CheckIfGrounded()
     {
-        if (Physics.CheckSphere(groundCheck.position, .1f, groundLayer))
+        if (Physics.CheckSphere(groundCheck.position, .02f, groundLayer))
         {
             isGrounded = true;
             if (playerVelocity.y < 0)

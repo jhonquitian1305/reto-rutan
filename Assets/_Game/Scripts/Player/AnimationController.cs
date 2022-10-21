@@ -61,10 +61,13 @@ public class AnimationController : MonoBehaviour
     #region Animation Attack
     public void CastAnimation()
     {
-        charMove.canMove = false;
-        charMove.isRunning = false;
-        animatorPlayer.SetBool("isRunning", false);
-        animatorPlayer.SetBool("CastAttack", true);
+        if (charMove.isGrounded)
+        {
+            charMove.canMove = false;
+            charMove.isRunning = false;
+            animatorPlayer.SetBool("isRunning", false);
+            animatorPlayer.SetBool("CastAttack", true);
+        }
     }
 
     public void FinishCast()
@@ -75,10 +78,10 @@ public class AnimationController : MonoBehaviour
 
     public void CastToRun()
     {
+        animatorPlayer.SetBool("isRunning", true);
         animatorPlayer.SetBool("CastAttack", false);
         charMove.canMove = true;
         charMove.isRunning = true;
-        animatorPlayer.SetBool("isRunning", true);
     }
     #endregion
 }
