@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e169b197-f1a0-4366-a7d4-7bcc44cf0da7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nivel 1.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nivel 1.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nivel 1_TEST.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Nivel 1_TEST.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/FireBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/FireBall.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/EnemyRangeAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/EnemyRangeAttack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/MeleeEnemyNavMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/MeleeEnemyNavMesh.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/RangeEnemyNavMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/RangeEnemyNavMesh.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/InputSystem/PlayerInputController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/InputSystem/PlayerInputController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Player/SpellController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Player/SpellController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="e169b197-f1a0-4366-a7d4-7bcc44cf0da7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,8 +32,16 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="D:/Accesos_Directos/Documents/pruebaPantalla\RutaN.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\Accesos_Directos\Documents\pruebaPantalla" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Unity/Hub/Editor/Unity-2021.3.9f1/Editor/Unity" />
+      <option name="EXE_PATH" value="D:\Programas\Unity 2021.3.9f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -83,14 +81,27 @@
       <workItem from="1665592840037" duration="4112000" />
       <workItem from="1666186124902" duration="5483000" />
       <workItem from="1666192749174" duration="8377000" />
+      <workItem from="1666316345047" duration="76000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

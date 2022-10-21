@@ -90,8 +90,7 @@ public class PlayerInputController : MonoBehaviour
 
     public void MovementPerformed(InputAction.CallbackContext ctx)
     {
-        GetComponent<MovementController>().MoveInputVector = ctx.ReadValue<Vector2>();
-        GetComponent<LockMovementController>().MoveInputVector = ctx.ReadValue<Vector2>();
+        GetComponent<MovementController>().MoveInputVector = ctx.ReadValue<Vector2>();        
     }
 
     public void JumpPerformed(InputAction.CallbackContext ctx)
