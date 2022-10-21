@@ -21,6 +21,8 @@ using UnityEngine;
     private bool isGrounded;
     private Transform cameraTransform;
 
+    [SerializeField] private AudioSource moveSoundEffect;
+
     public Vector2 MoveInputVector { get => moveInputVector; set => moveInputVector = value; }
 
     private void Start()
@@ -46,6 +48,9 @@ using UnityEngine;
         moveVector = moveVector.x * cameraTransform.right.normalized + moveVector.z * cameraTransform.forward.normalized;
         moveVector.y = 0;
         controller.Move(moveVector * Time.deltaTime * playerSpeed);
+        if (moveInputVector!=Vector2.zero){
+            moveSoundEffect.Play();
+        }
     }
     public void Jump()
     {

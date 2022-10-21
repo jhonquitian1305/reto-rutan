@@ -8,6 +8,8 @@ public class PlayerInputController : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
 
+    [SerializeField] private AudioSource attackSoundEffect;
+
     void Start()
     {
     }
@@ -74,6 +76,7 @@ public class PlayerInputController : MonoBehaviour
         if (ctx.started)
         {
             GetComponent<SpellController>().EnableIndicator(true);
+            attackSoundEffect.Play();
         }
         else if (ctx.canceled)
         {
