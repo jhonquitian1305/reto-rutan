@@ -8,10 +8,12 @@ public class MovementController : MonoBehaviour
     public float moveSpeed = 10f;
     public float jumpForce = 5f;
     public float rotationSpeed = 10f;
+    public bool cameraLock = false;
     public Transform groundCheck;
-    public LayerMask ground;
-    public Animator playerAnim;
+    public LayerMask groundLayer;
 
+
+    private Animator playerAnim;
     private Vector2 moveInputVector;
     private Rigidbody rigidBody;
     private bool canDoubleJump;
@@ -35,8 +37,8 @@ public class MovementController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        Rotate(cameraLock);
         Move();
-        Rotate();
         CheckIfFalling();
         CheckIfGrounded();
     }
@@ -59,15 +61,23 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    private void Rotate()
+    private void Rotate(bool lockMode)
     {
-        Vector3 targetVector = moveVector;
-        targetVector.y = 0;
+        if (!lockMode) {
+            Vector3 targetVector = moveVector;
+            targetVector.y = 0;
 
-        if (targetVector != Vector3.zero)
-        {
-            rigidBody.transform.rotation = Quaternion.Slerp(rigidBody.transform.rotation, Quaternion.LookRotation(targetVector), Time.deltaTime * rotationSpeed);
+            if (targetVector != Vector3.zero)
+            {
+                rigidBody.transform.rotation = Quaternion.Slerp(rigidBody.transform.rotation, Quaternion.LookRotation(targetVector), Time.deltaTime * rotationSpeed);
+            }
         }
+        else
+        {
+            float targetAngle = cameraTransform.eulerAngles.y;
+            Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
+            rigidBody.MoveRotation(Quaternion.Lerp(transform.rotation, targetRotation, 1));
+        } 
     }
 
     public void Jump()
@@ -98,7 +108,7 @@ public class MovementController : MonoBehaviour
 
     private void CheckIfGrounded()
     {
-        if(Physics.CheckSphere(groundCheck.position, .1f, ground))
+        if(Physics.CheckSphere(groundCheck.position, .1f, groundLayer))
         {
             isGrounded = true;
             playerAnim.SetBool("isJumping", false);
