@@ -15,7 +15,9 @@ public class SpellController : MonoBehaviour
     public Transform originPoint;
     public GameObject spellIndicator;
 
-    private float cycleTime;
+    private float cycleTime = 0;
+
+    private AnimationController playerAnim;
 
 
     void Start()
@@ -23,6 +25,7 @@ public class SpellController : MonoBehaviour
         if (spellIndicator != null) {
             spellIndicator.SetActive(false);
         }
+        playerAnim = GetComponent<AnimationController>();
     }
 
     // Update is called once per frame
@@ -45,7 +48,12 @@ public class SpellController : MonoBehaviour
 
     public void Shoot()
     {
-        if (CooldownTime()<=0)
+        playerAnim.CastAnimation();
+    }
+
+    private void CreateFire()
+    {
+        if (CooldownTime() <= 0)
         {
             Vector3 originPosition = originPoint.position;
             GameObject spellBall = Instantiate(spellBallPrefab, originPosition, transform.rotation);

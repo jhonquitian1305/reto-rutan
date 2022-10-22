@@ -7,25 +7,34 @@ using UnityEngine.InputSystem;
 public class PlayerInputController : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
+    //private AnimationController playerAnimController;
+    private CharMoveController playerMoveController;
+    private SpellController playerSpellController;
 
-    void Start()
-    {
-    }
 
-    private void Awake()
-    {
-    }
     private void OnEnable()
     {
+        //playerAnimController = GetComponent<AnimationController>();
+        playerMoveController = GetComponent<CharMoveController>();
+        playerSpellController = GetComponent<SpellController>();
+
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
+
+        playerInputActions.Player.LockCam.performed += LockCamera;
+
+        playerInputActions.Player.Aim.started += Aim;
+        playerInputActions.Player.Aim.canceled += Aim;
 
         playerInputActions.Player.Shoot.started += ShootPerformed;
         playerInputActions.Player.Shoot.performed += ShootPerformed;
         playerInputActions.Player.Shoot.canceled += ShootPerformed;
+
         playerInputActions.Player.Movement.performed += MovementPerformed;
         playerInputActions.Player.Movement.canceled += MovementPerformed;
+
         playerInputActions.Player.Jump.performed += JumpPerformed;
+
         playerInputActions.Player.Melee.started += MeleePerformed;
         playerInputActions.Player.Melee.performed += MeleePerformed;
         playerInputActions.Player.Melee.canceled += MeleePerformed;
@@ -33,6 +42,8 @@ public class PlayerInputController : MonoBehaviour
 
     private void OnDisable()
     {
+        playerInputActions.Player.Aim.started -= Aim;
+        playerInputActions.Player.Aim.canceled -= Aim;
         playerInputActions.Player.Shoot.started -= ShootPerformed;
         playerInputActions.Player.Shoot.performed -= ShootPerformed;
         playerInputActions.Player.Shoot.canceled -= ShootPerformed;
@@ -71,30 +82,39 @@ public class PlayerInputController : MonoBehaviour
 
     public void ShootPerformed(InputAction.CallbackContext ctx)
     {
+
+        if (ctx.performed)
+        {
+            if (playerSpellController.CooldownTime()<=0)
+            {
+                playerSpellController.Shoot();
+            }
+        }
+    }
+
+    public void Aim(InputAction.CallbackContext ctx)
+    {
         if (ctx.started)
         {
-            GetComponent<SpellController>().EnableIndicator(true);
-        }
-        else if (ctx.canceled)
+            playerSpellController.EnableIndicator(true);
+        }else if (ctx.canceled)
         {
-            if (GetComponent<SpellController>().CooldownTime()<=0)
-            {
-                //rb.constraints = RigidbodyConstraints.FreezeAll;
-                //playerAnim.AttackAnimation();
-                GetComponent<SpellController>().Shoot();
-                //Invoke("playerAnim.FinishAttack()", 2f);
-            }
-            GetComponent<SpellController>().EnableIndicator(false);
+            playerSpellController.EnableIndicator(false);
         }
+    }
+
+    public void LockCamera(InputAction.CallbackContext ctx)
+    {
+        playerMoveController.lockCamera = !playerMoveController.lockCamera;
     }
 
     public void MovementPerformed(InputAction.CallbackContext ctx)
     {
-        GetComponent<CharMoveController>().MoveInputVector = ctx.ReadValue<Vector2>();
+        playerMoveController.MoveInputVector = ctx.ReadValue<Vector2>();
     }
 
     public void JumpPerformed(InputAction.CallbackContext ctx)
     {
-        GetComponent<CharMoveController>().Jump();
+        playerMoveController.Jump();
     }
 }

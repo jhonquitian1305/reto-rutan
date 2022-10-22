@@ -2,69 +2,88 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
+using UnityEngine.UIElements;
 
 public class AnimationController : MonoBehaviour
 {
     public Animator animatorPlayer;
-    public Rigidbody rb;
+    private CharMoveController charMove;
 
     // Start is called before the first frame update
     void Start()
     {
         animatorPlayer = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
+        charMove = GetComponent<CharMoveController>();
+    }
+
+    private void Update()
+    {
+        RunAnim();
+        JumpAnim();
+        FallingAnim();
     }
 
     #region Move and Jump
     public void RunAnim()
     {
-        animatorPlayer.SetBool("run", true);
-        animatorPlayer.SetBool("Jump", false);
-        animatorPlayer.SetBool("shoot", false);
-    }
-
-    public void StopRun()
-    {
-        animatorPlayer.SetBool("run", false);
+        if (charMove.isRunning)
+        {
+            animatorPlayer.SetBool("isRunning", true);
+        }
+        else if (!charMove.isRunning)
+        {
+            animatorPlayer.SetBool("isRunning", false);
+        }
     }
 
     public void JumpAnim()
     {
-        animatorPlayer.SetBool("Jump", true);
+        if (charMove.isJumping)
+        {
+            animatorPlayer.SetBool("isJumping", true);
+        }
     }
 
-    public void ResetJump()
+    public void FallingAnim()
     {
-        animatorPlayer.SetBool("Jump", false);
+        if (charMove.isFalling)
+        {
+            animatorPlayer.SetBool("isJumping", false);
+            animatorPlayer.SetBool("isFalling", true);
+        }else if (!charMove.isFalling)
+        {
+            animatorPlayer.SetBool("isFalling", false);
+        }
     }
-
     #endregion
 
     #region Animation Attack
-    public void AttackAnimation()
+    public void CastAnimation()
     {
-        animatorPlayer.SetBool("shoot", true);
-        animatorPlayer.SetBool("run", false);
-        //animatorPlayer.SetBool("Jump", false);
+        if (charMove.isGrounded)
+        {
+            charMove.canMove = false;
+            charMove.isRunning = false;
+            animatorPlayer.SetBool("isRunning", false);
+            animatorPlayer.SetBool("CastAttack", true);
+        }
     }
 
-    public void FinishAttack()
+    public void FinishCast()
     {
-        animatorPlayer.SetBool("shoot", false);
+        animatorPlayer.SetBool("CastAttack", false);
+        charMove.canMove = true;
     }
 
-    public void DeniedAttack()
+    public void CastToRun()
     {
-        
-    }
-    #endregion
-
-    #region Constraints Control
-
-    public void UnfreezeMove()
-    {
-        rb.constraints = RigidbodyConstraints.None;
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        animatorPlayer.SetBool("isRunning", true);
+        animatorPlayer.SetBool("CastAttack", false);
+        charMove.canMove = true;
+        charMove.isRunning = true;
     }
     #endregion
 }
+
+
