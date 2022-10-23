@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3889930293777702822}
   - component: {fileID: 3889930293777702823}
   - component: {fileID: 3889930293777702820}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: 3889930293855090826}
   - component: {fileID: 3889930293855090828}
   - component: {fileID: 3889930293855090829}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cola (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9638,8 +9638,8 @@ GameObject:
   - component: {fileID: 2308965152390970076}
   - component: {fileID: 4497602708091055322}
   - component: {fileID: 6291137274014696779}
-  m_Layer: 0
-  m_Name: _BolaFuego2
+  m_Layer: 9
+  m_Name: EnemyBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14554,7 +14554,7 @@ GameObject:
   - component: {fileID: 3889930295223726348}
   - component: {fileID: 3889930295223726350}
   - component: {fileID: 3889930295223726351}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BolaFuego (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

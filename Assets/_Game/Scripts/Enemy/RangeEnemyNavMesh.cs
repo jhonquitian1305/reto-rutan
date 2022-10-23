@@ -7,13 +7,14 @@ using UnityEngine.AI;
 public class RangeEnemyNavMesh : MonoBehaviour
 {
     public float sightRange;
+    public float attackRange;
     public LayerMask playerLayer;
     public List<Transform> walkpoints;
 
     private NavMeshAgent navMeshAgent;
     private int currentWalkpointIndex=0;
     private bool playerInSightRange, playerInAttackRange, playerInAttackSight;
-    private float attackRange;
+
     private Transform player;
     private EnemyRangeAttack enemyRangeAttack;
     private void Awake()
@@ -21,8 +22,7 @@ public class RangeEnemyNavMesh : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemyRangeAttack = GetComponent<EnemyRangeAttack>();
-
-        attackRange = enemyRangeAttack.spellRange-1;
+        if(attackRange==0) attackRange = enemyRangeAttack.spellRange - 1;
         currentWalkpointIndex = 0;
     }
 
