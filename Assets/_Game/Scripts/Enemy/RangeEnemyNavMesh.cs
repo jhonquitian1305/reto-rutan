@@ -40,6 +40,18 @@ public class RangeEnemyNavMesh : MonoBehaviour
             if(playerInAttackSight) AttackPlayer();
             else ChasePlayer();
         }
+        ClampRotation();
+    }
+
+    private void ClampRotation()
+    {
+        float rx = transform.eulerAngles.x;
+        if (rx >= 180) rx -= 360;
+        transform.eulerAngles = new Vector3(
+            Mathf.Clamp(rx, -35, 35),
+            transform.eulerAngles.y,
+            transform.eulerAngles.z
+        );
     }
 
     private void Patroling()
@@ -61,7 +73,6 @@ public class RangeEnemyNavMesh : MonoBehaviour
 
     private void ChasePlayer()
     {
-        Vector3 distanceToPlayer = transform.position - player.position;
         navMeshAgent.SetDestination(player.position);
         transform.LookAt(player);
     }
