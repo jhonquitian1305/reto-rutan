@@ -15,7 +15,7 @@ public class SpellBall : MonoBehaviour
 
     void Start()
     {
-        transform.parent = GameObject.Find("SpellBallParent").transform;
+        //transform.parent = GameObject.Find("SpellBallParent").transform;
         spellDirection = originGameObject.transform.forward;
         float timeToDestroy = (spellRange / spellMoveSpeed);
 
