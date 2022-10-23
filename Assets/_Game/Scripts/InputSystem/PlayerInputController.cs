@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -35,10 +36,14 @@ public class PlayerInputController : MonoBehaviour
 
         playerInputActions.Player.Jump.performed += JumpPerformed;
 
+        playerInputActions.Player.ChangeToNextSpell.performed += ChangeToNextSpell;
+        playerInputActions.Player.ChangeToLastSpell.performed += ChangeToLastSpell;
+
         playerInputActions.Player.Melee.started += MeleePerformed;
         playerInputActions.Player.Melee.performed += MeleePerformed;
         playerInputActions.Player.Melee.canceled += MeleePerformed;
     }
+
 
     private void OnDisable()
     {
@@ -50,6 +55,8 @@ public class PlayerInputController : MonoBehaviour
         playerInputActions.Player.Movement.performed -= MovementPerformed;
         playerInputActions.Player.Movement.canceled -= MovementPerformed;
         playerInputActions.Player.Jump.performed -= JumpPerformed;
+        playerInputActions.Player.ChangeToNextSpell.performed -= ChangeToNextSpell;
+        playerInputActions.Player.ChangeToLastSpell.performed -= ChangeToLastSpell;
         playerInputActions.Player.Melee.started -= MeleePerformed;
         playerInputActions.Player.Melee.performed -= MeleePerformed;
         playerInputActions.Player.Melee.canceled -= MeleePerformed;
@@ -62,6 +69,16 @@ public class PlayerInputController : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void ChangeToNextSpell(InputAction.CallbackContext ctx)
+    {
+        playerSpellController.SetNextSpellAsActive();
+    }
+
+    public void ChangeToLastSpell(InputAction.CallbackContext ctx)
+    {
+        playerSpellController.SetLastSpellAsActive();
     }
 
     public void MeleePerformed(InputAction.CallbackContext ctx)

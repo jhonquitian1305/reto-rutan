@@ -5,12 +5,19 @@ using UnityEngine;
 public class SpellBall : MonoBehaviour
 {
 
-    public float spellMoveSpeed = 7f;
-    public float spellRange = 7f;
-    public float spellDamage = 10f;
-    public GameObject originGameObject;
+    private float spellMoveSpeed = 7f;
+    private float spellRange = 7f;
+    private float spellDamage = 10f;
+    public string spellType;
+    private GameObject originGameObject;
 
     private Vector3 spellDirection;
+
+    public float SpellMoveSpeed { get => spellMoveSpeed; set => spellMoveSpeed = value; }
+    public float SpellRange { get => spellRange; set => spellRange = value; }
+    public float SpellDamage { get => spellDamage; set => spellDamage = value; }
+    public GameObject OriginGameObject { get => originGameObject; set => originGameObject = value; }
+
     // Start is called before the first frame update
 
     void Start()

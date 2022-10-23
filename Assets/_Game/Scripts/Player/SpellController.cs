@@ -10,11 +10,12 @@ public class SpellController : MonoBehaviour
     public float spellMoveSpeed = 7f;
     public float spellRange = 7f;
     public float spellCooldown = 2f;
+    public List<GameObject> spellBallPrefabs;
 
-    public GameObject spellBallPrefab;
     public Transform originPoint;
     public GameObject spellIndicator;
 
+    private int activeSpellIndex;
     private float cycleTime = 0;
 
     private AnimationController playerAnim;
@@ -26,6 +27,25 @@ public class SpellController : MonoBehaviour
             spellIndicator.SetActive(false);
         }
         playerAnim = GetComponent<AnimationController>();
+        activeSpellIndex = 0;
+        Debug.Log(spellBallPrefabs.Count);
+    }
+
+    public void SetNextSpellAsActive()
+    {
+        activeSpellIndex++;
+        if(activeSpellIndex> spellBallPrefabs.Count-1)
+        {
+            activeSpellIndex = 0;
+        }
+    }
+    public void SetLastSpellAsActive()
+    {
+        activeSpellIndex++;
+        if (activeSpellIndex < 0)
+        {
+            activeSpellIndex = spellBallPrefabs.Count-1;
+        }
     }
 
     // Update is called once per frame
@@ -56,11 +76,11 @@ public class SpellController : MonoBehaviour
         if (CooldownTime() <= 0)
         {
             Vector3 originPosition = originPoint.position;
-            GameObject spellBall = Instantiate(spellBallPrefab, originPosition, transform.rotation);
-            spellBall.GetComponent<SpellBall>().originGameObject = gameObject;
-            spellBall.GetComponent<SpellBall>().spellDamage = spellDamage;
-            spellBall.GetComponent<SpellBall>().spellMoveSpeed = spellMoveSpeed;
-            spellBall.GetComponent<SpellBall>().spellRange = spellRange;
+            GameObject spellBall = Instantiate(spellBallPrefabs[activeSpellIndex], originPosition, transform.rotation);
+            spellBall.GetComponent<SpellBall>().OriginGameObject = gameObject;
+            spellBall.GetComponent<SpellBall>().SpellDamage = spellDamage;
+            spellBall.GetComponent<SpellBall>().SpellMoveSpeed = spellMoveSpeed;
+            spellBall.GetComponent<SpellBall>().SpellRange = spellRange;
             cycleTime = Time.time + spellCooldown;
         }
     }
