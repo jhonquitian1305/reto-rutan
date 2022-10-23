@@ -1286,6 +1286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da374cc7f17f56b47a052551e15c029d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aimSensitivity: 1.5
+  mainFreeLookCamera: {fileID: 0}
 --- !u!114 &5258964231039133322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1327,7 +1329,10 @@ MonoBehaviour:
   spellMoveSpeed: 7
   spellRange: 7
   spellCooldown: 2
-  spellBallPrefab: {fileID: 68130812729102676, guid: 2bfb128bf0b7b3a4e9f3bd379cd47157, type: 3}
+  spellBallPrefabs:
+  - {fileID: 7490130206447771441, guid: bea392db8d7dec34aadc0f89d809da31, type: 3}
+  - {fileID: 68130812729102676, guid: e3c4bd778b80c1142ae4d9e4ac4a6577, type: 3}
+  - {fileID: 1096924857088459834, guid: 340c9bc4b47ad4740bcedb5a2b039ee0, type: 3}
   originPoint: {fileID: 5258964230338167090}
   spellIndicator: {fileID: 5258964231595503003}
 --- !u!114 &5258964231039133320

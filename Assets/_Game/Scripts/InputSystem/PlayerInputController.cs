@@ -4,13 +4,18 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class PlayerInputController : MonoBehaviour
 {
+    public float aimSensitivity = 1.5f;
+    public CinemachineFreeLook mainFreeLookCamera;
     private PlayerInputActions playerInputActions;
     //private AnimationController playerAnimController;
     private CharMoveController playerMoveController;
     private SpellController playerSpellController;
+    private CinemachineFreeLook FreelookCM;
+    private float originalCMxSpeed;
 
 
     private void OnEnable()
@@ -22,7 +27,7 @@ public class PlayerInputController : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
 
-        playerInputActions.Player.LockCam.performed += LockCamera;
+        //playerInputActions.Player.LockCam.performed += LockCamera;
 
         playerInputActions.Player.Aim.started += Aim;
         playerInputActions.Player.Aim.canceled += Aim;
@@ -47,6 +52,8 @@ public class PlayerInputController : MonoBehaviour
 
     private void OnDisable()
     {
+
+        //playerInputActions.Player.LockCam.performed -= LockCamera;
         playerInputActions.Player.Aim.started -= Aim;
         playerInputActions.Player.Aim.canceled -= Aim;
         playerInputActions.Player.Shoot.started -= ShootPerformed;
@@ -66,9 +73,9 @@ public class PlayerInputController : MonoBehaviour
     // Start is called before the first frame update
 
     // Update is called once per frame
-    void Update()
+    void Start()
     {
-
+        originalCMxSpeed = mainFreeLookCamera.m_XAxis.m_MaxSpeed;
     }
 
     public void ChangeToNextSpell(InputAction.CallbackContext ctx)
@@ -113,10 +120,15 @@ public class PlayerInputController : MonoBehaviour
     {
         if (ctx.started)
         {
+            mainFreeLookCamera.m_XAxis.m_MaxSpeed = aimSensitivity;
             playerSpellController.EnableIndicator(true);
-        }else if (ctx.canceled)
+            playerMoveController.lockCamera = true;
+        }
+        else if (ctx.canceled)
         {
             playerSpellController.EnableIndicator(false);
+            mainFreeLookCamera.m_XAxis.m_MaxSpeed = originalCMxSpeed;
+            playerMoveController.lockCamera = false;
         }
     }
 

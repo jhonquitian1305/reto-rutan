@@ -130,9 +130,4 @@ using UnityEngine;
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(collision.gameObject.name);
-    }
-
 }

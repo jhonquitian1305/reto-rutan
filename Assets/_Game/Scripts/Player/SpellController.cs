@@ -39,7 +39,6 @@ public class SpellController : MonoBehaviour
         {
             activeSpellIndex = 0;
         }
-        Debug.Log(activeSpellIndex);
     }
     public void SetLastSpellAsActive()
     {
@@ -48,7 +47,6 @@ public class SpellController : MonoBehaviour
         {
             activeSpellIndex = spellBallPrefabs.Count-1;
         }
-        Debug.Log(activeSpellIndex);
     }
 
     // Update is called once per frame

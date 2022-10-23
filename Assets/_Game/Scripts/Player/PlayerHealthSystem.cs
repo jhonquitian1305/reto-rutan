@@ -22,7 +22,7 @@ public class PlayerHealthSystem : MonoBehaviour
         if (playerData.currentHealth > playerData.maxHealth)
         {
             playerData.currentHealth = playerData.maxHealth;
-        } else if (playerData.currentHealth < 0)
+        } else if (playerData.currentHealth <= 0)
         {
             playerData.currentHealth = 0;
             UpdateLives(-1);
@@ -32,7 +32,7 @@ public class PlayerHealthSystem : MonoBehaviour
 
     private void UpdateLives(int value)
     {
-        if (playerData.lives > 0 && value<0)
+        if (playerData.lives+value > 0)
         {
             playerData.lives += value;
             playerData.currentHealth = playerData.maxHealth; //Reinicia la vida
