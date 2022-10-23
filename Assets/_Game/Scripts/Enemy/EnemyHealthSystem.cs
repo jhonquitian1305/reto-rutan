@@ -6,6 +6,7 @@ public class EnemyHealthSystem : MonoBehaviour
 {
     private float currentHealth;
     public float maxHealth;
+    public string weaknessType;
     void Start()
     {
         currentHealth = maxHealth;
