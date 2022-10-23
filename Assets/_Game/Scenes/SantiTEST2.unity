@@ -1303,6 +1303,18 @@ PrefabInstance:
       propertyPath: spellBallPrefab
       value: 
       objectReference: {fileID: 7490130206447771441, guid: bea392db8d7dec34aadc0f89d809da31, type: 3}
+    - target: {fileID: 5258964231039133323, guid: 4826acff09001a741b4730eba1eedbc3, type: 3}
+      propertyPath: spellBallPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258964231039133323, guid: 4826acff09001a741b4730eba1eedbc3, type: 3}
+      propertyPath: spellBallPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 7490130206447771441, guid: bea392db8d7dec34aadc0f89d809da31, type: 3}
+    - target: {fileID: 5258964231039133323, guid: 4826acff09001a741b4730eba1eedbc3, type: 3}
+      propertyPath: spellBallPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 68130812729102676, guid: e3c4bd778b80c1142ae4d9e4ac4a6577, type: 3}
     - target: {fileID: 5258964231098453405, guid: 4826acff09001a741b4730eba1eedbc3, type: 3}
       propertyPath: m_Name
       value: Player

@@ -20,6 +20,7 @@ public class SpellController : MonoBehaviour
 
     private AnimationController playerAnim;
 
+    public int ActiveSpellIndex { get => activeSpellIndex; set => activeSpellIndex = value; }
 
     void Start()
     {
@@ -28,7 +29,7 @@ public class SpellController : MonoBehaviour
         }
         playerAnim = GetComponent<AnimationController>();
         activeSpellIndex = 0;
-        Debug.Log(spellBallPrefabs.Count);
+
     }
 
     public void SetNextSpellAsActive()
@@ -38,14 +39,16 @@ public class SpellController : MonoBehaviour
         {
             activeSpellIndex = 0;
         }
+        Debug.Log(activeSpellIndex);
     }
     public void SetLastSpellAsActive()
     {
-        activeSpellIndex++;
+        activeSpellIndex--;
         if (activeSpellIndex < 0)
         {
             activeSpellIndex = spellBallPrefabs.Count-1;
         }
+        Debug.Log(activeSpellIndex);
     }
 
     // Update is called once per frame
