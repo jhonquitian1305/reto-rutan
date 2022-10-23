@@ -89,6 +89,24 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeToNextSpell"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c46e29b-6aa1-4dad-adbb-a71829d58ffa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeToLastSpell"",
+                    ""type"": ""Button"",
+                    ""id"": ""402206ad-a670-462e-a24b-c618128815cf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -311,6 +329,50 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""LockCam"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""29b6364b-ba1e-4b0c-8940-d7bb31bd6e18"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeToNextSpell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a49f2f65-b542-4dbc-b1e1-c236d2342fff"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeToNextSpell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""886eba6a-8433-483a-a726-906fe8442120"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeToLastSpell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5270b1ad-495f-4349-b127-2408bafd09a1"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeToLastSpell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -354,6 +416,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Melee = m_Player.FindAction("Melee", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_LockCam = m_Player.FindAction("LockCam", throwIfNotFound: true);
+        m_Player_ChangeToNextSpell = m_Player.FindAction("ChangeToNextSpell", throwIfNotFound: true);
+        m_Player_ChangeToLastSpell = m_Player.FindAction("ChangeToLastSpell", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
@@ -423,6 +487,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Melee;
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_LockCam;
+    private readonly InputAction m_Player_ChangeToNextSpell;
+    private readonly InputAction m_Player_ChangeToLastSpell;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -434,6 +500,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Melee => m_Wrapper.m_Player_Melee;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @LockCam => m_Wrapper.m_Player_LockCam;
+        public InputAction @ChangeToNextSpell => m_Wrapper.m_Player_ChangeToNextSpell;
+        public InputAction @ChangeToLastSpell => m_Wrapper.m_Player_ChangeToLastSpell;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -464,6 +532,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @LockCam.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockCam;
                 @LockCam.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockCam;
                 @LockCam.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockCam;
+                @ChangeToNextSpell.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeToNextSpell;
+                @ChangeToNextSpell.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeToNextSpell;
+                @ChangeToNextSpell.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeToNextSpell;
+                @ChangeToLastSpell.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeToLastSpell;
+                @ChangeToLastSpell.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeToLastSpell;
+                @ChangeToLastSpell.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeToLastSpell;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -489,6 +563,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @LockCam.started += instance.OnLockCam;
                 @LockCam.performed += instance.OnLockCam;
                 @LockCam.canceled += instance.OnLockCam;
+                @ChangeToNextSpell.started += instance.OnChangeToNextSpell;
+                @ChangeToNextSpell.performed += instance.OnChangeToNextSpell;
+                @ChangeToNextSpell.canceled += instance.OnChangeToNextSpell;
+                @ChangeToLastSpell.started += instance.OnChangeToLastSpell;
+                @ChangeToLastSpell.performed += instance.OnChangeToLastSpell;
+                @ChangeToLastSpell.canceled += instance.OnChangeToLastSpell;
             }
         }
     }
@@ -535,6 +615,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnMelee(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnLockCam(InputAction.CallbackContext context);
+        void OnChangeToNextSpell(InputAction.CallbackContext context);
+        void OnChangeToLastSpell(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

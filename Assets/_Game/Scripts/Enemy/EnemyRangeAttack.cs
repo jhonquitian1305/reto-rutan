@@ -55,10 +55,10 @@ public class EnemyRangeAttack : MonoBehaviour
         if (cooldownLeft <= 0)
         {
             GameObject spellBall = Instantiate(spellBallPrefab, originPoint.position, transform.rotation);
-            spellBall.GetComponent<SpellBall>().originGameObject = gameObject;
-            spellBall.GetComponent<SpellBall>().spellDamage = spellDamage;
-            spellBall.GetComponent<SpellBall>().spellMoveSpeed = spellMoveSpeed;
-            spellBall.GetComponent<SpellBall>().spellRange = spellRange;
+            spellBall.GetComponent<SpellBall>().OriginGameObject = gameObject;
+            spellBall.GetComponent<SpellBall>().SpellDamage = spellDamage;
+            spellBall.GetComponent<SpellBall>().SpellMoveSpeed = spellMoveSpeed;
+            spellBall.GetComponent<SpellBall>().SpellRange = spellRange;
             cooldownLeft = spellCooldown;
         }
     }
