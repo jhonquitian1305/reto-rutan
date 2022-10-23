@@ -16,6 +16,8 @@ public class RangeEnemyNavMesh : MonoBehaviour
     private float attackRange;
     private Transform player;
     private EnemyRangeAttack enemyRangeAttack;
+    
+    [SerializeField] private AudioSource enemyAttackSoundEffect;
     private void Awake()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -73,5 +75,6 @@ public class RangeEnemyNavMesh : MonoBehaviour
                 navMeshAgent.SetDestination(transform.position);
                 transform.LookAt(player);
                 enemyRangeAttack.RangeAttack();
+                enemyAttackSoundEffect.Play();
             }
 }

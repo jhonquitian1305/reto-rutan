@@ -6,6 +6,9 @@ public class EnemyHealthSystem : MonoBehaviour
 {
     private float currentHealth;
     public float maxHealth;
+
+    [SerializeField] private AudioSource impactAttackEnemySoundEffect;
+    [SerializeField] private AudioSource deathEnemySoundEffect;
     void Start()
     {
         currentHealth = maxHealth;
@@ -27,7 +30,9 @@ public class EnemyHealthSystem : MonoBehaviour
         {
             currentHealth = 0;
             Debug.Log("Enemigo muerto");
+            deathEnemySoundEffect.Play();
         }
         Debug.Log("Vida del enemigo:" + currentHealth);
+        impactAttackEnemySoundEffect.Play();
     }
 }

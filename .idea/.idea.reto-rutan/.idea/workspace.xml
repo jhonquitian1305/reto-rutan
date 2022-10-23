@@ -6,8 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="e169b197-f1a0-4366-a7d4-7bcc44cf0da7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.reto-rutan/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.reto-rutan/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-08.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-08.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-17.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-17.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-18.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-18.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-27.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-27.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-33.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-33.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-35.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-35.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-36.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-36.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-39.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/DM-CGS-39.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/QuitianTEST.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/QuitianTEST.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Coin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Coin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/CoinController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/CoinController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/EnemyHealthSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/EnemyHealthSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/RangeEnemyNavMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/RangeEnemyNavMesh.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Player/CharMoveController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Player/CharMoveController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Player/SpellController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Player/SpellController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Player/PlayerHealthSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Player/PlayerHealthSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,11 +38,21 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/AbilityTimerUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/CoinController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/EnemyHealthSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/EnemyMeleeAttack.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/EnemyRangeAttack.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/MeleeEnemyNavMesh.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/RangeEnemyNavMesh.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/InputSystem/PlayerInputActions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/InputSystem/PlayerInputController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/LoadScene.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/PlatformController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Player/CharMoveController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Player/RbMoveController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Player/SpellController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Player/PlayerHealthSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Player/RbMoveController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Player/SpellController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/SpellBall.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -30,19 +62,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:/Accesos_Directos/Documents/pruebaPantalla\RutaN.exe" />
@@ -94,6 +127,7 @@
       <workItem from="1666186124902" duration="5483000" />
       <workItem from="1666192749174" duration="8377000" />
       <workItem from="1666316345047" duration="76000" />
+      <workItem from="1666531721836" duration="4108000" />
     </task>
     <servers />
   </component>

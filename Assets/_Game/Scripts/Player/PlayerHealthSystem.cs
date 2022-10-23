@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerHealthSystem : MonoBehaviour
 {
     public PlayerData playerData;
+
+    [SerializeField] private AudioSource impactAttackSoundEffect;
+    [SerializeField] private AudioSource deathSoundEffect;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +32,7 @@ public class PlayerHealthSystem : MonoBehaviour
             UpdateLives(-1);
         }
         Debug.Log("VIDA PLAYER:" + playerData.currentHealth);
+        impactAttackSoundEffect.Play();
     }
 
     private void UpdateLives(int value)
@@ -44,6 +49,7 @@ public class PlayerHealthSystem : MonoBehaviour
         {
             playerData.currentHealth = 0;
             Debug.Log("GAME OVER");
+            deathSoundEffect.Play();
         }
     }
 }

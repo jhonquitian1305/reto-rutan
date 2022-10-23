@@ -23,6 +23,8 @@ using UnityEngine;
 
     [SerializeField] private AudioSource moveSoundEffect;
 
+	[SerializeField] private AudioSource jumpSoundEffect;
+
     public Vector2 MoveInputVector { get => moveInputVector; set => moveInputVector = value; }
 
     private void Start()
@@ -56,6 +58,7 @@ using UnityEngine;
     {
         if (isGrounded)
         {
+			jumpSoundEffect.Play();
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
     }
