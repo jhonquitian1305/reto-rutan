@@ -9639,7 +9639,7 @@ GameObject:
   - component: {fileID: 4497602708091055322}
   - component: {fileID: 6291137274014696779}
   m_Layer: 0
-  m_Name: _BolaFuego2
+  m_Name: FireBall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
