@@ -9701,7 +9701,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a50c6cbb4e4fe428a038ce320275ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellType: Thunder
+  criticDamageMultiplier: 1.5
+  spellElementType: 2
 --- !u!54 &8634581850937757224
 Rigidbody:
   m_ObjectHideFlags: 0

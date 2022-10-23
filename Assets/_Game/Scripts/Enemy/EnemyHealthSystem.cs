@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealthSystem : MonoBehaviour
+public partial class EnemyHealthSystem : MonoBehaviour
 {
     private float currentHealth;
     public float maxHealth;
-    public string weaknessType;
+    public ElementType weaknessElementType;
     void Start()
     {
         currentHealth = maxHealth;
@@ -15,7 +15,6 @@ public class EnemyHealthSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
     public void UpdateHealth(float value)
     {

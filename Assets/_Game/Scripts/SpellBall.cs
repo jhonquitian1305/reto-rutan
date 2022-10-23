@@ -8,7 +8,8 @@ public class SpellBall : MonoBehaviour
     private float spellMoveSpeed = 7f;
     private float spellRange = 7f;
     private float spellDamage = 10f;
-    public string spellType;
+    public float criticDamageMultiplier = 1.5f;
+    public ElementType spellElementType;
     private GameObject originGameObject;
 
     private Vector3 spellDirection;
@@ -53,7 +54,15 @@ public class SpellBall : MonoBehaviour
             EnemyHealthSystem enemyHealth = collision.gameObject.GetComponent<EnemyHealthSystem>();
             if (enemyHealth != null)
             {
-                enemyHealth.UpdateHealth(-spellDamage);
+                if(enemyHealth.weaknessElementType == spellElementType)
+                {
+                    Debug.Log("critico");
+                    enemyHealth.UpdateHealth(-spellDamage*criticDamageMultiplier);
+                }
+                else
+                {
+                    enemyHealth.UpdateHealth(-spellDamage);
+                }
             }
         }
         if (collision.transform.CompareTag("Player"))

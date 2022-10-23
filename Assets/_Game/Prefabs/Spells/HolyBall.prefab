@@ -4906,7 +4906,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a50c6cbb4e4fe428a038ce320275ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellType: Holy
+  criticDamageMultiplier: 1.5
+  spellElementType: 1
 --- !u!135 &4481716849233448228
 SphereCollider:
   m_ObjectHideFlags: 0

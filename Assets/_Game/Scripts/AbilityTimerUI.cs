@@ -20,7 +20,6 @@ public class AbilityTimerUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -33,15 +32,15 @@ public class AbilityTimerUI : MonoBehaviour
     private void SetSpellImage()
     {
         activeSpell = spellController.spellBallPrefabs[spellController.ActiveSpellIndex].GetComponent<SpellBall>();
-        if (activeSpell.spellType.Equals("Fire", StringComparison.OrdinalIgnoreCase))
+        if (activeSpell.spellElementType == ElementType.Fire)
         {
             activeSpellImage.sprite = fireSpellImage.sprite;
         }
-        else if (activeSpell.spellType.Equals("Holy", StringComparison.OrdinalIgnoreCase))
+        else if (activeSpell.spellElementType == ElementType.Holy)
         {
             activeSpellImage.sprite = holySpellImage.sprite;
         }
-        else if (activeSpell.spellType.Equals("Thunder", StringComparison.OrdinalIgnoreCase))
+        else if (activeSpell.spellElementType == ElementType.Thunder)
         {
             activeSpellImage.sprite = thunderSpellImage.sprite;
         }
