@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8512707588064352766}
   - component: {fileID: 1077563060020766150}
   - component: {fileID: 2133159241772558072}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: _RayoInterno
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4827,7 +4827,7 @@ GameObject:
   - component: {fileID: 1056508272381939620}
   - component: {fileID: 8634581850937757224}
   - component: {fileID: 1625447880826085486}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: ThunderBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9743,7 +9743,7 @@ GameObject:
   - component: {fileID: 1096924859025197215}
   - component: {fileID: 1096924859025197214}
   - component: {fileID: 1096924859025197213}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Cola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14555,7 +14555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7581588555623033318}
   - component: {fileID: 2482036710386797907}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

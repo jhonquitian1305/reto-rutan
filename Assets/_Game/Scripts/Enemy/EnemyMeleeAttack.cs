@@ -25,15 +25,21 @@ public class EnemyMeleeAttack : MonoBehaviour
         cooldownLeft -= Time.deltaTime;
     }
 
-    private void OnCollisionStay(Collision collision)
+    public void MeleeAttack()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (cooldownLeft <= 0)
         {
-            if (cooldownLeft <= 0)
-            {
-                collision.gameObject.GetComponent<PlayerHealthSystem>().UpdateHealth(-attackDamage);
-                cooldownLeft = cooldown;
-            }
+            Debug.Log("ataque");
+            cooldownLeft = cooldown;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //Animación ataque
+            MeleeAttack();
         }
     }
 }

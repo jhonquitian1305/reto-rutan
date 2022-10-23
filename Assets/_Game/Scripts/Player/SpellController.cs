@@ -12,10 +12,10 @@ public class SpellController : MonoBehaviour
     public float spellCooldown = 2f;
     public List<GameObject> spellBallPrefabs;
 
-    public Transform originPoint;
+    public GameObject orbOrigin;
     public GameObject spellIndicator;
 
-    private int activeSpellIndex;
+    private int activeSpellIndex=0;
     private float cycleTime = 0;
 
     private AnimationController playerAnim;
@@ -28,8 +28,17 @@ public class SpellController : MonoBehaviour
             spellIndicator.SetActive(false);
         }
         playerAnim = GetComponent<AnimationController>();
-        activeSpellIndex = 0;
-
+        ChangeSpellIndicatorColor();
+    }
+    private void ChangeSpellIndicatorColor()
+    {
+        SpellBall activeSpell = spellBallPrefabs[activeSpellIndex].GetComponent<SpellBall>();
+        Color newColor = Color.black;
+        if (activeSpell.spellElementType == ElementType.Fire) newColor = new Color(1,0.33f,0,1);
+        else if (activeSpell.spellElementType == ElementType.Holy) newColor = Color.yellow;
+        else if (activeSpell.spellElementType == ElementType.Thunder) newColor = new Color(0,0.5f,1,1);
+        spellIndicator.GetComponent<Projector>().material.SetColor("_MainColor", newColor);
+        orbOrigin.GetComponent<MeshRenderer>().material.SetColor("_Color", newColor);
     }
 
     public void SetNextSpellAsActive()
@@ -39,6 +48,7 @@ public class SpellController : MonoBehaviour
         {
             activeSpellIndex = 0;
         }
+        ChangeSpellIndicatorColor();
     }
     public void SetLastSpellAsActive()
     {
@@ -47,6 +57,7 @@ public class SpellController : MonoBehaviour
         {
             activeSpellIndex = spellBallPrefabs.Count-1;
         }
+        ChangeSpellIndicatorColor();
     }
 
     // Update is called once per frame
@@ -76,7 +87,7 @@ public class SpellController : MonoBehaviour
     {
         if (CooldownTime() <= 0)
         {
-            Vector3 originPosition = originPoint.position;
+            Vector3 originPosition = orbOrigin.transform.position;
             GameObject spellBall = Instantiate(spellBallPrefabs[activeSpellIndex], originPosition, transform.rotation);
             spellBall.GetComponent<SpellBall>().OriginGameObject = gameObject;
             spellBall.GetComponent<SpellBall>().SpellDamage = spellDamage;

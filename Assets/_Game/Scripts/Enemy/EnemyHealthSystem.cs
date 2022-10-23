@@ -4,12 +4,16 @@ using UnityEngine;
 
 public partial class EnemyHealthSystem : MonoBehaviour
 {
-    private float currentHealth;
     public float maxHealth;
     public ElementType weaknessElementType;
+    private float currentHealth;
+    private float currentHealthPercentage;
+    private EnemyHealthBar healthBar;
     void Start()
     {
         currentHealth = maxHealth;
+        currentHealthPercentage = currentHealth / maxHealth;
+        healthBar = GetComponentInChildren<EnemyHealthBar>();
     }
 
     // Update is called once per frame
@@ -29,5 +33,7 @@ public partial class EnemyHealthSystem : MonoBehaviour
             Debug.Log("Enemigo muerto");
         }
         Debug.Log("Vida del enemigo:" + currentHealth);
+        currentHealthPercentage = currentHealth / maxHealth;
+        healthBar.UpdateHealthBarPercentage(currentHealthPercentage);
     }
 }
