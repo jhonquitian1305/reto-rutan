@@ -38,6 +38,7 @@ public class AnimationController : MonoBehaviour
         else if (charMove.lockCamera)
         {
             MoveWhenLocked();
+            FallingAnim();
         }
     }
     #region UnlockMove
@@ -58,6 +59,10 @@ public class AnimationController : MonoBehaviour
         if (charMove.isJumping & !charMove.lockCamera)
         {
             animatorPlayer.SetBool("isJumping", true);
+        }
+        else if (!charMove.isJumping)
+        {
+            animatorPlayer.SetBool("isJumping", false);
         }
     }
 
@@ -82,9 +87,13 @@ public class AnimationController : MonoBehaviour
         {
             case 1:
                 animatorPlayer.SetBool("WalkLeft", true);
+                animatorPlayer.SetBool("WalkRight", false);
+
                 break;
             case 2:
                 animatorPlayer.SetBool("WalkRight", true);
+                animatorPlayer.SetBool("WalkLeft", false);
+
                 break;
             default:
                 animatorPlayer.SetBool("WalkRight", false);
@@ -95,10 +104,14 @@ public class AnimationController : MonoBehaviour
         switch (charMove.forwardMove)
         {
             case 1:
-                animatorPlayer.SetBool("WalkBack", true);
+                animatorPlayer.SetBool("WalkBack", false);
+                animatorPlayer.SetBool("WalkForward", true);
+
                 break;
             case 2:
-                animatorPlayer.SetBool("WalkForward", true);
+                animatorPlayer.SetBool("WalkForward", false);
+                animatorPlayer.SetBool("WalkBack", true);
+
                 break;
             default:
                 animatorPlayer.SetBool("WalkForward", false);
