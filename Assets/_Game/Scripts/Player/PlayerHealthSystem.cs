@@ -25,11 +25,16 @@ public class PlayerHealthSystem : MonoBehaviour
         } else if (playerData.currentHealth <= 0)
         {
             playerData.currentHealth = 0;
+            Die();
             UpdateLives(-1);
         }
         Debug.Log("VIDA PLAYER:" + playerData.currentHealth);
     }
 
+    private void Die()
+    {
+        //muere
+    }
     private void UpdateLives(int value)
     {
         if (playerData.lives+value > 0)
