@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3889930293777702822}
   - component: {fileID: 3889930293777702823}
   - component: {fileID: 3889930293777702820}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Cola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: 3889930293855090826}
   - component: {fileID: 3889930293855090828}
   - component: {fileID: 3889930293855090829}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Cola (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9638,7 +9638,7 @@ GameObject:
   - component: {fileID: 2308965152390970076}
   - component: {fileID: 4497602708091055322}
   - component: {fileID: 6291137274014696779}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: FireBall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14512,7 +14512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a50c6cbb4e4fe428a038ce320275ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellType: 
+  criticDamageMultiplier: 1.5
+  spellElementType: 0
 --- !u!54 &4497602708091055322
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14553,7 +14554,7 @@ GameObject:
   - component: {fileID: 3889930295223726348}
   - component: {fileID: 3889930295223726350}
   - component: {fileID: 3889930295223726351}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: BolaFuego (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
