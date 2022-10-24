@@ -45,7 +45,6 @@ public class CharMoveController : MonoBehaviour
         Rotate();
         GravityAction();
         CheckIfFalling();
-        //Debug.Log(moveInputVector);
     }
 
     private void Move()
@@ -99,7 +98,6 @@ public class CharMoveController : MonoBehaviour
                         lateralMove = 0;
                     }
 
-                    Debug.Log(forwardMove + "," + lateralMove);
                 }
                 else if (moveInputVector == Vector2.zero)
                 {

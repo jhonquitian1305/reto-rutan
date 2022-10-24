@@ -93,6 +93,7 @@ public class SpellController : MonoBehaviour
             spellBall.GetComponent<SpellBall>().SpellDamage = spellDamage;
             spellBall.GetComponent<SpellBall>().SpellMoveSpeed = spellMoveSpeed;
             spellBall.GetComponent<SpellBall>().SpellRange = spellRange;
+            spellBall.GetComponent<SpellBall>().SpellDirection = transform.forward;
             cycleTime = Time.time + spellCooldown;
         }
     }

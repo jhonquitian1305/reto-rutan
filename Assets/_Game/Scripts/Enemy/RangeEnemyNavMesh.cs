@@ -12,6 +12,7 @@ public class RangeEnemyNavMesh : MonoBehaviour
     public List<Transform> walkpoints;
     public bool canSummon;
     public bool canAttack;
+    public CasterAnimController casterAnimController;
 
     private NavMeshAgent navMeshAgent;
     private int currentWalkpointIndex=0;
@@ -24,6 +25,7 @@ public class RangeEnemyNavMesh : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
+        casterAnimController = GetComponent<CasterAnimController>();
 
         enemyRangeAttack = GetComponent<EnemyRangeAttack>();
         enemySummon = GetComponent<EnemySummon>();
@@ -98,7 +100,7 @@ public class RangeEnemyNavMesh : MonoBehaviour
             navMeshAgent.SetDestination(transform.position);
         }
         transform.LookAt(player);
-        if (canAttack) enemyRangeAttack.RangeAttack();
+        //if (canAttack) enemyRangeAttack.RangeAttack();
         if (canSummon) enemySummon.SummonEnemy();
     }
 }
