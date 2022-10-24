@@ -6,6 +6,8 @@ public partial class EnemyHealthSystem : MonoBehaviour
 {
     public float maxHealth;
     public ElementType weaknessElementType;
+    public CasterAnimController casterAnimController;
+
     private float currentHealth;
     private float currentHealthPercentage;
     private EnemyHealthBar healthBar;
@@ -14,6 +16,8 @@ public partial class EnemyHealthSystem : MonoBehaviour
         currentHealth = maxHealth;
         currentHealthPercentage = currentHealth / maxHealth;
         healthBar = GetComponentInChildren<EnemyHealthBar>();
+        casterAnimController = GetComponent<CasterAnimController>();
+
     }
 
     // Update is called once per frame
@@ -27,6 +31,7 @@ public partial class EnemyHealthSystem : MonoBehaviour
     public void UpdateHealth(float value)
     {
         currentHealth += value;
+        casterAnimController.GetHitAnim();
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;

@@ -18,13 +18,13 @@ public class SpellBall : MonoBehaviour
     public float SpellRange { get => spellRange; set => spellRange = value; }
     public float SpellDamage { get => spellDamage; set => spellDamage = value; }
     public GameObject OriginGameObject { get => originGameObject; set => originGameObject = value; }
+    public Vector3 SpellDirection { get => spellDirection; set => spellDirection = value; }
 
     // Start is called before the first frame update
 
     void Start()
     {
         //transform.parent = GameObject.Find("SpellBallParent").transform;
-        spellDirection = originGameObject.transform.forward;
         float timeToDestroy = (spellRange / spellMoveSpeed);
 
         Invoke(nameof(Disable), timeToDestroy);
