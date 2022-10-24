@@ -60,7 +60,6 @@ public class SpellController : MonoBehaviour
         ChangeSpellIndicatorColor();
     }
 
-    // Update is called once per frame
     public float CooldownTime()
     {
        if(cycleTime - Time.time > 0)

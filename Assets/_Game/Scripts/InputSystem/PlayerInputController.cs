@@ -11,16 +11,17 @@ public class PlayerInputController : MonoBehaviour
     public float aimSensitivity = 1.5f;
     public CinemachineFreeLook mainFreeLookCamera;
     private PlayerInputActions playerInputActions;
-    //private AnimationController playerAnimController;
+    private AnimationController playerAnimController;
     private CharMoveController playerMoveController;
     private SpellController playerSpellController;
+    private MeleeController playerMeleeController;
     private CinemachineFreeLook FreelookCM;
     private float originalCMxSpeed;
 
 
     private void OnEnable()
     {
-        //playerAnimController = GetComponent<AnimationController>();
+        playerAnimController = GetComponent<AnimationController>();
         playerMoveController = GetComponent<CharMoveController>();
         playerSpellController = GetComponent<SpellController>();
 
@@ -92,7 +93,7 @@ public class PlayerInputController : MonoBehaviour
     {
         if (ctx.started)
         {
-
+            playerAnimController.MeleeAttack();
         }
         else if (ctx.performed)
         {

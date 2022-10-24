@@ -155,6 +155,20 @@ public class AnimationController : MonoBehaviour
         charMove.canMove = true;
         charMove.isRunning = true;
     }
+
+    public void MeleeAttack()
+    {
+        charMove.canMove = false;
+        charMove.isRunning = false;
+        animatorPlayer.SetBool("isRunning", false);
+        animatorPlayer.SetTrigger("Melee");
+    }
+
+    public void FinishMelee()
+    {
+        charMove.canMove = true;
+        animatorPlayer.SetBool("isRunning", true);  
+    }
     #endregion
 }
 
