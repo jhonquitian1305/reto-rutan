@@ -38,6 +38,7 @@ public class AnimationController : MonoBehaviour
         else if (charMove.lockCamera)
         {
             MoveWhenLocked();
+            FallingAnim();
         }
     }
     #region UnlockMove
@@ -58,6 +59,10 @@ public class AnimationController : MonoBehaviour
         if (charMove.isJumping & !charMove.lockCamera)
         {
             animatorPlayer.SetBool("isJumping", true);
+        }
+        else if (!charMove.isJumping)
+        {
+            animatorPlayer.SetBool("isJumping", false);
         }
     }
 

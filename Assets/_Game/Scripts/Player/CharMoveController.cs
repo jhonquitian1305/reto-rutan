@@ -80,13 +80,11 @@ public class CharMoveController : MonoBehaviour
                 {
                     if (moveInputVector.x < 0 && (moveInputVector.y<0.5 && moveInputVector.y >-0.5))
                     {
-                        Debug.Log("izq");
                         lateralMove = 1;
                         forwardMove = 0;
                     }
                     else if (moveInputVector.x > 0 && (moveInputVector.y < 0.5 && moveInputVector.y > -0.5))
                     {
-                        Debug.Log("der");
                         lateralMove = 2;
                         forwardMove = 0;
                     }
