@@ -45,6 +45,7 @@ public class CharMoveController : MonoBehaviour
         Rotate();
         GravityAction();
         CheckIfFalling();
+        //Debug.Log(moveInputVector);
     }
 
     private void Move()
@@ -77,39 +78,30 @@ public class CharMoveController : MonoBehaviour
                 controller.Move(moveVector * Time.deltaTime * walkingSpeed);
                 if (moveInputVector != Vector2.zero)
                 {
-                    if (moveInputVector.x == -1)
+                    if (moveInputVector.x < 0 && (moveInputVector.y<0.5 && moveInputVector.y >-0.5))
                     {
+                        Debug.Log("izq");
                         lateralMove = 1;
+                        forwardMove = 0;
                     }
-                    else if (moveInputVector.x == 1)
+                    else if (moveInputVector.x > 0 && (moveInputVector.y < 0.5 && moveInputVector.y > -0.5))
                     {
+                        Debug.Log("der");
                         lateralMove = 2;
+                        forwardMove = 0;
+                    }
+                    else if (moveInputVector.y > 0)
+                    {
+                        forwardMove = 1;
+                        lateralMove = 0;
+                    }
+                    else if (moveInputVector.y < 0)
+                    {
+                        forwardMove = 2;
+                        lateralMove = 0;
                     }
 
-                    if (moveInputVector.y == -1)
-                    {
-                        forwardMove = 1;
-                    }
-                    else if (moveInputVector.y < 0 && moveInputVector.x < 0)
-                    {
-                        forwardMove = 1;
-                    }
-                    else if (moveInputVector.y < 0 && moveInputVector.x > 0)
-                    {
-                        forwardMove = 1;
-                    }
-                    else if (moveInputVector.y == 1)
-                    {
-                        forwardMove = 2;
-                    }
-                    else if (moveInputVector.y > 0 && moveInputVector.x < 0)
-                    {
-                        forwardMove = 2;
-                    }
-                    else if (moveInputVector.y > 0 && moveInputVector.x > 0)
-                    {
-                        forwardMove = 2;
-                    }
+                    Debug.Log(forwardMove + "," + lateralMove);
                 }
                 else if (moveInputVector == Vector2.zero)
                 {
