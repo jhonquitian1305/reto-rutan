@@ -61,9 +61,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: WalkRight
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: WalkBack
     m_EventTreshold: 0
@@ -128,7 +125,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.1
   m_TransitionOffset: 0
   m_ExitTime: 0.87288135
   m_HasExitTime: 0
@@ -144,9 +141,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: WalkForward
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: CastAttack
     m_EventTreshold: 0
@@ -221,16 +215,16 @@ AnimatorStateMachine:
     m_Position: {x: 440, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3064886276900108}
-    m_Position: {x: 720, y: -200, z: 0}
+    m_Position: {x: 770, y: -200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3941058519453791445}
-    m_Position: {x: 1030, y: -120, z: 0}
+    m_Position: {x: 1160, y: -170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2435564198129866214}
-    m_Position: {x: 1170, y: 60, z: 0}
+    m_Position: {x: 1220, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -553879765028638009}
-    m_Position: {x: 880, y: 250, z: 0}
+    m_Position: {x: 1050, y: 250, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -329,9 +323,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: WalkRight
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: WalkForward
     m_EventTreshold: 0
@@ -357,9 +348,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: WalkBack
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: WalkRight
     m_EventTreshold: 0
@@ -415,9 +403,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: WalkBack
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: WalkLeft
     m_EventTreshold: 0
@@ -443,9 +428,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: WalkLeft
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: CastAttack
     m_EventTreshold: 0
@@ -480,7 +462,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.1
   m_TransitionOffset: 0
   m_ExitTime: 0.87288135
   m_HasExitTime: 0
@@ -644,7 +626,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.1
   m_TransitionOffset: 0
   m_ExitTime: 0.87288135
   m_HasExitTime: 0
@@ -740,9 +722,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: WalkBack
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: CastAttack
     m_EventTreshold: 0
@@ -793,7 +772,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: WalkLeft
+  - m_Name: WalkForward
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -805,13 +784,13 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: WalkForward
+  - m_Name: WalkBack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: WalkBack
+  - m_Name: WalkLeft
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -896,13 +875,22 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: WalkForward
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: WalkRight
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: WalkLeft
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: WalkBack
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2070328732714533296}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.1
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -921,13 +909,22 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: WalkLeft
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: WalkRight
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: WalkForward
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: WalkBack
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2070328732714533296}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.1
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -943,9 +940,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: WalkLeft
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: WalkForward
     m_EventTreshold: 0
@@ -1013,7 +1007,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.1
   m_TransitionOffset: 0
   m_ExitTime: 0.87288135
   m_HasExitTime: 0
@@ -1082,9 +1076,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: WalkRight
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: CastAttack
     m_EventTreshold: 0
@@ -1113,13 +1104,22 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: WalkRight
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: WalkForward
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: WalkBack
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: WalkLeft
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2070328732714533296}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.1
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -1135,9 +1135,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: WalkForward
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: WalkLeft
     m_EventTreshold: 0
@@ -1246,9 +1243,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: WalkForward
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: WalkRight
     m_EventTreshold: 0
@@ -1305,13 +1299,22 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: WalkBack
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: WalkForward
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: WalkRight
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: WalkLeft
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2070328732714533296}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.1
   m_TransitionOffset: 0
   m_ExitTime: 0.8214286
   m_HasExitTime: 0
@@ -1355,9 +1358,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: WalkLeft
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: WalkBack
     m_EventTreshold: 0
