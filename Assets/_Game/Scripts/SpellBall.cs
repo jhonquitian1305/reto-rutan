@@ -12,8 +12,6 @@ public class SpellBall : MonoBehaviour
     public float criticDamageMultiplier = 1.5f;
     public ElementType spellElementType;
     private GameObject originGameObject;
-    private Animator playerAnim;
-    private Animator enemyAnim;
     public int posibleCritico;
 
     private Vector3 spellDirection;
@@ -36,8 +34,6 @@ public class SpellBall : MonoBehaviour
         GetComponent<ParticleSystem>().Play();
         ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
         em.enabled = true;
-
-        playerAnim = GetComponent<Animator>();
     }
 
 
@@ -63,11 +59,11 @@ public class SpellBall : MonoBehaviour
                 if(enemyHealth.weaknessElementType == spellElementType)
                 {
                     Debug.Log("critico");
-                    enemyHealth.UpdateHealth(-spellDamage*criticDamageMultiplier);
+                    enemyHealth.UpdateHealth(-spellDamage, true);
                 }
                 else
                 {
-                    enemyHealth.UpdateHealth(-spellDamage);
+                    enemyHealth.UpdateHealth(-spellDamage, false);
                 }
             }
         }
@@ -79,15 +75,12 @@ public class SpellBall : MonoBehaviour
             {
                 if (posibleCritico < 4)
                 {
-                    playerHealth.UpdateHealth(-spellDamage*criticDamageMultiplier);
-                    playerAnim.SetTrigger("Hit");
+                    playerHealth.UpdateHealth(-spellDamage, true);
 
                 }
                 else
                 {
-                    playerHealth.UpdateHealth(-spellDamage);
-                    playerAnim.SetTrigger("Hit");
-
+                    playerHealth.UpdateHealth(-spellDamage, false);
                 }
             }
         }

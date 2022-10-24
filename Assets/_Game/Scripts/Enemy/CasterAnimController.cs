@@ -22,21 +22,32 @@ public class CasterAnimController : MonoBehaviour
 
     }
 
+    public void Idle()
+    {
+        enemyAnim.SetTrigger("Idle");
+    }
+    public void WalkBack()
+    {
+        enemyAnim.SetTrigger("WalkBack");
+    }
     public void WalkAnim()
     {
-        enemyAnim.SetBool("Walk", true);
+        enemyAnim.SetTrigger("Walk");
     }
 
     public void AttackAnim()
     {
-        enemyAnim.SetBool("Walk", true);
+        enemyAnim.SetTrigger("Attack");
     }
 
     public void GetHitAnim()
     {
         enemyAnim.SetTrigger("GetHit");
     }
-
+    public void Die()
+    {
+        enemyAnim.SetTrigger("Die");
+    }
 }
 
 
