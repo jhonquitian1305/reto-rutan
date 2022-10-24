@@ -6,7 +6,7 @@ public class CharMoveController : MonoBehaviour
     {
     [Header("Parametros movimiento")]
     public float playerSpeed = 5;
-    public float walkingSpeed = 3;
+    public float walkingSpeed;
     private float gravityValue = -9.81f;
     public float jumpHeight = 5f;
     public bool lockCamera;
@@ -45,7 +45,6 @@ public class CharMoveController : MonoBehaviour
         Rotate();
         GravityAction();
         CheckIfFalling();
-        Debug.Log(moveInputVector);
     }
 
     private void Move()
