@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 
 namespace _Game._Canvas._Scripts
@@ -12,17 +14,8 @@ namespace _Game._Canvas._Scripts
         public AnimationClip animacionFinal;
         public GameObject buttonPausa;
         public GameObject menuPausa;
-        private static readonly int Iniciar = Animator.StringToHash("Iniciar");
-
-        public void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Time.timeScale = 0f;
-                buttonPausa.SetActive(false);
-                menuPausa.SetActive(true);    
-            }
-        }
+        private readonly int Iniciar = Animator.StringToHash("Iniciar");
+        
         public void Pausar()
         {
             buttonPausa.SetActive(false);
@@ -36,14 +29,17 @@ namespace _Game._Canvas._Scripts
             buttonPausa.SetActive(true);
             Time.timeScale = 1f;
         }
+        
         public void Reiniciar()
         {
             StartCoroutine(ReiniciarEscena());
         }
+        
         public void Volver()
         {
             StartCoroutine(VolverEscena());
         }
+        
         IEnumerator ReiniciarEscena()
         {
             menuPausa.SetActive(false);
@@ -54,6 +50,7 @@ namespace _Game._Canvas._Scripts
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             playerData.currentHealth = playerData.maxHealth;
         }
+        
         IEnumerator VolverEscena()
         {
             menuPausa.SetActive(false);
