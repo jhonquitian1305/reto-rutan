@@ -106,7 +106,7 @@ using UnityEngine;
             isGrounded = true;
             isJumping = false;
             isFalling = false;
-            if (Physics.CheckSphere(groundCheck.position, .02f, groundLayer) && playerVelocity.y < 0)
+            if (Physics.CheckSphere(groundCheck.position, .03f, groundLayer) && playerVelocity.y < 0)
             {
                 playerVelocity.y = 0f;
             }
