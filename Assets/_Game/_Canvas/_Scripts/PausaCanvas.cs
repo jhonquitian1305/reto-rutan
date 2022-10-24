@@ -1,52 +1,68 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PausaCanvas : MonoBehaviour
+namespace _Game._Canvas._Scripts
 {
-    public PlayerData playerData;
-    public int playerLives=3, playerMaxHealth=100;
-    public Animator animator;
-    public AnimationClip animacionFinal;
-    public GameObject buttonPausa;
-    public GameObject menuPausa;
+    public class PausaCanvas : MonoBehaviour
+    {
+        public PlayerData playerData;
+        public int playerLives=3, playerMaxHealth=100;
+        public Animator animator;
+        public AnimationClip animacionFinal;
+        public GameObject buttonPausa;
+        public GameObject menuPausa;
+        private static readonly int Iniciar = Animator.StringToHash("Iniciar");
 
-    public void Pausar()
-    {
-        Time.timeScale = 0f;
-        buttonPausa.SetActive(false);
-        menuPausa.SetActive(true);
-    }
+        public void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Time.timeScale = 0f;
+                buttonPausa.SetActive(false);
+                menuPausa.SetActive(true);    
+            }
+        }
+        public void Pausar()
+        {
+            buttonPausa.SetActive(false);
+            menuPausa.SetActive(true);
+            Time.timeScale = 0f;
+        }
 
-    public void Reanudar()
-    {
-        Time.timeScale = 1f;
-        menuPausa.SetActive(false);
-        buttonPausa.SetActive(true);
-    }
-    public void Reiniciar()
-    {
-        StartCoroutine(ReiniciarEscena());
-    }
-    public void Volver()
-    {
-        StartCoroutine(VolverEscena());
-    }
-    IEnumerator ReiniciarEscena()
-    {
-        Time.timeScale = 1f;
-        animator.SetTrigger("Iniciar");
-        yield return new WaitForSeconds(animacionFinal.length);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        playerData.currentHealth = playerData.maxHealth;
-    }
-    IEnumerator VolverEscena()
-    {
-        Time.timeScale = 1f;
-        animator.SetTrigger("Iniciar");
-        yield return new WaitForSeconds(animacionFinal.length);
-        SceneManager.LoadScene(0);
-        playerData.currentHealth = playerData.maxHealth;
+        public void Reanudar()
+        {
+            menuPausa.SetActive(false);
+            buttonPausa.SetActive(true);
+            Time.timeScale = 1f;
+        }
+        public void Reiniciar()
+        {
+            StartCoroutine(ReiniciarEscena());
+        }
+        public void Volver()
+        {
+            StartCoroutine(VolverEscena());
+        }
+        IEnumerator ReiniciarEscena()
+        {
+            menuPausa.SetActive(false);
+            buttonPausa.SetActive(false);
+            Time.timeScale = 1f;
+            animator.SetTrigger(Iniciar);
+            yield return new WaitForSeconds(animacionFinal.length);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            playerData.currentHealth = playerData.maxHealth;
+        }
+        IEnumerator VolverEscena()
+        {
+            menuPausa.SetActive(false);
+            buttonPausa.SetActive(false);
+            Time.timeScale = 1f;
+            animator.SetTrigger(Iniciar);
+            yield return new WaitForSeconds(animacionFinal.length);
+            SceneManager.LoadScene(0);
+            playerData.currentHealth = playerData.maxHealth;
+        }
     }
 }
