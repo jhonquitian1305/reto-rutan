@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-    public class CharMoveController : MonoBehaviour
+public class CharMoveController : MonoBehaviour
     {
     [Header("Parametros movimiento")]
     public float playerSpeed = 5;
+    public float walkingSpeed = 3;
     private float gravityValue = -9.81f;
     public float jumpHeight = 5f;
     public bool lockCamera;
+    public int lateralMove;
+    public int forwardMove;
     public Transform groundCheck;
     public LayerMask groundLayer;
 
@@ -43,30 +45,84 @@ using UnityEngine;
         Rotate();
         GravityAction();
         CheckIfFalling();
+        Debug.Log(moveInputVector);
     }
 
     private void Move()
     {
         //Movement
-        if (canMove)
+        if (!lockCamera)
         {
-            moveVector = new Vector3(moveInputVector.x, 0, moveInputVector.y);
-            moveVector = moveVector.x * cameraTransform.right.normalized + moveVector.z * cameraTransform.forward.normalized;
-            moveVector.y = 0;
-            controller.Move(moveVector * Time.deltaTime * playerSpeed);
-            if (moveInputVector != Vector2.zero)
+            if (canMove)
             {
-                isRunning = true;
+                moveVector = new Vector3(moveInputVector.x, 0, moveInputVector.y);
+                moveVector = moveVector.x * cameraTransform.right.normalized + moveVector.z * cameraTransform.forward.normalized;
+                moveVector.y = 0;
+                controller.Move(moveVector * Time.deltaTime * playerSpeed);
+                if (moveInputVector != Vector2.zero)
+                {
+                    isRunning = true;
+                }
+                else
+                {
+                    isRunning = false;
+                }
             }
-            else
+        }else if (lockCamera)
             {
-                isRunning = false;
+            if (canMove)
+            {
+                moveVector = new Vector3(moveInputVector.x, 0, moveInputVector.y);
+                moveVector = moveVector.x * cameraTransform.right.normalized + moveVector.z * cameraTransform.forward.normalized;
+                moveVector.y = 0;
+                controller.Move(moveVector * Time.deltaTime * walkingSpeed);
+                if (moveInputVector != Vector2.zero)
+                {
+                    if (moveInputVector.x == -1)
+                    {
+                        lateralMove = 1;
+                    }
+                    else if (moveInputVector.x == 1)
+                    {
+                        lateralMove = 2;
+                    }
+
+                    if (moveInputVector.y == -1)
+                    {
+                        forwardMove = 1;
+                    }
+                    else if (moveInputVector.y < 0 && moveInputVector.x < 0)
+                    {
+                        forwardMove = 1;
+                    }
+                    else if (moveInputVector.y < 0 && moveInputVector.x > 0)
+                    {
+                        forwardMove = 1;
+                    }
+                    else if (moveInputVector.y == 1)
+                    {
+                        forwardMove = 2;
+                    }
+                    else if (moveInputVector.y > 0 && moveInputVector.x < 0)
+                    {
+                        forwardMove = 2;
+                    }
+                    else if (moveInputVector.y > 0 && moveInputVector.x > 0)
+                    {
+                        forwardMove = 2;
+                    }
+                }
+                else if (moveInputVector == Vector2.zero)
+                {
+                    lateralMove = 0;
+                    forwardMove = 0;
+                }
             }
         }
     }
     public void Jump()
     {
-        if (isGrounded && canMove)
+        if (isGrounded && canMove && !lockCamera)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
@@ -106,7 +162,7 @@ using UnityEngine;
             isGrounded = true;
             isJumping = false;
             isFalling = false;
-            if (Physics.CheckSphere(groundCheck.position, .02f, groundLayer) && playerVelocity.y < 0)
+            if (Physics.CheckSphere(groundCheck.position, .03f, groundLayer) && playerVelocity.y < 0)
             {
                 playerVelocity.y = 0f;
             }

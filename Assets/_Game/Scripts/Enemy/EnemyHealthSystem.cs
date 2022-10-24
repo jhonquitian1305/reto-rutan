@@ -20,6 +20,10 @@ public partial class EnemyHealthSystem : MonoBehaviour
     void Update()
     {
     }
+    private void Die()
+    {
+        //muere
+    }
     public void UpdateHealth(float value)
     {
         currentHealth += value;
@@ -30,6 +34,7 @@ public partial class EnemyHealthSystem : MonoBehaviour
         else if (currentHealth <= 0)
         {
             currentHealth = 0;
+            Die();
             Debug.Log("Enemigo muerto");
         }
         Debug.Log("Vida del enemigo:" + currentHealth);

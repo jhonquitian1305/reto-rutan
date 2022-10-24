@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
@@ -19,12 +20,27 @@ public class AnimationController : MonoBehaviour
 
     private void Update()
     {
-        RunAnim();
-        JumpAnim();
-        FallingAnim();
+        //RunAnim();
+        //JumpAnim();
+        //FallingAnim();
+        GlobalAnimatorController();
     }
 
-    #region Move and Jump
+    private void GlobalAnimatorController()
+    {
+        if (!charMove.lockCamera)
+        {
+            StopLockMove();
+            RunAnim();
+            JumpAnim();
+            FallingAnim();
+        }
+        else if (charMove.lockCamera)
+        {
+            MoveWhenLocked();
+        }
+    }
+    #region UnlockMove
     public void RunAnim()
     {
         if (charMove.isRunning)
@@ -39,7 +55,7 @@ public class AnimationController : MonoBehaviour
 
     public void JumpAnim()
     {
-        if (charMove.isJumping)
+        if (charMove.isJumping & !charMove.lockCamera)
         {
             animatorPlayer.SetBool("isJumping", true);
         }
@@ -56,6 +72,49 @@ public class AnimationController : MonoBehaviour
             animatorPlayer.SetBool("isFalling", false);
         }
     }
+    #endregion
+
+    #region LockMove
+    private void MoveWhenLocked()
+    {
+        animatorPlayer.SetBool("isRunning", false);
+        switch (charMove.lateralMove)
+        {
+            case 1:
+                animatorPlayer.SetBool("WalkLeft", true);
+                break;
+            case 2:
+                animatorPlayer.SetBool("WalkRight", true);
+                break;
+            default:
+                animatorPlayer.SetBool("WalkRight", false);
+                animatorPlayer.SetBool("WalkLeft", false);
+                break;
+        }
+
+        switch (charMove.forwardMove)
+        {
+            case 1:
+                animatorPlayer.SetBool("WalkBack", true);
+                break;
+            case 2:
+                animatorPlayer.SetBool("WalkForward", true);
+                break;
+            default:
+                animatorPlayer.SetBool("WalkForward", false);
+                animatorPlayer.SetBool("WalkBack", false);
+                break;
+        }
+    }
+
+    private void StopLockMove()
+    {
+        animatorPlayer.SetBool("WalkLeft", false);
+        animatorPlayer.SetBool("WalkRight", false);
+        animatorPlayer.SetBool("WalkForward", false);
+        animatorPlayer.SetBool("WalkBack", false);
+    }
+
     #endregion
 
     #region Animation Attack

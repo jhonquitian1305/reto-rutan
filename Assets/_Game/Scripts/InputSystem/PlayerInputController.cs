@@ -123,6 +123,7 @@ public class PlayerInputController : MonoBehaviour
             mainFreeLookCamera.m_XAxis.m_MaxSpeed = aimSensitivity;
             playerSpellController.EnableIndicator(true);
             playerMoveController.lockCamera = true;
+            playerMoveController.isRunning = false;
         }
         else if (ctx.canceled)
         {
