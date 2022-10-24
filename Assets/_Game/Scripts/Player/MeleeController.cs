@@ -6,18 +6,15 @@ public class MeleeController : MonoBehaviour
 {
     public Transform atkPoint;
     public float meleeDamage;
-
-    private Animator enemyAnim;
-
-    private Animator playerAnim;
-
+    private AnimationController playerAnim;
     private float cycleTime = 0;
-    public float spellCooldown = 2f;
+    public float attackCooldown = 1f;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        playerAnim = GetComponent<AnimationController>();
     }
 
     // Update is called once per frame
@@ -40,15 +37,15 @@ public class MeleeController : MonoBehaviour
 
     public float CooldownPercentage()
     {
-        return 1 - (CooldownTime() / spellCooldown);
+        return 1 - (CooldownTime() / attackCooldown);
     }
 
     public void Attack()
     {
-        //if (CooldownTime() <= 0)
-        //{
-            playerAnim.SetTrigger("Melee");
-        //}
+        if (CooldownTime() <= 0)
+        {
+            playerAnim.MeleeAttack();
+        }
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -56,11 +53,10 @@ public class MeleeController : MonoBehaviour
         Debug.Log("Esto es una prueba");   
         if (collision.transform.CompareTag("Enemy"))
         {
-            enemyAnim=GetComponent<Animator>();
             EnemyHealthSystem enemyHealth = collision.gameObject.GetComponent<EnemyHealthSystem>();
             if (enemyHealth != null)
             {
-                enemyHealth.UpdateHealth(-meleeDamage);
+                enemyHealth.UpdateHealth(-meleeDamage, false);
             }
         }
     }

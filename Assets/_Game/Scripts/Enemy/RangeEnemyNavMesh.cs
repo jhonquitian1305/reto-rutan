@@ -18,12 +18,12 @@ public class RangeEnemyNavMesh : MonoBehaviour
     private int currentWalkpointIndex=0;
     private bool playerInSightRange, playerInAttackRange, playerInAttackSight;
 
-    private Transform player;
+    private GameObject player;
     private EnemyRangeAttack enemyRangeAttack;
     private EnemySummon enemySummon;
     private void Awake()
     {
-        player = GameObject.FindWithTag("Player").transform;
+        player = GameObject.FindWithTag("Player");
         navMeshAgent = GetComponent<NavMeshAgent>();
         casterAnimController = GetComponent<CasterAnimController>();
 
@@ -43,12 +43,12 @@ public class RangeEnemyNavMesh : MonoBehaviour
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
         if (canAttack) playerInAttackSight = enemyRangeAttack.PlayerInSight();
         else playerInAttackSight = true;
-        
-        if(!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange)
+
+        if((!playerInSightRange && !playerInAttackRange) || player.GetComponent<PlayerHealthSystem>().isDead) Patroling();
+        else if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+        else if (playerInAttackRange && playerInSightRange)
         {
-            if(playerInAttackSight) AttackPlayer();
+            if (playerInAttackSight) AttackPlayer();
             else ChasePlayer();
         }
         ClampRotation();
@@ -67,9 +67,11 @@ public class RangeEnemyNavMesh : MonoBehaviour
 
     private void Patroling()
     {
+        casterAnimController.WalkAnim();
         Vector3 distanceToWalkPoint = transform.position - walkpoints[currentWalkpointIndex].position;
         if (distanceToWalkPoint.magnitude < 1f)
         {
+            casterAnimController.Idle();
             if (currentWalkpointIndex < walkpoints.Count - 1)
             {
                 currentWalkpointIndex++;
@@ -84,23 +86,25 @@ public class RangeEnemyNavMesh : MonoBehaviour
 
     private void ChasePlayer()
     {
-        navMeshAgent.SetDestination(player.position);
-        transform.LookAt(player);
+        casterAnimController.WalkAnim();
+        navMeshAgent.SetDestination(player.transform.position);
+        transform.LookAt(player.transform);
     }
 
     private void AttackPlayer()
     {
-        Vector3 distanceToPlayer = transform.position - player.position;
+        Vector3 distanceToPlayer = transform.position - player.transform.position;
         if (distanceToPlayer.magnitude<4)
         {
             navMeshAgent.SetDestination(transform.position-transform.forward);
+            casterAnimController.WalkBack();
         }
         else
         {
             navMeshAgent.SetDestination(transform.position);
         }
-        transform.LookAt(player);
-        //if (canAttack) enemyRangeAttack.RangeAttack();
+        transform.LookAt(player.transform);
+        if (canAttack) casterAnimController.AttackAnim();
         if (canSummon) enemySummon.SummonEnemy();
     }
 }

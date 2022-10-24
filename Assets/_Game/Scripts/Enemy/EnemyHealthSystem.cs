@@ -5,8 +5,10 @@ using UnityEngine;
 public partial class EnemyHealthSystem : MonoBehaviour
 {
     public float maxHealth;
+    public float criticDamageMultiplier=1.5f;
     public ElementType weaknessElementType;
     public CasterAnimController casterAnimController;
+
 
     private float currentHealth;
     private float currentHealthPercentage;
@@ -28,9 +30,10 @@ public partial class EnemyHealthSystem : MonoBehaviour
     {
         //muere
     }
-    public void UpdateHealth(float value)
+    public void UpdateHealth(float value, bool critic)
     {
-        currentHealth += value;
+        if (critic) value *= criticDamageMultiplier;
+        currentHealth += value; 
         casterAnimController.GetHitAnim();
         if (currentHealth > maxHealth)
         {

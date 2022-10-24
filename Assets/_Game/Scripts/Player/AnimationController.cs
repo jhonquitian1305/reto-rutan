@@ -39,8 +39,27 @@ public class AnimationController : MonoBehaviour
         {
             MoveWhenLocked();
             FallingAnim();
+            FinishMelee();
         }
     }
+    public void HitAnim()
+    {
+        animatorPlayer.SetTrigger("Hit");
+        charMove.canMove = false;
+        animatorPlayer.SetBool("CastAttack", false);
+        FinishMelee();
+    }
+
+    public void EndHitAnim()
+    {
+        charMove.canMove = true;
+    }
+
+    public void DieAnim()
+    {
+        animatorPlayer.SetTrigger("Die");
+    }
+
     #region UnlockMove
     public void RunAnim()
     {
@@ -146,6 +165,7 @@ public class AnimationController : MonoBehaviour
     {
         animatorPlayer.SetBool("CastAttack", false);
         charMove.canMove = true;
+        meleeCount = 0;
     }
 
     public void CastToRun()
@@ -154,15 +174,17 @@ public class AnimationController : MonoBehaviour
         animatorPlayer.SetBool("CastAttack", false);
         charMove.canMove = true;
         charMove.isRunning = true;
+        meleeCount = 0;
     }
 
     public void MeleeAttack()
     {
+        if (!charMove.isGrounded) return; 
         meleeCount++;
         if (meleeCount == 1) {
             charMove.isSlowed = true;
             animatorPlayer.SetBool("isAttacking", true);
-            animatorPlayer.SetTrigger("Melee");
+            //animatorPlayer.SetTrigger("Melee");
         } 
     }
 
