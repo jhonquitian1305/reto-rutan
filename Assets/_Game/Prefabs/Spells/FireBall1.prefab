@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1592480896312235562}
   - component: {fileID: 9041591894745733607}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 7377527621047129263}
   - component: {fileID: 2242639333651502371}
   - component: {fileID: 9098826892248562533}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireBall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4981,10 +4981,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a50c6cbb4e4fe428a038ce320275ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellMoveSpeed: 7
-  spellRange: 7
-  spellDamage: 10
-  originGameObject: {fileID: 0}
+  criticDamageMultiplier: 1.5
+  spellElementType: 0
 --- !u!54 &2242639333651502371
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5025,7 +5023,7 @@ GameObject:
   - component: {fileID: 7490130208378180500}
   - component: {fileID: 7490130208378180501}
   - component: {fileID: 7490130208378180502}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cola
   m_TagString: Untagged
   m_Icon: {fileID: 0}

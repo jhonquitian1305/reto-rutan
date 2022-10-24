@@ -19,7 +19,7 @@
                     "type": "Value",
                     "id": "030def95-06f3-4ea8-8697-51072878d7fb",
                     "expectedControlType": "Vector2",
-                    "processors": "StickDeadzone(min=0.2)",
+                    "processors": "StickDeadzone(min=0.3)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -225,7 +225,7 @@
                     "id": "897817bd-9cbe-456b-9fb8-19136433b9ca",
                     "path": "<Mouse>/delta",
                     "interactions": "",
-                    "processors": "ScaleVector2(x=3,y=3)",
+                    "processors": "ScaleVector2(x=5,y=5),StickDeadzone",
                     "groups": "",
                     "action": "Look",
                     "isComposite": false,

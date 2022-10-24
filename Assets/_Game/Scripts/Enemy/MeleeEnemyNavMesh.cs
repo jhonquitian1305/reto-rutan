@@ -6,19 +6,22 @@ using UnityEngine.AI;
 
 public class MeleeEnemyNavMesh : MonoBehaviour
 {
-    public float sightRange;
+    public float sightRange=10;
+    public float attackRange=1;
     public LayerMask playerLayer;
     public List<Transform> walkpoints;
 
     private NavMeshAgent navMeshAgent;
     private int currentWalkpointIndex = 0;
-    private bool playerInSightRange;
+    private bool playerInSightRange, playerInAttackRange;
     private Transform player;
+    private EnemyMeleeAttack enemyMeleeAttack;
     private void Awake()
     {
         player = GameObject.FindWithTag("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
 
+        enemyMeleeAttack = GetComponent<EnemyMeleeAttack>();
         currentWalkpointIndex = 0;
     }
 
@@ -26,10 +29,12 @@ public class MeleeEnemyNavMesh : MonoBehaviour
     {
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
 
-        if (!playerInSightRange) Patroling();
-        else if (playerInSightRange) ChasePlayer();
-        
+        if (!playerInSightRange && !playerInAttackRange) Patroling();
+        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        ClampRotation();
     }
 
     private void Patroling()
@@ -52,6 +57,28 @@ public class MeleeEnemyNavMesh : MonoBehaviour
 
     private void ChasePlayer()
     {
+        Vector3 lookAtVector = player.position;
+        lookAtVector.y = transform.position.y;
+        transform.LookAt(lookAtVector);
         navMeshAgent.SetDestination(player.position);
+    }
+
+    private void AttackPlayer()
+    {
+        navMeshAgent.SetDestination(transform.position);
+        Vector3 lookAtVector = player.position;
+        lookAtVector.y = transform.position.y;
+        transform.LookAt(lookAtVector);
+        enemyMeleeAttack.MeleeAttack();
+    }
+    private void ClampRotation()
+    {
+        float rx = transform.eulerAngles.x;
+        if (rx >= 180) rx -= 360;
+        transform.eulerAngles = new Vector3(
+            Mathf.Clamp(rx, -35, 35),
+            transform.eulerAngles.y,
+            transform.eulerAngles.z
+        );
     }
 }
