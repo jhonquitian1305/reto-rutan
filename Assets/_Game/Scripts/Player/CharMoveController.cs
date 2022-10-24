@@ -160,7 +160,7 @@ public class CharMoveController : MonoBehaviour
             isJumping = true;    
         }
     }
-        private void CheckIfFalling()
+    private void CheckIfFalling()
     {
         if (playerVelocity.y < 0 && !isGrounded)
         {

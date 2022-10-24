@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,9 @@ public class SpellBall : MonoBehaviour
     public float criticDamageMultiplier = 1.5f;
     public ElementType spellElementType;
     private GameObject originGameObject;
+    private Animator playerAnim;
+    private Animator enemyAnim;
+    public int posibleCritico;
 
     private Vector3 spellDirection;
 
@@ -32,6 +36,8 @@ public class SpellBall : MonoBehaviour
         GetComponent<ParticleSystem>().Play();
         ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
         em.enabled = true;
+
+        playerAnim = GetComponent<Animator>();
     }
 
 
@@ -67,10 +73,22 @@ public class SpellBall : MonoBehaviour
         }
         if (collision.transform.CompareTag("Player"))
         {
+            posibleCritico = Random.Range(1, 101);
             PlayerHealthSystem playerHealth = collision.gameObject.GetComponent<PlayerHealthSystem>();
             if (playerHealth != null)
             {
-                playerHealth.UpdateHealth(-spellDamage);
+                if (posibleCritico < 4)
+                {
+                    playerHealth.UpdateHealth(-spellDamage*criticDamageMultiplier);
+                    playerAnim.SetTrigger("Hit");
+
+                }
+                else
+                {
+                    playerHealth.UpdateHealth(-spellDamage);
+                    playerAnim.SetTrigger("Hit");
+
+                }
             }
         }
         Disable();
