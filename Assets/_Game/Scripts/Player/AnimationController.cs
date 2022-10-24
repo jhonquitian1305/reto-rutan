@@ -10,7 +10,7 @@ public class AnimationController : MonoBehaviour
 {
     public Animator animatorPlayer;
     private CharMoveController charMove;
-
+    private int meleeCount;
     // Start is called before the first frame update
     void Start()
     {
@@ -158,16 +158,27 @@ public class AnimationController : MonoBehaviour
 
     public void MeleeAttack()
     {
-        charMove.canMove = false;
-        charMove.isRunning = false;
-        animatorPlayer.SetBool("isRunning", false);
-        animatorPlayer.SetTrigger("Melee");
+        meleeCount++;
+        if (meleeCount == 1) {
+            charMove.isSlowed = true;
+            animatorPlayer.SetBool("isAttacking", true);
+            animatorPlayer.SetTrigger("Melee");
+        } 
+    }
+
+    public void CheckIfCombo(int attackNumber)
+    {
+        if(meleeCount < attackNumber)
+        {
+            FinishMelee();
+        }
     }
 
     public void FinishMelee()
     {
-        charMove.canMove = true;
-        animatorPlayer.SetBool("isRunning", true);  
+        meleeCount = 0;
+        charMove.isSlowed = false;
+        animatorPlayer.SetBool("isAttacking", false);  
     }
     #endregion
 }

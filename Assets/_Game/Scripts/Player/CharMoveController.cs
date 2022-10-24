@@ -5,10 +5,10 @@ using UnityEngine;
 public class CharMoveController : MonoBehaviour
     {
     [Header("Parametros movimiento")]
-    public float playerSpeed = 5;
-    public float walkingSpeed;
+    public float runningSpeed = 5;
+    public float walkingSpeed = 3;
     private float gravityValue = -9.81f;
-    public float jumpHeight = 5f;
+    public float jumpHeight = 0.5f;
     public bool lockCamera;
     public int lateralMove;
     public int forwardMove;
@@ -17,6 +17,7 @@ public class CharMoveController : MonoBehaviour
 
     [Header("Actual Player Status")]
     public bool isRunning;
+    public bool isSlowed;
     public bool canMove;
     public bool isJumping = false;
     public bool isFalling = false;
@@ -49,15 +50,19 @@ public class CharMoveController : MonoBehaviour
 
     private void Move()
     {
-        //Movement
-        if (!lockCamera)
+        if (canMove)
         {
-            if (canMove)
+            float speed;
+            if (isSlowed||lockCamera) speed = walkingSpeed;
+            else speed = runningSpeed;
+
+            moveVector = new Vector3(moveInputVector.x, 0, moveInputVector.y);
+            moveVector = moveVector.x * cameraTransform.right.normalized + moveVector.z * cameraTransform.forward.normalized;
+            moveVector.y = 0;
+            controller.Move(moveVector * Time.deltaTime * speed);
+
+            if (!lockCamera)
             {
-                moveVector = new Vector3(moveInputVector.x, 0, moveInputVector.y);
-                moveVector = moveVector.x * cameraTransform.right.normalized + moveVector.z * cameraTransform.forward.normalized;
-                moveVector.y = 0;
-                controller.Move(moveVector * Time.deltaTime * playerSpeed);
                 if (moveInputVector != Vector2.zero)
                 {
                     isRunning = true;
@@ -67,45 +72,36 @@ public class CharMoveController : MonoBehaviour
                     isRunning = false;
                 }
             }
-        }else if (lockCamera)
+            else if (lockCamera)
             {
-            if (canMove)
-            {
-                moveVector = new Vector3(moveInputVector.x, 0, moveInputVector.y);
-                moveVector = moveVector.x * cameraTransform.right.normalized + moveVector.z * cameraTransform.forward.normalized;
-                moveVector.y = 0;
-                controller.Move(moveVector * Time.deltaTime * walkingSpeed);
-                if (moveInputVector != Vector2.zero)
-                {
-                    if (moveInputVector.x < 0 && (moveInputVector.y<0.5 && moveInputVector.y >-0.5))
-                    {
-                        lateralMove = 1;
-                        forwardMove = 0;
-                    }
-                    else if (moveInputVector.x > 0 && (moveInputVector.y < 0.5 && moveInputVector.y > -0.5))
-                    {
-                        lateralMove = 2;
-                        forwardMove = 0;
-                    }
-                    else if (moveInputVector.y > 0)
-                    {
-                        forwardMove = 1;
-                        lateralMove = 0;
-                    }
-                    else if (moveInputVector.y < 0)
-                    {
-                        forwardMove = 2;
-                        lateralMove = 0;
-                    }
 
-                }
-                else if (moveInputVector == Vector2.zero)
+                if (moveInputVector.x < 0 && (moveInputVector.y < 0.5 && moveInputVector.y > -0.5))
                 {
-                    lateralMove = 0;
+                    lateralMove = 1;
                     forwardMove = 0;
                 }
+                else if (moveInputVector.x > 0 && (moveInputVector.y < 0.5 && moveInputVector.y > -0.5))
+                {
+                    lateralMove = 2;
+                    forwardMove = 0;
+                }
+                else if (moveInputVector.y > 0)
+                {
+                    forwardMove = 1;
+                    lateralMove = 0;
+                }
+                else if (moveInputVector.y < 0)
+                {
+                    forwardMove = 2;
+                    lateralMove = 0;
+                }
             }
-        }
+            else if (moveInputVector == Vector2.zero)
+            {
+                lateralMove = 0;
+                forwardMove = 0;
+            }
+        }       
     }
     public void Jump()
     {

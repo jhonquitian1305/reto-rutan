@@ -697,7 +697,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.15366183, y: 0.000000037055063, z: -0.0000000057623852, w: 0.98812354}
+  m_LocalRotation: {x: 0.15366183, y: -0.000000037055063, z: 0.0000000057623852, w: 0.98812354}
   m_LocalPosition: {x: -10.32, y: 5.9750004, z: -5.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -979,19 +979,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3236881693310365068, guid: fbe07522e7e53e849990284e2f74384a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001691197
+      value: 0.00000001691198
       objectReference: {fileID: 0}
     - target: {fileID: 3236881693310365068, guid: fbe07522e7e53e849990284e2f74384a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000031693386
+      value: -0.0000000031693401
       objectReference: {fileID: 0}
     - target: {fileID: 3236881693568870719, guid: fbe07522e7e53e849990284e2f74384a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000001700203
+      value: -0.000000017002026
       objectReference: {fileID: 0}
     - target: {fileID: 3236881693568870719, guid: fbe07522e7e53e849990284e2f74384a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000026439646
+      value: 0.000000002643964
       objectReference: {fileID: 0}
     - target: {fileID: 3236881694307173332, guid: fbe07522e7e53e849990284e2f74384a, type: 3}
       propertyPath: m_Follow
@@ -1051,15 +1051,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3236881694353384364, guid: fbe07522e7e53e849990284e2f74384a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.20094813
+      value: 0.20094812
       objectReference: {fileID: 0}
     - target: {fileID: 3236881694353384364, guid: fbe07522e7e53e849990284e2f74384a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000012860728
+      value: 0.0000000065937513
       objectReference: {fileID: 0}
     - target: {fileID: 3236881694353384364, guid: fbe07522e7e53e849990284e2f74384a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000026381524
+      value: -0.000000001352592
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbe07522e7e53e849990284e2f74384a, type: 3}
@@ -1186,10 +1186,11 @@ GameObject:
   - component: {fileID: 719960466353443477}
   - component: {fileID: 719960466353443562}
   - component: {fileID: 719960466353443478}
+  - component: {fileID: 719960466353443563}
+  - component: {fileID: 719960466353443564}
   - component: {fileID: 719960466353443479}
   - component: {fileID: 719960466353443560}
   - component: {fileID: 719960466353443561}
-  - component: {fileID: 719960466353443563}
   m_Layer: 7
   m_Name: MagicSkeleton (2)
   m_TagString: Enemy
@@ -1350,6 +1351,7 @@ MonoBehaviour:
   - {fileID: 0}
   canSummon: 0
   canAttack: 1
+  casterAnimController: {fileID: 0}
 --- !u!114 &719960466353443560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,6 +1387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   weaknessElementType: 2
+  casterAnimController: {fileID: 0}
 --- !u!136 &719960466353443562
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1419,6 +1422,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &719960466353443564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195344279489611823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844b6e63b728cd14cb2528b313686337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAnim: {fileID: 719960466353443563}
 --- !u!1 &776864675329552370
 GameObject:
   m_ObjectHideFlags: 0
