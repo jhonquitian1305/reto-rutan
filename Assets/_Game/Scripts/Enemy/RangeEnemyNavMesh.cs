@@ -10,6 +10,8 @@ public class RangeEnemyNavMesh : MonoBehaviour
     public float attackRange;
     public LayerMask playerLayer;
     public List<Transform> walkpoints;
+    public bool canSummon;
+    public bool canAttack;
 
     private NavMeshAgent navMeshAgent;
     private int currentWalkpointIndex=0;
@@ -17,12 +19,18 @@ public class RangeEnemyNavMesh : MonoBehaviour
 
     private Transform player;
     private EnemyRangeAttack enemyRangeAttack;
+    private EnemySummon enemySummon;
     private void Awake()
     {
         player = GameObject.FindWithTag("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
+
         enemyRangeAttack = GetComponent<EnemyRangeAttack>();
-        if(attackRange==0) attackRange = enemyRangeAttack.spellRange - 1;
+        enemySummon = GetComponent<EnemySummon>();
+        if (enemyRangeAttack == null) canAttack = false;
+        if (enemySummon == null) canSummon = false;
+
+        if (attackRange==0) attackRange = enemyRangeAttack.spellRange - 1;
         currentWalkpointIndex = 0;
     }
 
@@ -31,7 +39,8 @@ public class RangeEnemyNavMesh : MonoBehaviour
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
-        playerInAttackSight = enemyRangeAttack.PlayerInSight();
+        if (canAttack) playerInAttackSight = enemyRangeAttack.PlayerInSight();
+        else playerInAttackSight = true;
         
         if(!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
@@ -89,6 +98,7 @@ public class RangeEnemyNavMesh : MonoBehaviour
             navMeshAgent.SetDestination(transform.position);
         }
         transform.LookAt(player);
-        enemyRangeAttack.RangeAttack();
+        if (canAttack) enemyRangeAttack.RangeAttack();
+        if (canSummon) enemySummon.SummonEnemy();
     }
 }
