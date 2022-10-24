@@ -11,6 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/_Canvas/_Scripts/PausaCanvas.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -89,6 +90,8 @@
       <workItem from="1666321371180" duration="602000" />
       <workItem from="1666329584722" duration="1033000" />
       <workItem from="1666489566083" duration="118000" />
+      <workItem from="1666594979664" duration="1635000" />
+      <workItem from="1666597392303" duration="1929000" />
     </task>
     <servers />
   </component>
