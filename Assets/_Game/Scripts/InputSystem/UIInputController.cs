@@ -8,6 +8,7 @@ public class UIInputController : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
     private PausaCanvas pausaCanvas;
+    private bool isPause;
     private void OnEnable()
     {
         pausaCanvas = GetComponent<PausaCanvas>();
@@ -18,8 +19,14 @@ public class UIInputController : MonoBehaviour
 
     private void Pause(InputAction.CallbackContext obj)
     {
-        
-        pausaCanvas.Pausar();
-        Debug.Log("Pause");
+        if (!isPause)
+        {
+            pausaCanvas.Pausar();          
+        }
+        else
+        {
+            pausaCanvas.Reanudar();
+        }
+        isPause = !isPause;
     }
 }

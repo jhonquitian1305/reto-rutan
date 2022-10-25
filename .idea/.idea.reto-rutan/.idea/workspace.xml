@@ -14,6 +14,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/InputSystem/UIInputController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/_Canvas/_Scripts/PausaCanvas.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.3/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.3/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -98,6 +99,7 @@
       <workItem from="1666651397314" duration="719000" />
       <workItem from="1666652215216" duration="4761000" />
       <workItem from="1666658365872" duration="896000" />
+      <workItem from="1666659746752" duration="321000" />
     </task>
     <servers />
   </component>
