@@ -21,7 +21,7 @@ TagManager:
   - PlayerSpell
   - EnemySpell
   - Wall
-  - 
+  - Walkable
   - 
   - 
   - 
