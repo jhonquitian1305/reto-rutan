@@ -984,7 +984,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 1
+        scalar: 3
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -4905,10 +4905,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a50c6cbb4e4fe428a038ce320275ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellMoveSpeed: 7
-  spellRange: 7
-  spellDamage: 10
-  originGameObject: {fileID: 0}
+  criticDamageMultiplier: 1.5
+  spellElementType: 0
+  posibleCritico: 0
 --- !u!135 &4481716849233448228
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10711,7 +10710,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 1
+        scalar: 3
         minScalar: 30
         maxCurve:
           serializedVersion: 2
