@@ -82,6 +82,7 @@ public class RangeEnemyNavMesh : MonoBehaviour
         if (walkpoints.Count <= 0)
         {
             casterAnimController.Idle();
+            navMeshAgent.SetDestination(transform.position);
             return;
         }
         casterAnimController.WalkAnim();

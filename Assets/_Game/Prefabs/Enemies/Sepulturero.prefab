@@ -511,8 +511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a271db667cd504cb04d6e49a15baca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6272916371886222592, guid: 33cb6a5f2f2f5a84793e7cc1904908fa, type: 3}
-  cooldown: 10
+  enemyPrefab: {fileID: 7577273512608653449, guid: f7a173e06d0e3844699185c00d980008, type: 3}
+  cooldown: 15
   cooldownLeft: 2
 --- !u!195 &3984415595203843414
 NavMeshAgent:
@@ -524,7 +524,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.86
-  m_Speed: 3
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
