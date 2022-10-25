@@ -11,6 +11,7 @@ public class AnimationController : MonoBehaviour
     public Animator animatorPlayer;
     private CharMoveController charMove;
     private int meleeCount;
+    public int comboCount;
     // Start is called before the first frame update
     void Start()
     {
@@ -190,6 +191,7 @@ public class AnimationController : MonoBehaviour
 
     public void CheckIfCombo(int attackNumber)
     {
+        comboCount = attackNumber;
         if(meleeCount < attackNumber)
         {
             FinishMelee();
@@ -198,6 +200,7 @@ public class AnimationController : MonoBehaviour
 
     public void FinishMelee()
     {
+        comboCount = 0;
         meleeCount = 0;
         charMove.isSlowed = false;
         animatorPlayer.SetBool("isAttacking", false);  

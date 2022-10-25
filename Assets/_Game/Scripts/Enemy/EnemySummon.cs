@@ -6,12 +6,13 @@ public class EnemySummon : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public float cooldown = 10f;
-
-    private float cooldownLeft;
+    private CasterAnimController casterAnimController;
+    public float cooldownLeft;
 
     // Start is called before the first frame update
     void Start()
     {
+        casterAnimController = GetComponent<CasterAnimController>();
         cooldownLeft = 1;
     }
 
@@ -30,9 +31,14 @@ public class EnemySummon : MonoBehaviour
     {
         if (cooldownLeft <= 0)
         {
-            Instantiate(enemyPrefab, transform.position + transform.right, transform.rotation);
+            StartCoroutine(summonEnemy(1.5f));
             cooldownLeft = cooldown;
-            Debug.Log("sum");
+            casterAnimController.SummonAnim();
         }
+    }
+    IEnumerator summonEnemy(float secondsToWait)
+    {
+        yield return new WaitForSeconds(secondsToWait);
+        Instantiate(enemyPrefab, transform.position + transform.right, transform.rotation);
     }
 }

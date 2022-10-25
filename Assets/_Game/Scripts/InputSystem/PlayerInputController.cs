@@ -24,6 +24,7 @@ public class PlayerInputController : MonoBehaviour
         playerAnimController = GetComponent<AnimationController>();
         playerMoveController = GetComponent<CharMoveController>();
         playerSpellController = GetComponent<SpellController>();
+        playerMeleeController = GetComponentInChildren<MeleeController>();
 
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
@@ -107,7 +108,7 @@ public class PlayerInputController : MonoBehaviour
     {
         if (ctx.started)
         {
-            playerAnimController.MeleeAttack();
+            playerMeleeController.Attack();
         }
         else if (ctx.performed)
         {

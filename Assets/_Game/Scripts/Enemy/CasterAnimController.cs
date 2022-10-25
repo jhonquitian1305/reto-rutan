@@ -16,6 +16,8 @@ public class CasterAnimController : MonoBehaviour
     {
         enemyAnim = GetComponent<Animator>();
         enemyNavMesh = GetComponent<RangeEnemyNavMesh>();
+        enemyNavMesh.canMove = true;
+
     }
 
     private void Update()
@@ -46,12 +48,26 @@ public class CasterAnimController : MonoBehaviour
         enemyAnim.SetBool("isWalkingBack", false);
         enemyNavMesh.canMove = false;
     }
+
     public void EndAttackAnim()
     {
-        enemyNavMesh.canMove = true;
         enemyAnim.SetBool("isAttacking", false);
-
+        enemyNavMesh.canMove = true;
     }
+
+    public void SummonAnim()
+    {
+        enemyAnim.SetBool("isSummoning", true);
+        enemyAnim.SetBool("isWalking", false);
+        enemyAnim.SetBool("isWalkingBack", false);
+        enemyNavMesh.canMove = false;
+    }
+    public void EndSummonAnim()
+    {
+        enemyAnim.SetBool("isSummoning", false);
+        enemyNavMesh.canMove = true;
+    }
+
 
     public void GetHitAnim()
     {
@@ -59,11 +75,13 @@ public class CasterAnimController : MonoBehaviour
         enemyAnim.SetBool("isWalking", false);
         enemyAnim.SetBool("isWalkingBack", false);
         enemyAnim.SetBool("isAttacking", false);
+        enemyAnim.SetBool("isSummoning", false);
         enemyNavMesh.canMove = false;
+
     }
 
     public void EndGetHitAnim()
-    {
+    {      
         enemyNavMesh.canMove = true;
     }
     public void DieAnim()

@@ -79,6 +79,11 @@ public class RangeEnemyNavMesh : MonoBehaviour
 
     private void Patroling()
     {
+        if (walkpoints.Count <= 0)
+        {
+            casterAnimController.Idle();
+            return;
+        }
         casterAnimController.WalkAnim();
         Vector3 distanceToWalkPoint = transform.position - walkpoints[currentWalkpointIndex].position;
         if (distanceToWalkPoint.magnitude < 1f)
@@ -104,11 +109,12 @@ public class RangeEnemyNavMesh : MonoBehaviour
 
     private void AttackPlayer()
     {
+
         Vector3 distanceToPlayer = transform.position - player.transform.position;
         if (distanceToPlayer.magnitude<4)
         {
-            navMeshAgent.SetDestination(transform.position-transform.forward);
             casterAnimController.WalkBack();
+            navMeshAgent.SetDestination(transform.position - transform.forward);
         }
         else
         {
