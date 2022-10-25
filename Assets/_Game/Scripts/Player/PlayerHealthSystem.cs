@@ -51,15 +51,16 @@ public class PlayerHealthSystem : MonoBehaviour
     }
     private void UpdateLives(int value)
     {
-        Die();
-        isDead = true;
+        if (value < 0)
+        {
+            Die();
+            isDead = true;
+        }
         if (playerData.lives+value >= 0)
         {
             playerData.lives += value;
-            playerData.currentHealth = playerData.maxHealth; //Reinicia la vida
             Debug.Log("Te moriste, te quedan estas vidas:"+playerData.lives);
         }
-
         if(playerData.lives<=0)
         {
             playerData.currentHealth = 0;

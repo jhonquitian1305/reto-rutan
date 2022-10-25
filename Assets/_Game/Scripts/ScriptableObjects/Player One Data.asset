@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f6897caf0ce9141aeef6a9880caed3, type: 3}
   m_Name: Player One Data
   m_EditorClassIdentifier: 
-  lives: 73
+  lives: 3
   maxHealth: 100
   currentHealth: 100
-  score: 5
+  score: 0

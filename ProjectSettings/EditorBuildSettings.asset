@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/_Game/_Canvas/_SceneCanvas/_MainScene.unity
     guid: a15177c237ded2a469011ec88e5e11ff
   - enabled: 1
+    path: Assets/_Game/Scenes/SantiTEST3.unity
+    guid: 597bbad218ef4aa4b88ece0780ccda3b
+  - enabled: 1
     path: Assets/_Game/Scenes/JHONNY TEST/Nivel3.unity
     guid: 6855d9240eb18964e815dc143907e86d
   - enabled: 1

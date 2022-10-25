@@ -38,9 +38,8 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player")&&!other.isTrigger)
         {
-            Debug.Log(other.isTrigger);
             other.GetComponent<PlayerHealthSystem>().UpdateHealth(-10, false);
         }
     }
