@@ -16,19 +16,20 @@ namespace _Game._Canvas._Scripts
         public GameObject buttonPausa;
         public GameObject menuPausa;
         private readonly int Iniciar = Animator.StringToHash("Iniciar");
-        private GameObject player;
+        private PlayerInputController playerInputController;
 
         private void Start()
         {
-            player = GameObject.FindWithTag("Player");
+            playerInputController = GameObject.FindWithTag("Player").GetComponent<PlayerInputController>();
         }
 
         public void Pausar()
         {
-            player.GetComponent<CharMoveController>().isPaused = true;
+            
             buttonPausa.SetActive(false);
             menuPausa.SetActive(true);
             Time.timeScale = 0f;
+            playerInputController.DisableInput();
         }
 
         public void Reanudar()
@@ -36,7 +37,7 @@ namespace _Game._Canvas._Scripts
             menuPausa.SetActive(false);
             buttonPausa.SetActive(true);
             Time.timeScale = 1f;
-            StartCoroutine(despausarPersonaje());
+            playerInputController.EnableInput();
         }
         
         public void Reiniciar()
@@ -68,11 +69,6 @@ namespace _Game._Canvas._Scripts
             yield return new WaitForSeconds(animacionFinal.length);
             SceneManager.LoadScene(0);
             playerData.currentHealth = playerData.maxHealth;
-        }
-        IEnumerator despausarPersonaje()
-        {
-            yield return new WaitForSeconds(3f);
-            player.GetComponent<CharMoveController>().isPaused = false;
         }
     }
 }

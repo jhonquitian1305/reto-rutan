@@ -16,7 +16,7 @@ public class PlayerInputController : MonoBehaviour
     private SpellController playerSpellController;
     private MeleeController playerMeleeController;
     private CinemachineFreeLook FreelookCM;
-    private float originalCMxSpeed;
+    private float originalCMxSpeed, originalCMySpeed;
 
 
     private void OnEnable()
@@ -77,8 +77,22 @@ public class PlayerInputController : MonoBehaviour
     void Start()
     {
         originalCMxSpeed = mainFreeLookCamera.m_XAxis.m_MaxSpeed;
+        originalCMySpeed = mainFreeLookCamera.m_YAxis.m_MaxSpeed;
     }
 
+    public void EnableInput()
+    {
+        playerInputActions.Player.Enable();
+        mainFreeLookCamera.m_XAxis.m_MaxSpeed = originalCMxSpeed;
+        mainFreeLookCamera.m_YAxis.m_MaxSpeed = originalCMySpeed;
+    }
+
+    public void DisableInput()
+    {
+        playerInputActions.Player.Disable();
+        mainFreeLookCamera.m_XAxis.m_MaxSpeed = 0;
+        mainFreeLookCamera.m_YAxis.m_MaxSpeed = 0;
+    }
     public void ChangeToNextSpell(InputAction.CallbackContext ctx)
     {
         playerSpellController.SetNextSpellAsActive();

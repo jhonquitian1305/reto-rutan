@@ -16,7 +16,6 @@ public class CharMoveController : MonoBehaviour
     public LayerMask groundLayer;
 
     [Header("Actual Player Status")]
-    public bool isPaused;
     public bool isRunning;
     public bool isSlowed;
     public bool canMove;
@@ -42,14 +41,11 @@ public class CharMoveController : MonoBehaviour
 
     void Update()
     {
-        if (!isPaused)
-        {
             CheckIfGrounded();
             Move();
             Rotate();
             GravityAction();
             CheckIfFalling();
-        }
     }
 
     private void Move()
