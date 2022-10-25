@@ -97,7 +97,6 @@ public class CharMoveController : MonoBehaviour
                 }
                 else if (moveInputVector == Vector2.zero)
                 {
-                    Debug.Log("a");
                     lateralMove = 0;
                     forwardMove = 0;
                 }

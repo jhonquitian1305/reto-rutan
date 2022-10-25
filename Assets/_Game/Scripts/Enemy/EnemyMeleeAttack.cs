@@ -5,13 +5,15 @@ using UnityEngine;
 public class EnemyMeleeAttack : MonoBehaviour
 {
     public float attackDamage = 10f;
-    public float cooldown = 1f;
+    public float cooldown = 3f;
+    public MeleeAnimController meleeAnimController;
 
     private float cooldownLeft;
 
     // Start is called before the first frame update
     void Start()
     {
+        meleeAnimController = GetComponent<MeleeAnimController>();
     }
 
     // Update is called once per frame
@@ -29,17 +31,17 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if (cooldownLeft <= 0)
         {
-            Debug.Log("ataque");
+            meleeAnimController.AttackAnim();
             cooldownLeft = cooldown;
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //Animación ataque
-            MeleeAttack();
+            Debug.Log(other.isTrigger);
+            other.GetComponent<PlayerHealthSystem>().UpdateHealth(-10, false);
         }
     }
 }

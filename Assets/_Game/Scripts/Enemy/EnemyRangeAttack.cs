@@ -11,17 +11,18 @@ public class EnemyRangeAttack : MonoBehaviour
     public GameObject spellBallPrefab;
     public Transform originPoint;
     public LayerMask enemyLayer;
-    public CasterAnimController casterAnimController;
+    public IEnemyAnimController casterAnimController;
 
     public float cooldownLeft;
 
     private Vector3 enemyTransformForward;
 
-    private LayerMask spellBallLayer;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        casterAnimController = GetComponent<CasterAnimController>();
+        casterAnimController = GetComponent<IEnemyAnimController>();
+        cooldownLeft = 0;
+        Debug.Log(cooldownLeft);
     }
 
     // Update is called once per frame
@@ -36,9 +37,9 @@ public class EnemyRangeAttack : MonoBehaviour
         LayerMask spellBallLayer = spellBallPrefab.layer;
         Vector3 rayOrigin = transform.position;
         rayOrigin.y = originPoint.position.y;
-        Debug.DrawRay(rayOrigin, enemyTransformForward * spellRange, Color.green);
+        Debug.DrawRay(rayOrigin, enemyTransformForward * spellRange*5, Color.green);
         RaycastHit hit;
-        if (Physics.Raycast(rayOrigin, enemyTransformForward, out hit, spellRange, ~enemyLayer))
+        if (Physics.Raycast(rayOrigin, enemyTransformForward, out hit, spellRange*5, ~enemyLayer))
         {
             if (hit.collider.gameObject.CompareTag("Player"))
             {
@@ -49,6 +50,7 @@ public class EnemyRangeAttack : MonoBehaviour
     }
     private void SetCooldownLeft()
     {
+        if (cooldownLeft == 0) return;
         cooldownLeft -= Time.deltaTime;
     }
 

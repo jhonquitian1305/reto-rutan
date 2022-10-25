@@ -7,7 +7,9 @@ public partial class EnemyHealthSystem : MonoBehaviour
     public float maxHealth;
     public float criticDamageMultiplier=1.5f;
     public ElementType weaknessElementType;
-    public CasterAnimController casterAnimController;
+    public IEnemyAnimController casterAnimController;
+    public bool isDead;
+    public float deathAnimTime=2f;
 
 
     private float currentHealth;
@@ -18,8 +20,7 @@ public partial class EnemyHealthSystem : MonoBehaviour
         currentHealth = maxHealth;
         currentHealthPercentage = currentHealth / maxHealth;
         healthBar = GetComponentInChildren<EnemyHealthBar>();
-        casterAnimController = GetComponent<CasterAnimController>();
-
+        casterAnimController = GetComponent<IEnemyAnimController>();
     }
 
     // Update is called once per frame
@@ -29,12 +30,16 @@ public partial class EnemyHealthSystem : MonoBehaviour
     private void Die()
     {
         casterAnimController.DieAnim();
+        isDead = true;
         StartCoroutine(SelfDestruct());
     }
     public void UpdateHealth(float value, bool critic)
     {
+        if (isDead) return;
+
         if (critic) value *= criticDamageMultiplier;
-        currentHealth += value; 
+        currentHealth += value;
+        Debug.Log(value);
         if (currentHealth > maxHealth)
         {
             casterAnimController.GetHitAnim();
@@ -44,19 +49,17 @@ public partial class EnemyHealthSystem : MonoBehaviour
         {
             currentHealth = 0;
             Die();
-            Debug.Log("Enemigo muerto");
         }
         else
         {
             casterAnimController.GetHitAnim();
         }
-        Debug.Log("Vida del enemigo:" + currentHealth);
         currentHealthPercentage = currentHealth / maxHealth;
         healthBar.UpdateHealthBarPercentage(currentHealthPercentage);
     }
     IEnumerator SelfDestruct()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(deathAnimTime);
         Destroy(gameObject);
     }
 }

@@ -14,7 +14,7 @@ public class RangeEnemyNavMesh : MonoBehaviour
     public bool canAttack;
     public bool canMove=true;
     public bool isDead;
-    public CasterAnimController casterAnimController;
+    public IEnemyAnimController casterAnimController;
 
     private NavMeshAgent navMeshAgent;
     private int currentWalkpointIndex=0;
@@ -27,7 +27,7 @@ public class RangeEnemyNavMesh : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         navMeshAgent = GetComponent<NavMeshAgent>();
-        casterAnimController = GetComponent<CasterAnimController>();
+        casterAnimController = GetComponent<IEnemyAnimController>();
 
         enemyRangeAttack = GetComponent<EnemyRangeAttack>();
         enemySummon = GetComponent<EnemySummon>();
@@ -79,6 +79,11 @@ public class RangeEnemyNavMesh : MonoBehaviour
 
     private void Patroling()
     {
+        if (walkpoints.Count <= 0)
+        {
+            casterAnimController.Idle();
+            return;
+        }
         casterAnimController.WalkAnim();
         Vector3 distanceToWalkPoint = transform.position - walkpoints[currentWalkpointIndex].position;
         if (distanceToWalkPoint.magnitude < 1f)
@@ -104,11 +109,12 @@ public class RangeEnemyNavMesh : MonoBehaviour
 
     private void AttackPlayer()
     {
+
         Vector3 distanceToPlayer = transform.position - player.transform.position;
         if (distanceToPlayer.magnitude<4)
         {
-            navMeshAgent.SetDestination(transform.position-transform.forward);
             casterAnimController.WalkBack();
+            navMeshAgent.SetDestination(transform.position - transform.forward);
         }
         else
         {
@@ -117,6 +123,6 @@ public class RangeEnemyNavMesh : MonoBehaviour
         }
         transform.LookAt(player.transform);
         if (canAttack) enemyRangeAttack.RangeAttack();
-        if (canSummon) enemySummon.SummonEnemy();
+        if (canSummon) enemySummon.CastSummonEnemy();
     }
 }

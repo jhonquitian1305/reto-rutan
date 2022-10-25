@@ -12,7 +12,8 @@ public class SpellController : MonoBehaviour
     public float spellCooldown = 2f;
     public List<GameObject> spellBallPrefabs;
 
-    public GameObject orbOrigin;
+    public GameObject spellOrigin;
+    public GameObject orb;
     public GameObject spellIndicator;
 
     private int activeSpellIndex=0;
@@ -38,7 +39,7 @@ public class SpellController : MonoBehaviour
         else if (activeSpell.spellElementType == ElementType.Holy) newColor = Color.yellow;
         else if (activeSpell.spellElementType == ElementType.Thunder) newColor = new Color(0,0.5f,1,1);
         spellIndicator.GetComponent<Projector>().material.SetColor("_MainColor", newColor);
-        orbOrigin.GetComponent<MeshRenderer>().material.SetColor("_Color", newColor);
+        orb.GetComponent<MeshRenderer>().material.SetColor("_Color", newColor);
     }
 
     public void SetNextSpellAsActive()
@@ -86,7 +87,7 @@ public class SpellController : MonoBehaviour
     {
         if (CooldownTime() <= 0)
         {
-            Vector3 originPosition = orbOrigin.transform.position;
+            Vector3 originPosition = spellOrigin.transform.position;
             GameObject spellBall = Instantiate(spellBallPrefabs[activeSpellIndex], originPosition, transform.rotation);
             spellBall.GetComponent<SpellBall>().OriginGameObject = gameObject;
             spellBall.GetComponent<SpellBall>().SpellDamage = spellDamage;
