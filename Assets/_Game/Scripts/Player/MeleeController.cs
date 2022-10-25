@@ -54,7 +54,6 @@ public class MeleeController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Otra prueba");
             EnemyHealthSystem enemyHealth = other.gameObject.GetComponent<EnemyHealthSystem>();
             if (enemyHealth != null)
             {
