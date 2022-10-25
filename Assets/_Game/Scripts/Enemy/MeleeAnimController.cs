@@ -16,7 +16,7 @@ public class MeleeAnimController : MonoBehaviour, IEnemyAnimController
     {
         enemyAnim = GetComponent<Animator>();
         enemyNavMesh = GetComponent<MeleeEnemyNavMesh>();
-        enemyNavMesh.canMove = true;
+        enemyNavMesh.canMove = false;
 
     }
 
@@ -27,7 +27,7 @@ public class MeleeAnimController : MonoBehaviour, IEnemyAnimController
 
     public void WalkBack()
     {
-        enemyAnim.SetBool("isWalkingBack", true);
+        //enemyAnim.SetBool("isWalkingBack", true);
     }
     public void WalkAnim()
     {
@@ -44,7 +44,7 @@ public class MeleeAnimController : MonoBehaviour, IEnemyAnimController
     {
         enemyAnim.SetBool("isAttacking", true);
         enemyAnim.SetBool("isWalking", false);
-        enemyAnim.SetBool("isWalkingBack", false);
+        //enemyAnim.SetBool("isWalkingBack", false);
         enemyNavMesh.canMove = false;
     }
 
@@ -58,13 +58,13 @@ public class MeleeAnimController : MonoBehaviour, IEnemyAnimController
     {
         enemyAnim.SetBool("isSummoning", true);
         enemyAnim.SetBool("isWalking", false);
-        enemyAnim.SetBool("isWalkingBack", false);
+        //enemyAnim.SetBool("isWalkingBack", false);
         enemyNavMesh.canMove = false;
     }
     public void EndSummonAnim()
     {
-        enemyAnim.SetBool("isSummoning", false);
-        enemyNavMesh.canMove = true;
+        //enemyAnim.SetBool("isSummoning", false);
+        //enemyNavMesh.canMove = true;
     }
 
 
@@ -72,9 +72,9 @@ public class MeleeAnimController : MonoBehaviour, IEnemyAnimController
     {
         enemyAnim.SetTrigger("GetHit");
         enemyAnim.SetBool("isWalking", false);
-        enemyAnim.SetBool("isWalkingBack", false);
+        //enemyAnim.SetBool("isWalkingBack", false);
         enemyAnim.SetBool("isAttacking", false);
-        enemyAnim.SetBool("isSummoning", false);
+        //enemyAnim.SetBool("isSummoning", false);
         enemyNavMesh.canMove = false;
 
     }
@@ -87,6 +87,11 @@ public class MeleeAnimController : MonoBehaviour, IEnemyAnimController
     {
         enemyAnim.SetTrigger("Die");
         enemyNavMesh.isDead=true;
+    }
+
+    public void ActivateMove()
+    {
+        enemyNavMesh.canMove = true;
     }
 }
 

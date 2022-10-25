@@ -1862,8 +1862,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddaeb30ae9b468c4eb859de34040a3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightRange: 15
-  attackRange: 12
+  sightRange: 20
+  attackRange: 13
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1872,7 +1872,6 @@ MonoBehaviour:
   canAttack: 1
   canMove: 1
   isDead: 0
-  casterAnimController: {fileID: 0}
 --- !u!114 &6272916371886222594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1894,7 +1893,6 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  casterAnimController: {fileID: 0}
   cooldownLeft: 0
 --- !u!114 &6272916371886222593
 MonoBehaviour:
@@ -1911,8 +1909,8 @@ MonoBehaviour:
   maxHealth: 100
   criticDamageMultiplier: 2
   weaknessElementType: 2
-  casterAnimController: {fileID: 0}
   isDead: 0
+  deathAnimTime: 2
 --- !u!1 &6272916371893851630
 GameObject:
   m_ObjectHideFlags: 0
