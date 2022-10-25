@@ -39,7 +39,6 @@ public partial class EnemyHealthSystem : MonoBehaviour
 
         if (critic) value *= criticDamageMultiplier;
         currentHealth += value;
-        Debug.Log(value);
         if (currentHealth > maxHealth)
         {
             casterAnimController.GetHitAnim();

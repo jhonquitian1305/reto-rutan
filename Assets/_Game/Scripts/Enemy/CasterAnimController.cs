@@ -46,14 +46,12 @@ public class CasterAnimController : MonoBehaviour, IEnemyAnimController
         enemyAnim.SetBool("isWalking", false);
         enemyAnim.SetBool("isWalkingBack", false);
         enemyNavMesh.canMove = false;
-        Debug.Log("empiezaAttack");
     }
 
     public void EndAttackAnim()
     {
         enemyAnim.SetBool("isAttacking", false);
         enemyNavMesh.canMove = true;
-        Debug.Log("terminaAttack");
     }
 
     public void SummonAnim()
@@ -84,7 +82,6 @@ public class CasterAnimController : MonoBehaviour, IEnemyAnimController
     public void EndGetHitAnim()
     {      
         enemyNavMesh.canMove = true;
-        Debug.Log("terminaHit");
     }
     public void DieAnim()
     {

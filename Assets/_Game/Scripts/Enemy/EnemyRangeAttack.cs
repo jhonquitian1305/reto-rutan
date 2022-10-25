@@ -22,7 +22,6 @@ public class EnemyRangeAttack : MonoBehaviour
     {
         casterAnimController = GetComponent<IEnemyAnimController>();
         cooldownLeft = 0;
-        Debug.Log(cooldownLeft);
     }
 
     // Update is called once per frame
