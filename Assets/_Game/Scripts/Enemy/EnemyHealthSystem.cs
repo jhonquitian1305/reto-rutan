@@ -8,6 +8,7 @@ public partial class EnemyHealthSystem : MonoBehaviour
     public float criticDamageMultiplier=1.5f;
     public ElementType weaknessElementType;
     public CasterAnimController casterAnimController;
+    public bool isDead;
 
 
     private float currentHealth;
@@ -29,10 +30,13 @@ public partial class EnemyHealthSystem : MonoBehaviour
     private void Die()
     {
         casterAnimController.DieAnim();
+        isDead = true;
         StartCoroutine(SelfDestruct());
     }
     public void UpdateHealth(float value, bool critic)
     {
+        if (isDead) return;
+
         if (critic) value *= criticDamageMultiplier;
         currentHealth += value; 
         if (currentHealth > maxHealth)

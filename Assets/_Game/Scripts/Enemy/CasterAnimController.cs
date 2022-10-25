@@ -56,6 +56,9 @@ public class CasterAnimController : MonoBehaviour
     public void GetHitAnim()
     {
         enemyAnim.SetTrigger("GetHit");
+        enemyAnim.SetBool("isWalking", false);
+        enemyAnim.SetBool("isWalkingBack", false);
+        enemyAnim.SetBool("isAttacking", false);
         enemyNavMesh.canMove = false;
     }
 
