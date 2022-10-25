@@ -453,8 +453,8 @@ MonoBehaviour:
   maxHealth: 100
   criticDamageMultiplier: 1.5
   weaknessElementType: 1
-  casterAnimController: {fileID: 0}
   isDead: 0
+  deathAnimTime: 2
 --- !u!114 &3984415595203843413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,7 +476,6 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  casterAnimController: {fileID: 0}
   cooldownLeft: 0
 --- !u!114 &3984415595203843412
 MonoBehaviour:
@@ -490,8 +489,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddaeb30ae9b468c4eb859de34040a3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightRange: 15
-  attackRange: 15
+  sightRange: 20
+  attackRange: 18
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -500,7 +499,6 @@ MonoBehaviour:
   canAttack: 0
   canMove: 1
   isDead: 0
-  casterAnimController: {fileID: 0}
 --- !u!114 &3984415595203843415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,7 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6272916371886222592, guid: 33cb6a5f2f2f5a84793e7cc1904908fa, type: 3}
   cooldown: 10
-  cooldownLeft: 1
+  cooldownLeft: 2
 --- !u!195 &3984415595203843414
 NavMeshAgent:
   m_ObjectHideFlags: 0
