@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2379755987950557801}
   - component: {fileID: 2379755987950557800}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: _PauseEventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
