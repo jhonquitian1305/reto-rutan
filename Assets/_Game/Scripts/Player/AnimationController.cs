@@ -10,13 +10,14 @@ public class AnimationController : MonoBehaviour
 {
     public Animator animatorPlayer;
     private CharMoveController charMove;
+    private MeleeController meleeController;
     private int meleeCount;
-    public int comboCount;
     // Start is called before the first frame update
     void Start()
     {
         animatorPlayer = GetComponent<Animator>();
         charMove = GetComponent<CharMoveController>();
+        meleeController = GetComponentInChildren<MeleeController>();
     }
 
     private void Update()
@@ -59,6 +60,7 @@ public class AnimationController : MonoBehaviour
     public void DieAnim()
     {
         animatorPlayer.SetTrigger("Die");
+        charMove.canMove = false;
     }
 
     #region UnlockMove
@@ -191,16 +193,22 @@ public class AnimationController : MonoBehaviour
 
     public void CheckIfCombo(int attackNumber)
     {
-        comboCount = attackNumber;
         if(meleeCount < attackNumber)
         {
             FinishMelee();
+        }
+        else if (attackNumber == 2)
+        {
+            meleeController.bonusMultiplier = 1.15f;
+        } else if (attackNumber == 3)
+        {
+            meleeController.bonusMultiplier = 1.3f;
         }
     }
 
     public void FinishMelee()
     {
-        comboCount = 0;
+        meleeController.bonusMultiplier = 1;
         meleeCount = 0;
         charMove.isSlowed = false;
         animatorPlayer.SetBool("isAttacking", false);  

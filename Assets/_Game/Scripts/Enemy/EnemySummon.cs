@@ -13,7 +13,6 @@ public class EnemySummon : MonoBehaviour
     void Start()
     {
         casterAnimController = GetComponent<CasterAnimController>();
-        cooldownLeft = 1;
     }
 
     // Update is called once per frame
@@ -27,18 +26,17 @@ public class EnemySummon : MonoBehaviour
         cooldownLeft -= Time.deltaTime;
     }
 
-    public void SummonEnemy()
+    public void CastSummonEnemy()
     {
         if (cooldownLeft <= 0)
         {
-            StartCoroutine(summonEnemy(1.5f));
-            cooldownLeft = cooldown;
             casterAnimController.SummonAnim();
+            cooldownLeft = cooldown;
         }
     }
-    IEnumerator summonEnemy(float secondsToWait)
+
+    public void SummonEnemy()
     {
-        yield return new WaitForSeconds(secondsToWait);
         Instantiate(enemyPrefab, transform.position + transform.right, transform.rotation);
     }
 }

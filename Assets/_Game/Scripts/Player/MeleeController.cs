@@ -6,6 +6,7 @@ using UnityEngine;
 public class MeleeController : MonoBehaviour
 {
     public float meleeDamage;
+    public float bonusMultiplier=1;
     private AnimationController playerAnim;
     private float cycleTime = 0;
     
@@ -14,6 +15,7 @@ public class MeleeController : MonoBehaviour
     void Start()
     {
         playerAnim = GetComponentInParent<AnimationController>();
+        bonusMultiplier = 1;
     }
 
     // Update is called once per frame
@@ -26,7 +28,6 @@ public class MeleeController : MonoBehaviour
     public void Attack()
     {
         playerAnim.MeleeAttack();
-        Debug.Log(playerAnim.comboCount);
     }
 
 
@@ -37,7 +38,7 @@ public class MeleeController : MonoBehaviour
             EnemyHealthSystem enemyHealth = other.gameObject.GetComponent<EnemyHealthSystem>();
             if (enemyHealth != null)
             {
-                enemyHealth.UpdateHealth(-meleeDamage, false);
+                enemyHealth.UpdateHealth(-(meleeDamage*bonusMultiplier), false);
             }
         }
 

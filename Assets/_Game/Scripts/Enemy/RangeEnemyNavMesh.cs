@@ -123,6 +123,6 @@ public class RangeEnemyNavMesh : MonoBehaviour
         }
         transform.LookAt(player.transform);
         if (canAttack) enemyRangeAttack.RangeAttack();
-        if (canSummon) enemySummon.SummonEnemy();
+        if (canSummon) enemySummon.CastSummonEnemy();
     }
 }

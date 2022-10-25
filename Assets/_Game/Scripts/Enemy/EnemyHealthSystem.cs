@@ -38,7 +38,8 @@ public partial class EnemyHealthSystem : MonoBehaviour
         if (isDead) return;
 
         if (critic) value *= criticDamageMultiplier;
-        currentHealth += value; 
+        currentHealth += value;
+        Debug.Log(value);
         if (currentHealth > maxHealth)
         {
             casterAnimController.GetHitAnim();
@@ -48,13 +49,11 @@ public partial class EnemyHealthSystem : MonoBehaviour
         {
             currentHealth = 0;
             Die();
-            Debug.Log("Enemigo muerto");
         }
         else
         {
             casterAnimController.GetHitAnim();
         }
-        Debug.Log("Vida del enemigo:" + currentHealth);
         currentHealthPercentage = currentHealth / maxHealth;
         healthBar.UpdateHealthBarPercentage(currentHealthPercentage);
     }

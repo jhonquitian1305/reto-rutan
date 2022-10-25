@@ -1887,8 +1887,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellDamage: 10
   spellMoveSpeed: 20
-  spellRange: 10
-  spellCooldown: 4
+  spellRange: 30
+  spellCooldown: 1.5
   spellBallPrefab: {fileID: 3889930295139717891, guid: 9fb53b32a71d02340bd1d2f3ca5b26d7, type: 3}
   originPoint: {fileID: 6272916371352993234}
   enemyLayer:
@@ -1909,7 +1909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  criticDamageMultiplier: 1.2
+  criticDamageMultiplier: 2
   weaknessElementType: 2
   casterAnimController: {fileID: 0}
   isDead: 0
