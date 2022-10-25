@@ -40,7 +40,7 @@ public class RangeEnemyNavMesh : MonoBehaviour
 
     private void Update()
     {
-        if (isDead || !canMove)
+        if (isDead)
         {
             StayOnPosition();
             return;
@@ -58,11 +58,13 @@ public class RangeEnemyNavMesh : MonoBehaviour
             if (playerInAttackSight) AttackPlayer();
             else ChasePlayer();
         }
+        if (!canMove) StayOnPosition();
         ClampRotation();
     }
     public void StayOnPosition()
     {
         navMeshAgent.SetDestination(transform.position);
+        
     }
     private void ClampRotation()
     {
@@ -81,7 +83,6 @@ public class RangeEnemyNavMesh : MonoBehaviour
         Vector3 distanceToWalkPoint = transform.position - walkpoints[currentWalkpointIndex].position;
         if (distanceToWalkPoint.magnitude < 1f)
         {
-            casterAnimController.Idle();
             if (currentWalkpointIndex < walkpoints.Count - 1)
             {
                 currentWalkpointIndex++;
@@ -112,9 +113,10 @@ public class RangeEnemyNavMesh : MonoBehaviour
         else
         {
             navMeshAgent.SetDestination(transform.position);
+            casterAnimController.Idle();
         }
         transform.LookAt(player.transform);
-        if (canAttack) casterAnimController.AttackAnim();
+        if (canAttack) enemyRangeAttack.RangeAttack();
         if (canSummon) enemySummon.SummonEnemy();
     }
 }

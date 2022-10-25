@@ -11,8 +11,9 @@ public class EnemyRangeAttack : MonoBehaviour
     public GameObject spellBallPrefab;
     public Transform originPoint;
     public LayerMask enemyLayer;
+    public CasterAnimController casterAnimController;
 
-    private float cooldownLeft;
+    public float cooldownLeft;
 
     private Vector3 enemyTransformForward;
 
@@ -20,7 +21,7 @@ public class EnemyRangeAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        casterAnimController = GetComponent<CasterAnimController>();
     }
 
     // Update is called once per frame
@@ -55,13 +56,18 @@ public class EnemyRangeAttack : MonoBehaviour
     {
         if (cooldownLeft <= 0)
         {
-            GameObject spellBall = Instantiate(spellBallPrefab, originPoint.position, transform.rotation);
-            spellBall.GetComponent<SpellBall>().OriginGameObject = gameObject;
-            spellBall.GetComponent<SpellBall>().SpellDamage = spellDamage;
-            spellBall.GetComponent<SpellBall>().SpellMoveSpeed = spellMoveSpeed;
-            spellBall.GetComponent<SpellBall>().SpellRange = spellRange;
-            spellBall.GetComponent<SpellBall>().SpellDirection = transform.forward;
+            casterAnimController.AttackAnim();
             cooldownLeft = spellCooldown;
         }
+    }
+
+    public void CreateSpell()
+    {
+        GameObject spellBall = Instantiate(spellBallPrefab, originPoint.position, transform.rotation);
+        spellBall.GetComponent<SpellBall>().OriginGameObject = gameObject;
+        spellBall.GetComponent<SpellBall>().SpellDamage = spellDamage;
+        spellBall.GetComponent<SpellBall>().SpellMoveSpeed = spellMoveSpeed;
+        spellBall.GetComponent<SpellBall>().SpellRange = spellRange;
+        spellBall.GetComponent<SpellBall>().SpellDirection = transform.forward;
     }
 }
