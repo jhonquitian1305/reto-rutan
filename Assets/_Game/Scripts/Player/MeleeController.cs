@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MeleeController : MonoBehaviour
@@ -48,17 +49,18 @@ public class MeleeController : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Esto es una prueba");   
-        if (collision.transform.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            EnemyHealthSystem enemyHealth = collision.gameObject.GetComponent<EnemyHealthSystem>();
+            Debug.Log("Otra prueba");
+            EnemyHealthSystem enemyHealth = other.gameObject.GetComponent<EnemyHealthSystem>();
             if (enemyHealth != null)
             {
                 enemyHealth.UpdateHealth(-meleeDamage, false);
             }
         }
-    }
 
+    }
 }
