@@ -11,7 +11,7 @@ public class EnemyRangeAttack : MonoBehaviour
     public GameObject spellBallPrefab;
     public Transform originPoint;
     public LayerMask enemyLayer;
-    public CasterAnimController casterAnimController;
+    public IEnemyAnimController casterAnimController;
 
     public float cooldownLeft;
 
@@ -20,7 +20,7 @@ public class EnemyRangeAttack : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        casterAnimController = GetComponent<CasterAnimController>();
+        casterAnimController = GetComponent<IEnemyAnimController>();
         cooldownLeft = 0;
         Debug.Log(cooldownLeft);
     }

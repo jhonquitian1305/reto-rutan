@@ -6,16 +6,16 @@ using UnityEngine;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.UIElements;
 
-public class CasterAnimController : MonoBehaviour, IEnemyAnimController
+public class MeleeAnimController : MonoBehaviour, IEnemyAnimController
 {
     public Animator enemyAnim;
-    private RangeEnemyNavMesh enemyNavMesh;
+    private MeleeEnemyNavMesh enemyNavMesh;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyAnim = GetComponent<Animator>();
-        enemyNavMesh = GetComponent<RangeEnemyNavMesh>();
+        enemyNavMesh = GetComponent<MeleeEnemyNavMesh>();
         enemyNavMesh.canMove = true;
 
     }
@@ -36,9 +36,8 @@ public class CasterAnimController : MonoBehaviour, IEnemyAnimController
 
     public void Idle()
     {
-        enemyAnim.SetBool("isAttacking", false);
+        enemyAnim.SetTrigger("Idle");
         enemyAnim.SetBool("isWalking", false);
-        enemyAnim.SetBool("isWalkingBack", false);
     }
 
     public void AttackAnim()

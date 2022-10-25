@@ -33,7 +33,7 @@ public class MeleeController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && !other.isTrigger)
         {
             EnemyHealthSystem enemyHealth = other.gameObject.GetComponent<EnemyHealthSystem>();
             if (enemyHealth != null)

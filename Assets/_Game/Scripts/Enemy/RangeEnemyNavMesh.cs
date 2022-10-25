@@ -14,7 +14,7 @@ public class RangeEnemyNavMesh : MonoBehaviour
     public bool canAttack;
     public bool canMove=true;
     public bool isDead;
-    public CasterAnimController casterAnimController;
+    public IEnemyAnimController casterAnimController;
 
     private NavMeshAgent navMeshAgent;
     private int currentWalkpointIndex=0;
@@ -27,7 +27,7 @@ public class RangeEnemyNavMesh : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         navMeshAgent = GetComponent<NavMeshAgent>();
-        casterAnimController = GetComponent<CasterAnimController>();
+        casterAnimController = GetComponent<IEnemyAnimController>();
 
         enemyRangeAttack = GetComponent<EnemyRangeAttack>();
         enemySummon = GetComponent<EnemySummon>();

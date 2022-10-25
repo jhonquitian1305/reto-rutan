@@ -6,13 +6,13 @@ public class EnemySummon : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public float cooldown = 10f;
-    private CasterAnimController casterAnimController;
+    private IEnemyAnimController casterAnimController;
     public float cooldownLeft;
 
     // Start is called before the first frame update
     void Start()
     {
-        casterAnimController = GetComponent<CasterAnimController>();
+        casterAnimController = GetComponent<IEnemyAnimController>();
     }
 
     // Update is called once per frame
