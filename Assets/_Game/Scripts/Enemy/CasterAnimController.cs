@@ -36,7 +36,6 @@ public class CasterAnimController : MonoBehaviour, IEnemyAnimController
 
     public void Idle()
     {
-        enemyAnim.SetBool("isAttacking", false);
         enemyAnim.SetBool("isWalking", false);
         enemyAnim.SetBool("isWalkingBack", false);
     }
