@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,9 +16,16 @@ namespace _Game._Canvas._Scripts
         public GameObject buttonPausa;
         public GameObject menuPausa;
         private readonly int Iniciar = Animator.StringToHash("Iniciar");
-        
+        private GameObject player;
+
+        private void Start()
+        {
+            player = GameObject.FindWithTag("Player");
+        }
+
         public void Pausar()
         {
+            player.GetComponent<CharMoveController>().isPaused = true;
             buttonPausa.SetActive(false);
             menuPausa.SetActive(true);
             Time.timeScale = 0f;
@@ -28,6 +36,7 @@ namespace _Game._Canvas._Scripts
             menuPausa.SetActive(false);
             buttonPausa.SetActive(true);
             Time.timeScale = 1f;
+            StartCoroutine(despausarPersonaje());
         }
         
         public void Reiniciar()
@@ -50,7 +59,6 @@ namespace _Game._Canvas._Scripts
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             playerData.currentHealth = playerData.maxHealth;
         }
-        
         IEnumerator VolverEscena()
         {
             menuPausa.SetActive(false);
@@ -60,6 +68,11 @@ namespace _Game._Canvas._Scripts
             yield return new WaitForSeconds(animacionFinal.length);
             SceneManager.LoadScene(0);
             playerData.currentHealth = playerData.maxHealth;
+        }
+        IEnumerator despausarPersonaje()
+        {
+            yield return new WaitForSeconds(3f);
+            player.GetComponent<CharMoveController>().isPaused = false;
         }
     }
 }
