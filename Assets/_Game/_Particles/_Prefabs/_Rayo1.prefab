@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128708841987150311}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5758086, y: 0.08606018, z: 1.2644002}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,8 +43,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.07075471, g: 0.22471666, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1000
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5136,7 +5136,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.5411765, g: 0.8980392, b: 1, a: 1}
+      maxColor: {r: 0, g: 0.9641509, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.9245283, g: 0.64530575, b: 0.17007834, a: 1}
@@ -8785,7 +8785,7 @@ ParticleSystem:
   LightsModule:
     enabled: 0
     ratio: 1
-    light: {fileID: 0}
+    light: {fileID: 7375739802695611072}
     randomDistribution: 1
     color: 1
     range: 1
@@ -8846,7 +8846,7 @@ ParticleSystem:
     intensityCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 100
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9732,7 +9732,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 16bc05419e11f4c40b8d439491b7caa7, type: 2}
+  - {fileID: 2100000, guid: 54551c15f264e462e932e534cacf0d1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9795,10 +9795,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a50c6cbb4e4fe428a038ce320275ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellMoveSpeed: 7
-  spellRange: 7
-  spellDamage: 10
-  originGameObject: {fileID: 0}
+  criticDamageMultiplier: 1.5
+  spellElementType: 0
+  posibleCritico: 0
 --- !u!54 &3746468273233473979
 Rigidbody:
   m_ObjectHideFlags: 0
