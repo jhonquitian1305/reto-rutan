@@ -28,15 +28,16 @@ public partial class EnemyHealthSystem : MonoBehaviour
     }
     private void Die()
     {
-        //muere
+        casterAnimController.DieAnim();
+        StartCoroutine(SelfDestruct());
     }
     public void UpdateHealth(float value, bool critic)
     {
         if (critic) value *= criticDamageMultiplier;
         currentHealth += value; 
-        casterAnimController.GetHitAnim();
         if (currentHealth > maxHealth)
         {
+            casterAnimController.GetHitAnim();
             currentHealth = maxHealth;
         }
         else if (currentHealth <= 0)
@@ -45,8 +46,17 @@ public partial class EnemyHealthSystem : MonoBehaviour
             Die();
             Debug.Log("Enemigo muerto");
         }
+        else
+        {
+            casterAnimController.GetHitAnim();
+        }
         Debug.Log("Vida del enemigo:" + currentHealth);
         currentHealthPercentage = currentHealth / maxHealth;
         healthBar.UpdateHealthBarPercentage(currentHealthPercentage);
+    }
+    IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
     }
 }

@@ -12,6 +12,8 @@ public class RangeEnemyNavMesh : MonoBehaviour
     public List<Transform> walkpoints;
     public bool canSummon;
     public bool canAttack;
+    public bool canMove=true;
+    public bool isDead;
     public CasterAnimController casterAnimController;
 
     private NavMeshAgent navMeshAgent;
@@ -38,6 +40,11 @@ public class RangeEnemyNavMesh : MonoBehaviour
 
     private void Update()
     {
+        if (isDead || !canMove)
+        {
+            StayOnPosition();
+            return;
+        }
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
@@ -53,7 +60,10 @@ public class RangeEnemyNavMesh : MonoBehaviour
         }
         ClampRotation();
     }
-
+    public void StayOnPosition()
+    {
+        navMeshAgent.SetDestination(transform.position);
+    }
     private void ClampRotation()
     {
         float rx = transform.eulerAngles.x;

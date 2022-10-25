@@ -9,12 +9,13 @@ using UnityEngine.UIElements;
 public class CasterAnimController : MonoBehaviour
 {
     public Animator enemyAnim;
+    private RangeEnemyNavMesh enemyNavMesh;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyAnim = GetComponent<Animator>();
-
+        enemyNavMesh = GetComponent<RangeEnemyNavMesh>();
     }
 
     private void Update()
@@ -43,10 +44,17 @@ public class CasterAnimController : MonoBehaviour
     public void GetHitAnim()
     {
         enemyAnim.SetTrigger("GetHit");
+        enemyNavMesh.canMove = false;
     }
-    public void Die()
+
+    public void EndGetHitAnim()
+    {
+        enemyNavMesh.canMove = true;
+    }
+    public void DieAnim()
     {
         enemyAnim.SetTrigger("Die");
+        enemyNavMesh.isDead=true;
     }
 }
 

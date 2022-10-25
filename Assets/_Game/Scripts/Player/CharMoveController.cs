@@ -95,12 +95,14 @@ public class CharMoveController : MonoBehaviour
                     forwardMove = 2;
                     lateralMove = 0;
                 }
+                else if (moveInputVector == Vector2.zero)
+                {
+                    Debug.Log("a");
+                    lateralMove = 0;
+                    forwardMove = 0;
+                }
             }
-            else if (moveInputVector == Vector2.zero)
-            {
-                lateralMove = 0;
-                forwardMove = 0;
-            }
+
         }       
     }
     public void Jump()
