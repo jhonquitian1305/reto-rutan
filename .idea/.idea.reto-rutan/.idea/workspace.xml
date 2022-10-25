@@ -96,7 +96,8 @@
       <workItem from="1666597392303" duration="1929000" />
       <workItem from="1666625069825" duration="2607000" />
       <workItem from="1666651397314" duration="719000" />
-      <workItem from="1666652215216" duration="4618000" />
+      <workItem from="1666652215216" duration="4761000" />
+      <workItem from="1666658365872" duration="896000" />
     </task>
     <servers />
   </component>
@@ -128,10 +129,10 @@
           <line>33</line>
           <properties documentPath="C:\Users\darknED\Documents\reto-rutan\Assets\_Game\Scripts\InputSystem\PlayerInputController.cs" initialLine="34" containingFunctionPresentation="method 'OnEnable'">
             <startOffsets>
-              <option value="1172" />
+              <option value="-1" />
             </startOffsets>
             <endOffsets>
-              <option value="1172" />
+              <option value="-1" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />

@@ -8,10 +8,8 @@ public class UIInputController : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
     private PausaCanvas pausaCanvas;
-    //private GameObject player;
     private void OnEnable()
     {
-        //player = GameObject.FindWithTag("Player");
         pausaCanvas = GetComponent<PausaCanvas>();
         playerInputActions = new PlayerInputActions();
         playerInputActions.UI.Enable();

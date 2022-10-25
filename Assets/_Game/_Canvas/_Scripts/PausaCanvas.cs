@@ -13,7 +13,6 @@ namespace _Game._Canvas._Scripts
         public int playerLives=3, playerMaxHealth=100;
         public Animator animator;
         public AnimationClip animacionFinal;
-        public GameObject buttonPausa;
         public GameObject menuPausa;
         private readonly int Iniciar = Animator.StringToHash("Iniciar");
         private PlayerInputController playerInputController;
@@ -25,8 +24,6 @@ namespace _Game._Canvas._Scripts
 
         public void Pausar()
         {
-            
-            buttonPausa.SetActive(false);
             menuPausa.SetActive(true);
             Time.timeScale = 0f;
             playerInputController.DisableInput();
@@ -35,7 +32,6 @@ namespace _Game._Canvas._Scripts
         public void Reanudar()
         {
             menuPausa.SetActive(false);
-            buttonPausa.SetActive(true);
             Time.timeScale = 1f;
             playerInputController.EnableInput();
         }
@@ -53,7 +49,6 @@ namespace _Game._Canvas._Scripts
         IEnumerator ReiniciarEscena()
         {
             menuPausa.SetActive(false);
-            buttonPausa.SetActive(false);
             Time.timeScale = 1f;
             animator.SetTrigger(Iniciar);
             yield return new WaitForSeconds(animacionFinal.length);
@@ -63,7 +58,6 @@ namespace _Game._Canvas._Scripts
         IEnumerator VolverEscena()
         {
             menuPausa.SetActive(false);
-            buttonPausa.SetActive(false);
             Time.timeScale = 1f;
             animator.SetTrigger(Iniciar);
             yield return new WaitForSeconds(animacionFinal.length);
