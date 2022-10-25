@@ -14,7 +14,6 @@ namespace _Game._Canvas._Scripts
         public Animator animator;
         public AnimationClip animacionFinal;
         public GameObject menuPausa;
-        private readonly int Iniciar = Animator.StringToHash("Iniciar");
         private PlayerInputController playerInputController;
 
         private void Start()
@@ -50,7 +49,7 @@ namespace _Game._Canvas._Scripts
         {
             menuPausa.SetActive(false);
             Time.timeScale = 1f;
-            animator.SetTrigger(Iniciar);
+            animator.SetTrigger("Iniciar");
             yield return new WaitForSeconds(animacionFinal.length);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             playerData.currentHealth = playerData.maxHealth;
@@ -59,7 +58,7 @@ namespace _Game._Canvas._Scripts
         {
             menuPausa.SetActive(false);
             Time.timeScale = 1f;
-            animator.SetTrigger(Iniciar);
+            animator.SetTrigger("Iniciar");
             yield return new WaitForSeconds(animacionFinal.length);
             SceneManager.LoadScene(0);
             playerData.currentHealth = playerData.maxHealth;
