@@ -57,15 +57,14 @@ public class PausaCanvas : MonoBehaviour
     {
         animator.SetTrigger("Iniciar");
         yield return new WaitForSeconds(animacionFinal.length);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         playerData.SetPlayerData(playerData.lives, playerData.maxHealth, playerData.maxHealth, playerData.score);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     IEnumerator ReiniciarEscena(bool isDead)
     {
         menuPausa.SetActive(false);
         Time.timeScale = 1f;
         animator.SetTrigger("Iniciar");
-        if (isDead) playerData.currentHealth = 0;
         yield return new WaitForSeconds(animacionFinal.length);
         if(isDead) playerData.currentHealth = playerData.maxHealth;
         playerData.score = 0;   

@@ -64,7 +64,6 @@ public class SceneHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         levelLoader.Reiniciar(isDead);
-        playerHealthSystem.isDead = false;
     }
     IEnumerator IrUltimaEscena()
     {
