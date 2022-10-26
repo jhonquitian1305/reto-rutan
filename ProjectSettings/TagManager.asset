@@ -9,6 +9,7 @@ TagManager:
   - Platform
   - Ground
   - ground
+  - SceneHandler
   layers:
   - Default
   - TransparentFX
