@@ -36,7 +36,6 @@ public class TextShowerController : MonoBehaviour
     }
     public void StopPopUp()
     {
-        Debug.Log("a");
         playerInputController.EnableInput();
         textShowerAnimator.SetBool("Show", false);
         pausaCanvas.canPause = true;
