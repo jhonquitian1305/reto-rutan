@@ -8,9 +8,15 @@ public class SceneHandler : MonoBehaviour
     public PausaCanvas levelLoader;
     public PlayerData playerData;
     public PlayerHealthSystem playerHealthSystem;
+    public List<GameObject> essentialEnemies;
+    public PortalController portalController;
     void Start()
     {
         playerHealthSystem = GameObject.FindWithTag("Player").GetComponent<PlayerHealthSystem>();
+        foreach(GameObject enemy in essentialEnemies)
+        {
+            enemy.GetComponent<EnemyHealthSystem>().IsEssential = true;
+        }
     }
 
     // Update is called once per frame
@@ -18,6 +24,7 @@ public class SceneHandler : MonoBehaviour
     {
         CheckIfBonusLevel();
         CheckIfDead();
+        CheckIfSceneCompleted();
     }
 
     private void CheckIfBonusLevel()
@@ -27,6 +34,11 @@ public class SceneHandler : MonoBehaviour
             playerData.lives++;
             playerData.score = 0;
         }
+    }
+
+    private void CheckIfSceneCompleted()
+    {
+        if (essentialEnemies.Count <= 0) portalController.OpenPortal();
     }
     public void LoadNextLevel()
     {
@@ -52,13 +64,12 @@ public class SceneHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         levelLoader.Reiniciar(isDead);
+        playerHealthSystem.isDead = false;
     }
     IEnumerator IrUltimaEscena()
     {
         yield return new WaitForSeconds(3);
         levelLoader.UltimaEscena();
     }
-
-
     
 }

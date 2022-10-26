@@ -10,17 +10,24 @@ public partial class EnemyHealthSystem : MonoBehaviour
     public IEnemyAnimController casterAnimController;
     public bool isDead;
     public float deathAnimTime=2f;
+    public SceneHandler sceneHandler;
 
 
+    public bool isEssential = false;
     private float currentHealth;
     private float currentHealthPercentage;
     private EnemyHealthBar healthBar;
+
+    public bool IsEssential { get => isEssential; set => isEssential = value; }
+
     void Start()
     {
+        isDead = false;
         currentHealth = maxHealth;
         currentHealthPercentage = currentHealth / maxHealth;
         healthBar = GetComponentInChildren<EnemyHealthBar>();
         casterAnimController = GetComponent<IEnemyAnimController>();
+        sceneHandler = GameObject.FindWithTag("SceneHandler").GetComponent<SceneHandler>();
     }
 
     // Update is called once per frame
@@ -29,6 +36,7 @@ public partial class EnemyHealthSystem : MonoBehaviour
     }
     private void Die()
     {
+        sceneHandler.essentialEnemies.Remove(gameObject);
         casterAnimController.DieAnim();
         isDead = true;
         StartCoroutine(SelfDestruct());

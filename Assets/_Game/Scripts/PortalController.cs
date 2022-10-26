@@ -5,10 +5,15 @@ using UnityEngine;
 public class PortalController : MonoBehaviour
 {
     public SceneHandler sceneHandler;
+    public BoxCollider boxCollider;
+    public GameObject portalReactVortex;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        boxCollider = GetComponent<BoxCollider>();
+        boxCollider.enabled = false;
+        portalReactVortex.SetActive(false);
     }
 
     // Update is called once per frame
@@ -17,7 +22,13 @@ public class PortalController : MonoBehaviour
         
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OpenPortal()
+    {
+        boxCollider.enabled = true;
+        portalReactVortex.SetActive(true);
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {

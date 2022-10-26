@@ -68,6 +68,7 @@ public class PausaCanvas : MonoBehaviour
         if (isDead) playerData.currentHealth = 0;
         yield return new WaitForSeconds(animacionFinal.length);
         if(isDead) playerData.currentHealth = playerData.maxHealth;
+        playerData.score = 0;   
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     IEnumerator VolverEscena()
