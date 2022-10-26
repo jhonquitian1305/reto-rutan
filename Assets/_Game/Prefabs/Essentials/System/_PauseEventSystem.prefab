@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3848162463759528000}
   m_Layer: 0
   m_Name: _PauseEventSystem
-  m_TagString: Untagged
+  m_TagString: PauseEventSystem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +96,8 @@ MonoBehaviour:
   vidasIniciales: 3
   animator: {fileID: 0}
   animacionFinal: {fileID: 7400000, guid: 5ab461ebe177a8c41b0388ca004e6e7c, type: 2}
-  menuPausa: {fileID: 0}
+  menuPanel: {fileID: 0}
+  canPause: 0
 --- !u!114 &3848162463759528000
 MonoBehaviour:
   m_ObjectHideFlags: 0
