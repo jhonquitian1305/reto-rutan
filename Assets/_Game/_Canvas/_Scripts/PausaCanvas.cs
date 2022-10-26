@@ -11,28 +11,30 @@ public class PausaCanvas : MonoBehaviour
     public int vidasIniciales = 3;
     public Animator animator;
     public AnimationClip animacionFinal;
-    public GameObject menuPausa;
+    public GameObject menuPanel;
     public bool canPause;
     private PlayerInputController playerInputController;
 
     private void Start()
     {
-        playerInputController = GameObject.FindWithTag("Player").GetComponent<PlayerInputController>();
         canPause = true;
+
+        playerInputController = GameObject.FindWithTag("Player").GetComponent<PlayerInputController>();
+        animator = GameObject.FindWithTag("Transition").GetComponent<Animator>();
     }
 
     public void Pausar()
     {
-        if (menuPausa == null || !canPause) return;
-        menuPausa.SetActive(true);
+        if (menuPanel == null || !canPause) return;
+        menuPanel.SetActive(true);
         Time.timeScale = 0f;
         playerInputController.DisableInput();
     }
 
     public void Reanudar()
     {
-        if (menuPausa == null || !canPause) return;
-        menuPausa.SetActive(false);
+        if (menuPanel == null || !canPause) return;
+        menuPanel.SetActive(false);
         Time.timeScale = 1f;
         playerInputController.EnableInput();
     }
@@ -64,7 +66,7 @@ public class PausaCanvas : MonoBehaviour
     }
     IEnumerator ReiniciarEscena(bool isDead)
     {
-        menuPausa.SetActive(false);
+        menuPanel.SetActive(false);
         Time.timeScale = 1f;
         animator.SetTrigger("Iniciar");
         yield return new WaitForSeconds(animacionFinal.length);
@@ -74,7 +76,7 @@ public class PausaCanvas : MonoBehaviour
     }
     IEnumerator VolverEscena()
     {
-        menuPausa.SetActive(false);
+        menuPanel.SetActive(false);
         Time.timeScale = 1f;
         animator.SetTrigger("Iniciar");
         yield return new WaitForSeconds(animacionFinal.length);
@@ -82,7 +84,7 @@ public class PausaCanvas : MonoBehaviour
     }
     IEnumerator VolverEscenaAnterior() //Se devuelve a la ultima escena cuando el jugador queda sin vidas
     {
-        menuPausa.SetActive(false);
+        menuPanel.SetActive(false);
         Time.timeScale = 1f;
         animator.SetTrigger("Iniciar");
         yield return new WaitForSeconds(animacionFinal.length);

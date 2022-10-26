@@ -14,6 +14,7 @@ public class PortalController : MonoBehaviour
         boxCollider = GetComponent<BoxCollider>();
         boxCollider.enabled = false;
         portalReactVortex.SetActive(false);
+        sceneHandler = GameObject.FindWithTag("SceneHandler").GetComponent<SceneHandler>();
     }
 
     // Update is called once per frame

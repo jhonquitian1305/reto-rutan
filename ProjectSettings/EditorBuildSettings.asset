@@ -9,13 +9,7 @@ EditorBuildSettings:
     path: Assets/_Game/_Canvas/_SceneCanvas/_MainScene.unity
     guid: a15177c237ded2a469011ec88e5e11ff
   - enabled: 1
-    path: Assets/_Game/Scenes/SantiTEST3.unity
-    guid: 597bbad218ef4aa4b88ece0780ccda3b
-  - enabled: 1
-    path: Assets/_Game/Scenes/JHONNY TEST/Nivel3.unity
-    guid: 6855d9240eb18964e815dc143907e86d
-  - enabled: 1
-    path: Assets/_Game/Scenes/SantiTEST2.unity
-    guid: 51772930371481140800b40511ed51ab
+    path: Assets/_Game/Scenes/Definitivos/Nivel1W.unity
+    guid: a1d7d482175d7ee4c845a8e12943ce32
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7b549b1bc6c573c4d944032d5ba97d7c, type: 2}

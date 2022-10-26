@@ -13,6 +13,9 @@ public class SceneHandler : MonoBehaviour
     void Start()
     {
         playerHealthSystem = GameObject.FindWithTag("Player").GetComponent<PlayerHealthSystem>();
+        levelLoader = GameObject.FindWithTag("PauseEventSystem").GetComponent<PausaCanvas>();
+        portalController= GameObject.FindWithTag("PortalCambioNivel").GetComponent<PortalController>();
+        if (essentialEnemies==null || essentialEnemies.Count<=0) return;
         foreach(GameObject enemy in essentialEnemies)
         {
             enemy.GetComponent<EnemyHealthSystem>().IsEssential = true;

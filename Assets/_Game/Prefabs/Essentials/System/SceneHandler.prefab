@@ -47,6 +47,5 @@ MonoBehaviour:
   levelLoader: {fileID: 0}
   playerData: {fileID: 11400000, guid: 03b36ef041508e44bbe9a651bdd37262, type: 2}
   playerHealthSystem: {fileID: 0}
-  essentialEnemies:
-  - {fileID: 0}
+  essentialEnemies: []
   portalController: {fileID: 0}

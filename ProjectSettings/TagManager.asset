@@ -11,6 +11,11 @@ TagManager:
   - ground
   - SceneHandler
   - TextShower
+  - MainFreeLookCamera
+  - PortalCambioNivel
+  - PauseEventSystem
+  - MenuPanel
+  - Transition
   layers:
   - Default
   - TransparentFX
