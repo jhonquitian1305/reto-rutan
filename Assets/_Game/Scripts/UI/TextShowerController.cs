@@ -8,11 +8,13 @@ public class TextShowerController : MonoBehaviour
     public Animator textShowerAnimator;
     public TextMeshProUGUI titleTMP, infoTMP;
     public float secs;
+    public PausaCanvas pausaCanvas;
+    private PlayerInputController playerInputController;
     // Start is called before the first frame update
     void Start()
     {
         textShowerAnimator = GetComponent<Animator>();
-        ShowPopUp("","");
+        playerInputController = GameObject.FindWithTag("Player").GetComponent<PlayerInputController>();
     }
 
     // Update is called once per frame
@@ -23,15 +25,16 @@ public class TextShowerController : MonoBehaviour
 
     public void ShowPopUp(string newTitle, string newInfo)
     {
-        Debug.Log("muestra");
+        pausaCanvas.canPause = false;
+        playerInputController.DisableInput();
         if (newTitle != "") titleTMP.text = newTitle;
         if (newInfo != "") infoTMP.text = newInfo;
         textShowerAnimator.SetBool("Show", true);
-        StartCoroutine(StopPopUp());
     }
-    IEnumerator StopPopUp()
+    public void StopPopUp()
     {
-        yield return new WaitForSeconds(secs);
+        playerInputController.EnableInput();
         textShowerAnimator.SetBool("Show", false);
+        pausaCanvas.canPause = true;
     }
 }

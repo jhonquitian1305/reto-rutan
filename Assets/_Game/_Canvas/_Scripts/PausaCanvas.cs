@@ -12,6 +12,7 @@ public class PausaCanvas : MonoBehaviour
     public Animator animator;
     public AnimationClip animacionFinal;
     public GameObject menuPausa;
+    public bool canPause;
     private PlayerInputController playerInputController;
 
     private void Start()
@@ -21,7 +22,7 @@ public class PausaCanvas : MonoBehaviour
 
     public void Pausar()
     {
-        if (menuPausa == null) return;
+        if (menuPausa == null || !canPause) return;
         menuPausa.SetActive(true);
         Time.timeScale = 0f;
         playerInputController.DisableInput();
@@ -29,7 +30,7 @@ public class PausaCanvas : MonoBehaviour
 
     public void Reanudar()
     {
-        if (menuPausa == null) return;
+        if (menuPausa == null || !canPause) return;
         menuPausa.SetActive(false);
         Time.timeScale = 1f;
         playerInputController.EnableInput();
