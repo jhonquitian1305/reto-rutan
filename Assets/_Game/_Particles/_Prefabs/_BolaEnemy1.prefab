@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3623579701062977693}
   - component: {fileID: 8787677300022312599}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 3132114773973925452}
   - component: {fileID: 8295264095717366972}
   - component: {fileID: 5461347985988039541}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: _Bola2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4978,7 +4978,7 @@ GameObject:
   - component: {fileID: 7281260919884628748}
   - component: {fileID: 3794393891462953485}
   - component: {fileID: 2678297964038591920}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: _BolaEnemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9895,7 +9895,7 @@ GameObject:
   - component: {fileID: 7249752854540321847}
   - component: {fileID: 7249752854540321846}
   - component: {fileID: 7249752854540321845}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cola
   m_TagString: Untagged
   m_Icon: {fileID: 0}

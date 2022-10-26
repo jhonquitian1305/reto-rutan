@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextShowerController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class TextShowerController : MonoBehaviour
     public TextMeshProUGUI titleTMP, infoTMP;
     public float secs;
     public PausaCanvas pausaCanvas;
+    public Button continuar;
     private PlayerInputController playerInputController;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class TextShowerController : MonoBehaviour
 
     public void ShowPopUp(string newTitle, string newInfo)
     {
+        continuar.Select();
         pausaCanvas.canPause = false;
         playerInputController.DisableInput();
         if (newTitle != "") titleTMP.text = newTitle;
@@ -33,6 +36,7 @@ public class TextShowerController : MonoBehaviour
     }
     public void StopPopUp()
     {
+        Debug.Log("a");
         playerInputController.EnableInput();
         textShowerAnimator.SetBool("Show", false);
         pausaCanvas.canPause = true;

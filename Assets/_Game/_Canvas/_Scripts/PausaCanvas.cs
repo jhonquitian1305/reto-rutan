@@ -18,6 +18,7 @@ public class PausaCanvas : MonoBehaviour
     private void Start()
     {
         playerInputController = GameObject.FindWithTag("Player").GetComponent<PlayerInputController>();
+        canPause = true;
     }
 
     public void Pausar()
