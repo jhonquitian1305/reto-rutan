@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainCanvas: MonoBehaviour
 {
     public PlayerData playerData;
-    public int playerLives=3, playerMaxHealth=100;
+    public int startingPlayerLives = 3;
     public Animator animator;
     public AnimationClip animacionFinal;
     public void Play()
@@ -25,6 +25,6 @@ public class MainCanvas: MonoBehaviour
         animator.SetTrigger("Iniciar");
         yield return new WaitForSeconds(animacionFinal.length);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        playerData.SetPlayerData(playerLives, playerMaxHealth, playerMaxHealth, 0);
+        playerData.SetPlayerData(startingPlayerLives, playerData.maxHealth, playerData.maxHealth, 0);
     }
 }

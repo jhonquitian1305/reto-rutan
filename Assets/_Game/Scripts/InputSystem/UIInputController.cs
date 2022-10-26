@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using _Game._Canvas._Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

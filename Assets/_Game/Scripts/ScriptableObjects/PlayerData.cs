@@ -10,7 +10,7 @@ public class PlayerData : ScriptableObject
     public float currentHealth = 100;
     public float score = 0;
 
-    public void SetPlayerData(int lives, int maxHealth, int currentHealth, int score)
+    public void SetPlayerData(int lives, float maxHealth, float currentHealth, float score)
     {
         this.lives = lives;
         this.maxHealth = maxHealth;
