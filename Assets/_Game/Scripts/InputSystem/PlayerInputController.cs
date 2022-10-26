@@ -15,7 +15,6 @@ public class PlayerInputController : MonoBehaviour
     private CharMoveController playerMoveController;
     private SpellController playerSpellController;
     private MeleeController playerMeleeController;
-    private CinemachineFreeLook FreelookCM;
     private float originalCMxSpeed, originalCMySpeed;
 
 
