@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Game/Prefabs/Canvas/_dataCanvas/UICanvasVersion01.prefab.meta
+guid: 543ff1c223e1cbe4a89c2e79b6a39155
+PrefabImporter:
+========
 guid: 597bbad218ef4aa4b88ece0780ccda3b
 DefaultImporter:
+>>>>>>>> 2c225e5094b26e0a4fc0ebeffeac5a71f6c2a0ec:Assets/_Game/Scenes/SantiTEST3.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
