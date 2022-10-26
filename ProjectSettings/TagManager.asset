@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - ground
   - SceneHandler
+  - TextShower
   layers:
   - Default
   - TransparentFX
