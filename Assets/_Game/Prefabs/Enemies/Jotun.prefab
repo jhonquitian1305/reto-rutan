@@ -446,13 +446,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e35a1f3b4181b4f9bf4031067a0b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellDamage: 10
+  spellDamage: 15
   spellMoveSpeed: 20
   spellRange: 30
   spellCooldown: 3
   spellBallPrefab: {fileID: 3889930295139717891, guid: 9fb53b32a71d02340bd1d2f3ca5b26d7, type: 3}
   originPoint: {fileID: 8782854522978830681}
-  enemyLayer:
+  ignoreLayers:
     serializedVersion: 2
     m_Bits: 128
   cooldownLeft: 0
@@ -473,6 +473,8 @@ MonoBehaviour:
   weaknessElementType: 0
   isDead: 0
   deathAnimTime: 3
+  sceneHandler: {fileID: 0}
+  isEssential: 0
 --- !u!1 &1949157574521565773
 GameObject:
   m_ObjectHideFlags: 0

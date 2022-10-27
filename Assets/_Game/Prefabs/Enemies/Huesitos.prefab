@@ -1407,7 +1407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233a2a3aaa4e3594a959531072f405d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 10
+  attackDamage: 8
   cooldown: 3
   meleeAnimController: {fileID: 0}
 --- !u!195 &5245569555248581927

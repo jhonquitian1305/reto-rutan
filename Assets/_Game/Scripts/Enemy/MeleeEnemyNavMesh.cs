@@ -22,6 +22,7 @@ public class MeleeEnemyNavMesh : MonoBehaviour
 
     private void Awake()
     {
+        canMove = true;
         player = GameObject.FindWithTag("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         meleeAnimController = GetComponent<IEnemyAnimController>();

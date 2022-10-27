@@ -56,7 +56,7 @@ public class MeleeAnimController : MonoBehaviour, IEnemyAnimController
 
     public void SummonAnim()
     {
-        enemyAnim.SetBool("isSummoning", true);
+        //enemyAnim.SetBool("isSummoning", true);
         enemyAnim.SetBool("isWalking", false);
         //enemyAnim.SetBool("isWalkingBack", false);
         enemyNavMesh.canMove = false;
