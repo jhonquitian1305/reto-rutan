@@ -14514,6 +14514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   criticDamageMultiplier: 1.5
   spellElementType: 0
+  posibleCritico: 0
 --- !u!54 &4497602708091055322
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14541,7 +14542,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3889930295223726349
 GameObject:
