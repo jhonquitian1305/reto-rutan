@@ -14,9 +14,11 @@ public class PausaCanvas : MonoBehaviour
     public GameObject menuPanel;
     public bool canPause;
     private PlayerInputController playerInputController;
+    public string audioName;
 
     private void Start()
     {
+        FindObjectOfType<SoundManager>().Play(audioName + SceneManager.GetActiveScene().buildIndex);
         canPause = true;
 
         playerInputController = GameObject.FindWithTag("Player").GetComponent<PlayerInputController>();
@@ -62,6 +64,7 @@ public class PausaCanvas : MonoBehaviour
         animator.SetTrigger("Iniciar");
         yield return new WaitForSeconds(animacionFinal.length);
         playerData.SetPlayerData(playerData.lives, playerData.maxHealth, playerData.maxHealth, playerData.score);
+        FindObjectOfType<SoundManager>().Stop(audioName + SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     IEnumerator ReiniciarEscena(bool isDead)
@@ -71,7 +74,8 @@ public class PausaCanvas : MonoBehaviour
         animator.SetTrigger("Iniciar");
         yield return new WaitForSeconds(animacionFinal.length);
         if(isDead) playerData.currentHealth = playerData.maxHealth;
-        playerData.score = 0;   
+        playerData.score = 0; 
+        FindObjectOfType<SoundManager>().Stop(audioName + SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     IEnumerator VolverEscena()
@@ -80,6 +84,7 @@ public class PausaCanvas : MonoBehaviour
         Time.timeScale = 1f;
         animator.SetTrigger("Iniciar");
         yield return new WaitForSeconds(animacionFinal.length);
+        FindObjectOfType<SoundManager>().Stop(audioName + SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(0);
     }
     IEnumerator VolverEscenaAnterior() //Se devuelve a la ultima escena cuando el jugador queda sin vidas
@@ -89,6 +94,7 @@ public class PausaCanvas : MonoBehaviour
         animator.SetTrigger("Iniciar");
         yield return new WaitForSeconds(animacionFinal.length);
         playerData.SetPlayerData(vidasIniciales, playerData.maxHealth, playerData.maxHealth, 0);
+        FindObjectOfType<SoundManager>().Stop(audioName + SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
     }
 }
