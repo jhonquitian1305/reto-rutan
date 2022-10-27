@@ -455,6 +455,8 @@ MonoBehaviour:
   weaknessElementType: 1
   isDead: 0
   deathAnimTime: 2
+  sceneHandler: {fileID: 0}
+  isEssential: 0
 --- !u!114 &3984415595203843413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,9 +475,9 @@ MonoBehaviour:
   spellCooldown: 3
   spellBallPrefab: {fileID: 3889930295139717891, guid: 9fb53b32a71d02340bd1d2f3ca5b26d7, type: 3}
   originPoint: {fileID: 0}
-  enemyLayer:
+  ignoreLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   cooldownLeft: 0
 --- !u!114 &3984415595203843412
 MonoBehaviour:
@@ -511,7 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a271db667cd504cb04d6e49a15baca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7577273512608653449, guid: f7a173e06d0e3844699185c00d980008, type: 3}
+  enemyPrefab: {fileID: 5245569555248581931, guid: f7a173e06d0e3844699185c00d980008, type: 3}
   cooldown: 15
   cooldownLeft: 2
 --- !u!195 &3984415595203843414
