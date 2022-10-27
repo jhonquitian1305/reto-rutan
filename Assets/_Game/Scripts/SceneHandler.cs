@@ -18,7 +18,7 @@ public class SceneHandler : MonoBehaviour
         if (essentialEnemies==null || essentialEnemies.Count<=0) return;
         foreach(GameObject enemy in essentialEnemies)
         {
-            enemy.GetComponent<EnemyHealthSystem>().IsEssential = true;
+                enemy.GetComponent<EnemyHealthSystem>().IsEssential = true;
         }
     }
 

@@ -27,7 +27,8 @@ public partial class EnemyHealthSystem : MonoBehaviour
         currentHealthPercentage = currentHealth / maxHealth;
         healthBar = GetComponentInChildren<EnemyHealthBar>();
         casterAnimController = GetComponent<IEnemyAnimController>();
-        sceneHandler = GameObject.FindWithTag("SceneHandler").GetComponent<SceneHandler>();
+        GameObject sceneHandlerObject = GameObject.FindWithTag("SceneHandler");
+        if(sceneHandlerObject != null) sceneHandler = sceneHandlerObject.GetComponent<SceneHandler>();
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public partial class EnemyHealthSystem : MonoBehaviour
     }
     private void Die()
     {
-        sceneHandler.essentialEnemies.Remove(gameObject);
+        if(isEssential&& sceneHandler!=null) sceneHandler.essentialEnemies.Remove(gameObject);
         casterAnimController.DieAnim();
         isDead = true;
         StartCoroutine(SelfDestruct());
@@ -49,7 +50,7 @@ public partial class EnemyHealthSystem : MonoBehaviour
         currentHealth += value;
         if (currentHealth > maxHealth)
         {
-            casterAnimController.GetHitAnim();
+            //casterAnimController.GetHitAnim();
             currentHealth = maxHealth;
         }
         else if (currentHealth <= 0)

@@ -10,7 +10,7 @@ public class EnemyRangeAttack : MonoBehaviour
     public float spellCooldown = 1f;
     public GameObject spellBallPrefab;
     public Transform originPoint;
-    public LayerMask enemyLayer;
+    public LayerMask ignoreLayers;
     public IEnemyAnimController casterAnimController;
 
     public float cooldownLeft;
@@ -38,7 +38,7 @@ public class EnemyRangeAttack : MonoBehaviour
         rayOrigin.y = originPoint.position.y;
         Debug.DrawRay(rayOrigin, enemyTransformForward * spellRange*5, Color.green);
         RaycastHit hit;
-        if (Physics.Raycast(rayOrigin, enemyTransformForward, out hit, spellRange*5, ~enemyLayer))
+        if (Physics.Raycast(rayOrigin, enemyTransformForward, out hit, spellRange*5, ~ignoreLayers))
         {
             if (hit.collider.gameObject.CompareTag("Player"))
             {
