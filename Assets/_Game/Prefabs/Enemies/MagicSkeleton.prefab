@@ -1888,11 +1888,11 @@ MonoBehaviour:
   spellMoveSpeed: 20
   spellRange: 30
   spellCooldown: 1.5
-  spellBallPrefab: {fileID: 7249752852710803602, guid: b44fe71e03eb388469d90500b79357d1, type: 3}
+  spellBallPrefab: {fileID: 7249752852710803602, guid: 00c9e50aa64465442aca7c7a358e73f9, type: 3}
   originPoint: {fileID: 6272916371352993234}
-  enemyLayer:
+  ignoreLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   cooldownLeft: 0
 --- !u!114 &6272916371886222593
 MonoBehaviour:
@@ -1911,6 +1911,8 @@ MonoBehaviour:
   weaknessElementType: 2
   isDead: 0
   deathAnimTime: 2
+  sceneHandler: {fileID: 0}
+  isEssential: 0
 --- !u!1 &6272916371893851630
 GameObject:
   m_ObjectHideFlags: 0
