@@ -1,12 +1,27 @@
 fileFormatVersion: 2
-guid: a6a6e0189e8aaa347baa190c9749cc94
+guid: 0c01fe5e1e758cb479bc778cf1548c68
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: fc603a1ab1e31dd488c4632d2ce29b27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cirstal
+    second: {fileID: 2100000, guid: 6ccd45e684248604aa51b2dedf20593a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cirstal.001
+    second: {fileID: 2100000, guid: 6ccd45e684248604aa51b2dedf20593a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
