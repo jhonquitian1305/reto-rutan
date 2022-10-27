@@ -8,7 +8,7 @@ using Cinemachine;
 
 public class PlayerInputController : MonoBehaviour
 {
-    public float aimSensitivity = 1.5f;
+    public float aimSensitivity = 1f;
     public CinemachineFreeLook mainFreeLookCamera;
     private PlayerInputActions playerInputActions;
     private AnimationController playerAnimController;

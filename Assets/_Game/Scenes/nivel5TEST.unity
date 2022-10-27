@@ -8673,6 +8673,10 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 642386670}
+    - target: {fileID: 6573419173050152104, guid: 5a77993f382082e48af3850a9d4eb370, type: 3}
+      propertyPath: m_XAxis.m_MaxSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6573419173050152105, guid: 5a77993f382082e48af3850a9d4eb370, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -8723,15 +8727,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6573419173087827152, guid: 5a77993f382082e48af3850a9d4eb370, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.20094812
+      value: 0.2009481
       objectReference: {fileID: 0}
     - target: {fileID: 6573419173087827152, guid: 5a77993f382082e48af3850a9d4eb370, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1.4725308e-15
+      value: 0.00000003264034
       objectReference: {fileID: 0}
     - target: {fileID: 6573419173087827152, guid: 5a77993f382082e48af3850a9d4eb370, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1.3919267e-16
+      value: -0.0000000066955916
       objectReference: {fileID: 0}
     - target: {fileID: 6573419174200810224, guid: 5a77993f382082e48af3850a9d4eb370, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9009,15 +9013,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6573419173087827152, guid: 5a77993f382082e48af3850a9d4eb370, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.20094812
+      value: 0.2009481
       objectReference: {fileID: 0}
     - target: {fileID: 6573419173087827152, guid: 5a77993f382082e48af3850a9d4eb370, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1.4725308e-15
+      value: -0.00000003264034
       objectReference: {fileID: 0}
     - target: {fileID: 6573419173087827152, guid: 5a77993f382082e48af3850a9d4eb370, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1.3919267e-16
+      value: 0.0000000066955916
       objectReference: {fileID: 0}
     - target: {fileID: 6573419173087827154, guid: 5a77993f382082e48af3850a9d4eb370, type: 3}
       propertyPath: m_Layer
@@ -9049,11 +9053,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6573419174200810224, guid: 5a77993f382082e48af3850a9d4eb370, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016911974
+      value: -0.000000016911972
       objectReference: {fileID: 0}
     - target: {fileID: 6573419174200810224, guid: 5a77993f382082e48af3850a9d4eb370, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000031693395
+      value: 0.000000003169339
       objectReference: {fileID: 0}
     - target: {fileID: 6573419174200810226, guid: 5a77993f382082e48af3850a9d4eb370, type: 3}
       propertyPath: m_Layer
@@ -75731,7 +75735,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.86
-  m_Speed: 2.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -75756,8 +75760,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5245569555248581931, guid: f7a173e06d0e3844699185c00d980008, type: 3}
-  cooldown: 15
-  cooldownLeft: 2
+  cooldown: 25
+  cooldownLeft: 10
 --- !u!114 &4428844902752361209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75770,7 +75774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddaeb30ae9b468c4eb859de34040a3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightRange: 20
+  sightRange: 30
   attackRange: 18
   playerLayer:
     serializedVersion: 2
