@@ -51,14 +51,20 @@ public class RangeEnemyNavMesh : MonoBehaviour
         if (canAttack) playerInAttackSight = enemyRangeAttack.PlayerInSight();
         else playerInAttackSight = true;
 
-        if((!playerInSightRange && !playerInAttackRange) || player.GetComponent<PlayerHealthSystem>().isDead) Patroling();
-        else if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        else if (playerInAttackRange && playerInSightRange)
+        if (!canMove)
         {
-            if (playerInAttackSight) AttackPlayer();
-            else ChasePlayer();
+            StayOnPosition();
+            transform.LookAt(player.transform);
         }
-        if (!canMove) StayOnPosition();
+        else {
+            if ((!playerInSightRange && !playerInAttackRange) || player.GetComponent<PlayerHealthSystem>().isDead) Patroling();
+            else if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+            else if (playerInAttackRange && playerInSightRange)
+            {
+                if (playerInAttackSight) AttackPlayer();
+                else ChasePlayer();
+            }
+        }
         ClampRotation();
     }
     public void StayOnPosition()
@@ -83,22 +89,24 @@ public class RangeEnemyNavMesh : MonoBehaviour
         {
             casterAnimController.Idle();
             navMeshAgent.SetDestination(transform.position);
-            return;
         }
-        casterAnimController.WalkAnim();
-        Vector3 distanceToWalkPoint = transform.position - walkpoints[currentWalkpointIndex].position;
-        if (distanceToWalkPoint.magnitude < 1f)
+        else
         {
-            if (currentWalkpointIndex < walkpoints.Count - 1)
+            casterAnimController.WalkAnim();
+            Vector3 distanceToWalkPoint = transform.position - walkpoints[currentWalkpointIndex].position;
+            if (distanceToWalkPoint.magnitude < 1f)
             {
-                currentWalkpointIndex++;
+                if (currentWalkpointIndex < walkpoints.Count - 1)
+                {
+                    currentWalkpointIndex++;
+                }
+                else
+                {
+                    currentWalkpointIndex = 0;
+                }
             }
-            else
-            {
-                currentWalkpointIndex = 0;
-            }
+            navMeshAgent.SetDestination(walkpoints[currentWalkpointIndex].position);
         }
-        navMeshAgent.SetDestination(walkpoints[currentWalkpointIndex].position);
     }
 
     private void ChasePlayer()

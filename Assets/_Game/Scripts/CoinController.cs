@@ -10,6 +10,7 @@ public class CoinController : MonoBehaviour
         if (collider.gameObject.transform.CompareTag("Player"))
         {
             playerData.score++;
+            collider.gameObject.GetComponent<PlayerHealthSystem>().UpdateHealth(10,false);
             Destroy(gameObject);
         }
     }

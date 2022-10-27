@@ -49,7 +49,7 @@ public class EnemyRangeAttack : MonoBehaviour
     }
     private void SetCooldownLeft()
     {
-        if (cooldownLeft == 0) return;
+        if (cooldownLeft <= 0) return;
         cooldownLeft -= Time.deltaTime;
     }
 

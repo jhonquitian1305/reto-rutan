@@ -209,6 +209,7 @@ public class AnimationController : MonoBehaviour
     public void FinishMelee()
     {
         meleeController.bonusMultiplier = 1;
+        meleeController.RestartCooldown();
         meleeCount = 0;
         charMove.isSlowed = false;
         animatorPlayer.SetBool("isAttacking", false);  

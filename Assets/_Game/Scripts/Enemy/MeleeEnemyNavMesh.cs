@@ -41,9 +41,10 @@ public class MeleeEnemyNavMesh : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
 
+
         if ((!playerInSightRange && !playerInAttackRange) || player.GetComponent<PlayerHealthSystem>().isDead) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        else if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+        else if (playerInAttackRange && playerInSightRange) AttackPlayer();
         if (!canMove) StayOnPosition();
         ClampRotation();
     }
