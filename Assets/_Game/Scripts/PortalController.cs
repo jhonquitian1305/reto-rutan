@@ -13,7 +13,7 @@ public class PortalController : MonoBehaviour
     {
         boxCollider = GetComponent<BoxCollider>();
         boxCollider.enabled = false;
-        portalReactVortex.SetActive(false);
+        if(portalReactVortex!=null)portalReactVortex.SetActive(false);
         sceneHandler = GameObject.FindWithTag("SceneHandler").GetComponent<SceneHandler>();
     }
 
@@ -26,7 +26,7 @@ public class PortalController : MonoBehaviour
     public void OpenPortal()
     {
         boxCollider.enabled = true;
-        portalReactVortex.SetActive(true);
+        if (portalReactVortex != null) portalReactVortex.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
