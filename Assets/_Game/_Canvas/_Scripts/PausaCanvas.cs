@@ -14,10 +14,11 @@ public class PausaCanvas : MonoBehaviour
     public GameObject menuPanel;
     public bool canPause;
     private PlayerInputController playerInputController;
-    public string audioName;
+    public string audioName = "Background";
     private SoundManager soundManager;
     private void Start()
     {
+        audioName = "Background";
         soundManager = FindObjectOfType<SoundManager>();
         if(soundManager!=null)soundManager.Play(audioName + SceneManager.GetActiveScene().buildIndex);
         canPause = true;
