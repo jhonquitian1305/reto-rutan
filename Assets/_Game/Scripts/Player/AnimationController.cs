@@ -155,7 +155,7 @@ public class AnimationController : MonoBehaviour
     #region Animation Attack
     public void CastAnimation()
     {
-        if (charMove.isGrounded)
+        if (charMove.isGrounded&&!animatorPlayer.GetBool("isAttacking"))
         {
             charMove.canMove = false;
             charMove.isRunning = false;
