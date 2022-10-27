@@ -75,7 +75,7 @@ public class BossAnimController : MonoBehaviour, IEnemyAnimController
         enemyAnim.SetBool("isWalkingBack", false);
         enemyAnim.SetBool("isAttacking", false);
         enemyAnim.SetBool("isSummoning", false);
-        enemyNavMesh.canMove = false;
+        //enemyNavMesh.canMove = false;
 
     }
 
