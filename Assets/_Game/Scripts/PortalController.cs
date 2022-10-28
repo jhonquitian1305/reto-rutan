@@ -7,6 +7,7 @@ public class PortalController : MonoBehaviour
     public SceneHandler sceneHandler;
     public BoxCollider boxCollider;
     public GameObject portalReactVortex;
+    public bool bossScene = false;
 
     // Start is called before the first frame update
     void Start()

@@ -20,7 +20,6 @@ public class MainCanvas: MonoBehaviour
 
     public void Play()
     {
-        FindObjectOfType<SoundManager>().Play("BolaFuego");
         StartCoroutine(CambiarEscena());
     }
     public void Exit()

@@ -11,6 +11,7 @@ public partial class EnemyHealthSystem : MonoBehaviour
     public bool isDead;
     public float deathAnimTime=2f;
     public SceneHandler sceneHandler;
+    public BossHandler bossHandler;
 
 
     public bool isEssential = false;
@@ -29,6 +30,8 @@ public partial class EnemyHealthSystem : MonoBehaviour
         casterAnimController = GetComponent<IEnemyAnimController>();
         GameObject sceneHandlerObject = GameObject.FindWithTag("SceneHandler");
         if(sceneHandlerObject != null) sceneHandler = sceneHandlerObject.GetComponent<SceneHandler>();
+        GameObject bossHandlerObject = GameObject.FindWithTag("BossHandler");
+        if (sceneHandlerObject != null) bossHandler = bossHandlerObject.GetComponent<BossHandler>();
     }
 
     // Update is called once per frame
@@ -38,6 +41,7 @@ public partial class EnemyHealthSystem : MonoBehaviour
     private void Die()
     {
         if(isEssential&& sceneHandler!=null) sceneHandler.essentialEnemies.Remove(gameObject);
+        if (isEssential && sceneHandler != null) bossHandler.essentialEnemies.Remove(gameObject);
         casterAnimController.DieAnim();
         isDead = true;
         StartCoroutine(SelfDestruct());

@@ -220,6 +220,11 @@ public class AnimationController : MonoBehaviour
         animatorPlayer.SetBool("isAttacking", false);  
     }
     #endregion
+
+    public void PlayMeleeSound()
+    {
+        //FindObjectOfType<SoundManager>().Play("Melee");
+    }
 }
 
 

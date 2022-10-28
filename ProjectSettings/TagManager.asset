@@ -17,6 +17,7 @@ TagManager:
   - MenuPanel
   - Transition
   - jauilas
+  - BossHandler
   layers:
   - Default
   - TransparentFX
