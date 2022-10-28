@@ -58,14 +58,14 @@ PrefabInstance:
     - target: {fileID: 3984415595203843415, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 6730031682802256002, guid: 0aeb12eed932f724bb4719bbd4c7a1ea, type: 3}
+      objectReference: {fileID: 1985903694446760865, guid: 7e6e7d3754596ee4d99139ba8896f61d, type: 3}
     - target: {fileID: 3984415595203843415, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
       propertyPath: cooldownLeft
       value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 3984415595203843432, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
       propertyPath: m_Name
-      value: Sepulturero
+      value: Sepulturero Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
