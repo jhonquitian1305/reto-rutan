@@ -999,11 +999,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
-  criticDamageMultiplier: 2
+  criticDamageMultiplier: 1.2
   weaknessElementType: 2
   isDead: 0
   deathAnimTime: 5
   sceneHandler: {fileID: 0}
+  bossHandler: {fileID: 0}
   isEssential: 0
 --- !u!114 &3891649931995382781
 MonoBehaviour:

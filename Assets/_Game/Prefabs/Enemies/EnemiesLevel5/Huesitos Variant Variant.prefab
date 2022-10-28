@@ -55,13 +55,17 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 1795109591709920164, guid: 777cf342f0423584ba46a8b9a007cfb3, type: 3}
+      propertyPath: criticDamageMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1795109591709920166, guid: 777cf342f0423584ba46a8b9a007cfb3, type: 3}
       propertyPath: attackDamage
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1795109591709920171, guid: 777cf342f0423584ba46a8b9a007cfb3, type: 3}
       propertyPath: m_Name
-      value: Huesitos Variant
+      value: Huesitos Variant Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 777cf342f0423584ba46a8b9a007cfb3, type: 3}
