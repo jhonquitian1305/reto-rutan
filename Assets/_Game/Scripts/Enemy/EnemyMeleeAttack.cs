@@ -33,6 +33,8 @@ public class EnemyMeleeAttack : MonoBehaviour
         {
             meleeAnimController.AttackAnim();
             cooldownLeft = cooldown;
+            SoundManager soundManager = FindObjectOfType<SoundManager>();
+            if (soundManager != null) soundManager.Play("Hueso");
         }
     }
 
