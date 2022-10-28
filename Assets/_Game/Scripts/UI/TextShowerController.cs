@@ -12,6 +12,7 @@ public class TextShowerController : MonoBehaviour
     public PausaCanvas pausaCanvas;
     public Button continuar;
     private PlayerInputController playerInputController;
+    private bool isActive;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class TextShowerController : MonoBehaviour
 
     public void ShowPopUp(string newTitle, string newInfo)
     {
+        isActive = true;
         continuar.Select();
         pausaCanvas.canPause = false;
         playerInputController.DisableInput();
@@ -36,9 +38,11 @@ public class TextShowerController : MonoBehaviour
     }
     public void StopPopUp()
     {
+        if (!isActive) return;
         FindObjectOfType<SoundManager>().Play("Click");
         textShowerAnimator.SetBool("Show", false);
         pausaCanvas.canPause = true;
+        isActive = false;
         StartCoroutine(EnableInput());
     }
 
