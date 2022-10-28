@@ -1098,7 +1098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellDamage: 20
-  spellMoveSpeed: 7
+  spellMoveSpeed: 15
   spellRange: 30
   spellCooldown: 2
   spellBallPrefabs:
