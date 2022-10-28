@@ -8752,7 +8752,7 @@ ParticleSystem:
     intensityCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 0.9
       minScalar: 1
       maxCurve:
         serializedVersion: 2

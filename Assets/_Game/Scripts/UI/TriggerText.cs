@@ -5,14 +5,14 @@ using UnityEngine;
 public class TriggerText : MonoBehaviour
 {
     private TextShowerController textShowerController;
-    private SphereCollider sphereCollider;
+    private BoxCollider boxCollider;
     public string text, title;
     public float secs;
     // Start is called before the first frame update
     void Start()
     {
         textShowerController = GameObject.FindWithTag("TextShower").GetComponent<TextShowerController>();
-        sphereCollider = GetComponent<SphereCollider>();
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -26,8 +26,8 @@ public class TriggerText : MonoBehaviour
         if (other.CompareTag("Player") || !other.isTrigger)
         {
             textShowerController.secs = secs;
-            textShowerController.ShowPopUp(text, title);
-            sphereCollider.enabled = false;
+            textShowerController.ShowPopUp(title, text);
+            boxCollider.enabled = false;
         }
     }
 }
