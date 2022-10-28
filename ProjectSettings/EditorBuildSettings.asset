@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/_Game/_Canvas/_SceneCanvas/_MainScene.unity
     guid: a15177c237ded2a469011ec88e5e11ff
   - enabled: 1
-    path: Assets/_Game/Scenes/Definitivos/Nivel1W.unity
+    path: Assets/_Game/Scenes/Definitivos/Nivel1.unity
     guid: a1d7d482175d7ee4c845a8e12943ce32
   - enabled: 1
     path: Assets/_Game/Scenes/Definitivos/nivel2.unity

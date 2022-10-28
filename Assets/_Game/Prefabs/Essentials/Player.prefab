@@ -1100,7 +1100,7 @@ MonoBehaviour:
   spellDamage: 20
   spellMoveSpeed: 15
   spellRange: 30
-  spellCooldown: 2
+  spellCooldown: 0.8
   spellBallPrefabs:
   - {fileID: 1096924857088459834, guid: 340c9bc4b47ad4740bcedb5a2b039ee0, type: 3}
   - {fileID: 7490130206447771441, guid: bea392db8d7dec34aadc0f89d809da31, type: 3}

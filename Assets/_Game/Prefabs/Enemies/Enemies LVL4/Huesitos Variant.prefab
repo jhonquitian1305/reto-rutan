@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5245569555248581921, guid: f7a173e06d0e3844699185c00d980008, type: 3}
+      propertyPath: sightRange
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5245569555248581922, guid: f7a173e06d0e3844699185c00d980008, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -61,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5245569555248581931, guid: f7a173e06d0e3844699185c00d980008, type: 3}
       propertyPath: m_Name
-      value: Huesitos
+      value: Huesitos Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a173e06d0e3844699185c00d980008, type: 3}

@@ -16,6 +16,7 @@ TagManager:
   - PauseEventSystem
   - MenuPanel
   - Transition
+  - jauilas
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Wall
   - Walkable
   - IgnoreSpell
-  - 
+  - IgnoreCineMachine
   - 
   - 
   - 
