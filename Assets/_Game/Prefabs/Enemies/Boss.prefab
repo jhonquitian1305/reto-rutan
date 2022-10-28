@@ -2983,7 +2983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 500
-  criticDamageMultiplier: 1.5
+  criticDamageMultiplier: 2
   weaknessElementType: 1
   isDead: 0
   deathAnimTime: 7

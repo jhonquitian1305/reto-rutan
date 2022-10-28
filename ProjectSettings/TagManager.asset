@@ -29,7 +29,7 @@ TagManager:
   - EnemySpell
   - Wall
   - Walkable
-  - 
+  - IgnoreSpell
   - 
   - 
   - 
