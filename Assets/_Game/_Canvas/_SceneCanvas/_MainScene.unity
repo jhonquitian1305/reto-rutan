@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1385,26 +1385,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: BolaFuego
+  - name: FireBall
     clip: {fileID: 8300000, guid: a3636ac2a03cb68449136165478842af, type: 3}
+    volumen: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ThunderBall
+    clip: {fileID: 8300000, guid: 288ba8e1760925e429f8c511046974ff, type: 3}
     volumen: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Click
     clip: {fileID: 8300000, guid: eba38cb880754e64dac0d24cdf63f12c, type: 3}
-    volumen: 0.5
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Melee
-    clip: {fileID: 8300000, guid: 8cf73f57a12e0884f9b56714d2f71344, type: 3}
-    volumen: 0.5
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Melee
-    clip: {fileID: 8300000, guid: 8cf73f57a12e0884f9b56714d2f71344, type: 3}
     volumen: 0.5
     pitch: 1
     loop: 0
@@ -1440,10 +1434,16 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Background5
-    clip: {fileID: 8300000, guid: 1e55b6f0b4eb6e144b83f932b09c56d1, type: 3}
+    clip: {fileID: 8300000, guid: 67506051a837924498704ee7873b9ed5, type: 3}
     volumen: 0.5
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: Melee
+    clip: {fileID: 8300000, guid: 67506051a837924498704ee7873b9ed5, type: 3}
+    volumen: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &1044942690
 Transform:

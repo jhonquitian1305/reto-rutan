@@ -15,7 +15,8 @@ public class SpellBall : MonoBehaviour
     public int posibleCritico;
 
     private Vector3 spellDirection;
-
+    private SoundManager soundManager;
+    private string audioToPlay;
     public float SpellMoveSpeed { get => spellMoveSpeed; set => spellMoveSpeed = value; }
     public float SpellRange { get => spellRange; set => spellRange = value; }
     public float SpellDamage { get => spellDamage; set => spellDamage = value; }
@@ -34,6 +35,13 @@ public class SpellBall : MonoBehaviour
         GetComponent<ParticleSystem>().Play();
         ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
         em.enabled = true;
+
+        audioToPlay ="";
+        if (spellElementType == ElementType.Fire) audioToPlay = "FireBall";
+        else if (spellElementType == ElementType.Thunder) audioToPlay = "ThunderBall";
+        //else if (spellElementType == ElementType.Holy) audioToPlay = "HolyBall";
+        soundManager = FindObjectOfType<SoundManager>();
+        if (soundManager != null && audioToPlay!="") soundManager.Play(audioToPlay);
     }
 
 
@@ -88,8 +96,7 @@ public class SpellBall : MonoBehaviour
     }
 
     private void Disable()
-    { 
-       Destroy(gameObject);
-
+    {
+        Destroy(gameObject);
     }
 }
