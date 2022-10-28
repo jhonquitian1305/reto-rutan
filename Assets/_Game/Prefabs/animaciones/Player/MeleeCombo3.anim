@@ -79049,7 +79049,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.73333335
+  - time: 0.76666665
     functionName: PlayMeleeSound
     data: 
     objectReferenceParameter: {fileID: 0}

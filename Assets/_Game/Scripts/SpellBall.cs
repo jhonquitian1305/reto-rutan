@@ -39,7 +39,7 @@ public class SpellBall : MonoBehaviour
         audioToPlay ="";
         if (spellElementType == ElementType.Fire) audioToPlay = "FireBall";
         else if (spellElementType == ElementType.Thunder) audioToPlay = "ThunderBall";
-        //else if (spellElementType == ElementType.Holy) audioToPlay = "HolyBall";
+        else if (spellElementType == ElementType.Holy) audioToPlay = "HolyBall";
         soundManager = FindObjectOfType<SoundManager>();
         if (soundManager != null && audioToPlay!="") soundManager.Play(audioToPlay);
     }
