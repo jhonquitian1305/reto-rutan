@@ -223,7 +223,7 @@ public class AnimationController : MonoBehaviour
 
     public void PlayMeleeSound()
     {
-        //FindObjectOfType<SoundManager>().Play("Melee");
+        FindObjectOfType<SoundManager>().Play("Melee");
     }
 }
 

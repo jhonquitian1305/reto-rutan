@@ -1405,43 +1405,61 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Background
     clip: {fileID: 8300000, guid: cb1846df25f5a074a868673e99a54257, type: 3}
-    volumen: 0.5
+    volumen: 0.4
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Background1
-    clip: {fileID: 8300000, guid: 1e55b6f0b4eb6e144b83f932b09c56d1, type: 3}
-    volumen: 0.5
+    clip: {fileID: 8300000, guid: 5eace0b3aa392b74caccef8e9ba1762d, type: 3}
+    volumen: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Background2
-    clip: {fileID: 8300000, guid: 1e55b6f0b4eb6e144b83f932b09c56d1, type: 3}
-    volumen: 0.5
+    clip: {fileID: 8300000, guid: 0cb34b9064d5a7f4cb54766a224cbe17, type: 3}
+    volumen: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Background3
-    clip: {fileID: 8300000, guid: 1e55b6f0b4eb6e144b83f932b09c56d1, type: 3}
-    volumen: 0.5
+    clip: {fileID: 8300000, guid: 306de2d1cdd1f3a488d71ccd509c6330, type: 3}
+    volumen: 0.55
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Background4
     clip: {fileID: 8300000, guid: 1e55b6f0b4eb6e144b83f932b09c56d1, type: 3}
-    volumen: 0.5
+    volumen: 0.8
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Background5
-    clip: {fileID: 8300000, guid: 67506051a837924498704ee7873b9ed5, type: 3}
-    volumen: 0.5
+    clip: {fileID: 8300000, guid: 9b35d6f0d5c06b94c962f5c38f1ad667, type: 3}
+    volumen: 0.3
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Melee
-    clip: {fileID: 8300000, guid: 67506051a837924498704ee7873b9ed5, type: 3}
+    clip: {fileID: 8300000, guid: 573fc88c16888334aa879ece164a621a, type: 3}
     volumen: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HolyBall
+    clip: {fileID: 8300000, guid: ce1d93169d31b1d4b87a45de1fe7f158, type: 3}
+    volumen: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Hueso
+    clip: {fileID: 8300000, guid: 078f85a5761b75945a0701313d245729, type: 3}
+    volumen: 0.502
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Background6
+    clip: {fileID: 8300000, guid: 29ee57452985a4a45b74231d1797fc53, type: 3}
+    volumen: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
