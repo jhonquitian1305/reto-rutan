@@ -40,6 +40,12 @@ public class PausaCanvas : MonoBehaviour
         if (menuPanel == null || !canPause) return;
         menuPanel.SetActive(false);
         Time.timeScale = 1f;
+        StartCoroutine(EnableInput());
+    }
+
+    IEnumerator EnableInput()
+    {
+        yield return new WaitForSeconds(0.2f);
         playerInputController.EnableInput();
     }
 
