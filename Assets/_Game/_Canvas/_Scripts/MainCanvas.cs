@@ -20,10 +20,12 @@ public class MainCanvas: MonoBehaviour
 
     public void Play()
     {
+        FindObjectOfType<SoundManager>().Play("Click");
         StartCoroutine(CambiarEscena());
     }
     public void Exit()
     {
+        FindObjectOfType<SoundManager>().Play("Click");
         Debug.Log("Saliendo...");
         Application.Quit();
     }

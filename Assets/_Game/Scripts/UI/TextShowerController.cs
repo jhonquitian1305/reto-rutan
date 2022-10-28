@@ -36,6 +36,7 @@ public class TextShowerController : MonoBehaviour
     }
     public void StopPopUp()
     {
+        FindObjectOfType<SoundManager>().Play("Click");
         textShowerAnimator.SetBool("Show", false);
         pausaCanvas.canPause = true;
         StartCoroutine(EnableInput());

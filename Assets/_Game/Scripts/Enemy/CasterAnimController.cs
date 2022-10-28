@@ -70,6 +70,7 @@ public class CasterAnimController : MonoBehaviour, IEnemyAnimController
 
     public void GetHitAnim()
     {
+        FindObjectOfType<SoundManager>().Play("HitEnemy");
         enemyAnim.SetTrigger("GetHit");
         enemyAnim.SetBool("isWalking", false);
         enemyAnim.SetBool("isWalkingBack", false);
@@ -85,6 +86,7 @@ public class CasterAnimController : MonoBehaviour, IEnemyAnimController
     }
     public void DieAnim()
     {
+        FindObjectOfType<SoundManager>().Play("DeadEnemy");
         enemyAnim.SetTrigger("Die");
         enemyNavMesh.isDead=true;
     }

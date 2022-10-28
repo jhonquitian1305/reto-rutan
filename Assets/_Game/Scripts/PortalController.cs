@@ -26,6 +26,7 @@ public class PortalController : MonoBehaviour
 
     public void OpenPortal()
     {
+        FindObjectOfType<SoundManager>().Play("Portal");
         boxCollider.enabled = true;
         if (portalReactVortex != null) portalReactVortex.SetActive(true);
     }

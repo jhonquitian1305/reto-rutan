@@ -1463,6 +1463,30 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Libro
+    clip: {fileID: 8300000, guid: e2c29ce67c33f2f4f880d0898479cd91, type: 3}
+    volumen: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HitEnemy
+    clip: {fileID: 8300000, guid: 0b7cd95af64fdd2439dd69743601faa6, type: 3}
+    volumen: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DeadEnemy
+    clip: {fileID: 8300000, guid: e7b052218117d6547be94fad856a4852, type: 3}
+    volumen: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Portal
+    clip: {fileID: 8300000, guid: af28efaf171a9bf42a2b7ff626b9169f, type: 3}
+    volumen: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1044942690
 Transform:
   m_ObjectHideFlags: 0
