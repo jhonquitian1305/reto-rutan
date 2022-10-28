@@ -34,6 +34,7 @@ public class SceneHandler : MonoBehaviour
     {
         if (playerData.score >= 10)
         {
+            FindObjectOfType<SoundManager>().Play("1up");
             playerData.lives++;
             playerData.score = 0;
         }
