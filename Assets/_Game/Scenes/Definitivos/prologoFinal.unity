@@ -3193,22 +3193,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4613710069686372190, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613710069852223577, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613710069852223577, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613710069852223577, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613710069852223577, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613710069852223577, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1540.1816
+      objectReference: {fileID: 0}
     - target: {fileID: 4613710069852223577, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 3955.83
+      value: 4055.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613710069852223577, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4613710069852223577, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1487.9142
+      value: -1532
       objectReference: {fileID: 0}
     - target: {fileID: 4613710069852223578, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
       propertyPath: m_fontSize
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4613710069852223578, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d08c1b0e9a4fd2146842602edc2b38ca, type: 2}
+    - target: {fileID: 4613710069852223578, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
       propertyPath: m_fontSizeBase
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 4613710069852223578, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -397654196465182457, guid: d08c1b0e9a4fd2146842602edc2b38ca, type: 2}
     - target: {fileID: 4613710070239417341, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
       propertyPath: m_text
       value: MASUKU
@@ -3231,7 +3267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4613710070239417341, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 16711679
+      value: 587202559
       objectReference: {fileID: 0}
     - target: {fileID: 4613710070484393728, guid: fb595e62128f2e94f91e7ba15eeacbf7, type: 3}
       propertyPath: m_Pivot.x
