@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e169b197-f1a0-4366-a7d4-7bcc44cf0da7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Canvas/_Transition/_Epilogo.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Canvas/_Transition/_Epilogo.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.reto-rutan/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.reto-rutan/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/Definitivos/_MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scenes/Definitivos/_MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/JHONNY TEST/BAILEPERRON.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/JHONNY TEST/BAILEPERRON.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/MainCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/MainCanvas.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -14,6 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/CreditsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/InputSystem/UIInputController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.3/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.3/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
@@ -109,6 +114,7 @@
       <workItem from="1667004765918" duration="409000" />
       <workItem from="1667011164785" duration="3009000" />
       <workItem from="1667052823697" duration="1251000" />
+      <workItem from="1667055491265" duration="3403000" />
     </task>
     <servers />
   </component>

@@ -26,8 +26,13 @@ public class MainCanvas: MonoBehaviour
     public void Exit()
     {
         FindObjectOfType<SoundManager>().Play("Click");
-        Debug.Log("Saliendo...");
         Application.Quit();
+    }
+
+    public void Credits()
+    {
+        FindObjectOfType<SoundManager>().Play("Click");
+        StartCoroutine(runCredits());
     }
 
     public void CambiarVolumen(float volumen)
@@ -41,5 +46,13 @@ public class MainCanvas: MonoBehaviour
         yield return new WaitForSeconds(animacionFinal.length);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         playerData.SetPlayerData(startingPlayerLives, playerData.maxHealth, playerData.maxHealth, 0);
+    }
+
+    IEnumerator runCredits()
+    {
+        FindObjectOfType<SoundManager>().Stop("Background");
+        animator.SetTrigger("Iniciar");
+        yield return new WaitForSeconds(animacionFinal.length);
+        SceneManager.LoadScene("BAILEPERRON");
     }
 }

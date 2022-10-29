@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/Scenes/Definitivos/epilogoFinal.unity
     guid: 8180caeafcbfbee44a24654cff0f70d9
+  - enabled: 1
+    path: Assets/_Game/Scenes/Definitivos/BAILEPERRON.unity
+    guid: 1cfed703f4deb3f4db49945dec136ef1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7b549b1bc6c573c4d944032d5ba97d7c, type: 2}
