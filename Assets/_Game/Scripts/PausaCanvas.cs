@@ -16,12 +16,12 @@ public class PausaCanvas : MonoBehaviour
     private PlayerInputController playerInputController;
     public string audioName = "Background";
     private SoundManager soundManager;
-    private bool isPaused=false;
+    private bool isPaused = false;
     private void Start()
     {
         audioName = "Background";
         soundManager = FindObjectOfType<SoundManager>();
-        if(soundManager!=null)soundManager.Play(audioName + SceneManager.GetActiveScene().buildIndex);
+        if (soundManager != null) soundManager.Play(audioName + SceneManager.GetActiveScene().buildIndex);
         canPause = true;
 
         playerInputController = GameObject.FindWithTag("Player").GetComponent<PlayerInputController>();
@@ -56,9 +56,9 @@ public class PausaCanvas : MonoBehaviour
 
     public void Reiniciar(bool isDead)
     {
-        if (menuPanel == null || !canPause || !isPaused) return;
+        if (menuPanel == null || !canPause) return;
+        if (isPaused) FindObjectOfType<SoundManager>().Play("Click");
         isPaused = false;
-        FindObjectOfType<SoundManager>().Play("Click");
 
         StartCoroutine(ReiniciarEscena(isDead));
     }
@@ -93,7 +93,7 @@ public class PausaCanvas : MonoBehaviour
         Time.timeScale = 1f;
         animator.SetTrigger("Iniciar");
         yield return new WaitForSeconds(animacionFinal.length);
-        if(isDead) playerData.currentHealth = playerData.maxHealth;
+        if (isDead) playerData.currentHealth = playerData.maxHealth;
         playerData.score = 0;
         if (soundManager != null) soundManager.Stop(audioName + SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -115,6 +115,6 @@ public class PausaCanvas : MonoBehaviour
         yield return new WaitForSeconds(animacionFinal.length);
         playerData.SetPlayerData(vidasIniciales, playerData.maxHealth, playerData.maxHealth, 0);
         if (soundManager != null) soundManager.Stop(audioName + SceneManager.GetActiveScene().buildIndex);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
