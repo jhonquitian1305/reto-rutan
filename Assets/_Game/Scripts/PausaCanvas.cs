@@ -17,6 +17,7 @@ public class PausaCanvas : MonoBehaviour
     public string audioName = "Background";
     private SoundManager soundManager;
     private bool isPaused = false;
+
     private void Start()
     {
         audioName = "Background";
@@ -40,7 +41,7 @@ public class PausaCanvas : MonoBehaviour
     public void Reanudar()
     {
         if (menuPanel == null || !canPause || !isPaused) return;
-        FindObjectOfType<SoundManager>().Play("Click");
+        if (soundManager != null) soundManager.Play("Click");
         menuPanel.SetActive(false);
         isPaused = false;
         Time.timeScale = 1f;
@@ -56,7 +57,9 @@ public class PausaCanvas : MonoBehaviour
     public void Reiniciar(bool isDead)
     {
         if (menuPanel == null || !canPause) return;
-        if (isPaused) FindObjectOfType<SoundManager>().Play("Click");
+        if (isPaused) {
+            if (soundManager != null) soundManager.Play("Click"); 
+        }
         isPaused = false;
 
         StartCoroutine(ReiniciarEscena(isDead));
@@ -66,7 +69,7 @@ public class PausaCanvas : MonoBehaviour
     {
         if (menuPanel == null || !canPause || !isPaused) return;
         isPaused = false;
-        FindObjectOfType<SoundManager>().Play("Click");
+        if (soundManager != null) soundManager.Play("Click");
         StartCoroutine(VolverEscena());
     }
     public void UltimaEscena()

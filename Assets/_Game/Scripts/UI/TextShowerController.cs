@@ -13,11 +13,14 @@ public class TextShowerController : MonoBehaviour
     public Button continuar;
     private PlayerInputController playerInputController;
     private bool isActive;
+    private SoundManager soundManager;
     // Start is called before the first frame update
     void Start()
     {
         textShowerAnimator = GetComponent<Animator>();
         playerInputController = GameObject.FindWithTag("Player").GetComponent<PlayerInputController>();
+        soundManager = FindObjectOfType<SoundManager>();
+        
     }
 
     // Update is called once per frame
@@ -39,7 +42,7 @@ public class TextShowerController : MonoBehaviour
     public void StopPopUp()
     {
         if (!isActive) return;
-        FindObjectOfType<SoundManager>().Play("Click");
+        if (soundManager != null) soundManager.Play("Click");
         textShowerAnimator.SetBool("Show", false);
         pausaCanvas.canPause = true;
         isActive = false;

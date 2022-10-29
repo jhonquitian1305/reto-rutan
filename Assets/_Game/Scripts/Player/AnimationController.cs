@@ -12,12 +12,16 @@ public class AnimationController : MonoBehaviour
     private CharMoveController charMove;
     private MeleeController meleeController;
     private int meleeCount;
+    private SoundManager soundManager;
+
     // Start is called before the first frame update
     void Start()
     {
         animatorPlayer = GetComponent<Animator>();
         charMove = GetComponent<CharMoveController>();
         meleeController = GetComponentInChildren<MeleeController>();
+        soundManager = FindObjectOfType<SoundManager>();
+
     }
 
     private void Update()
@@ -46,7 +50,7 @@ public class AnimationController : MonoBehaviour
     }
     public void HitAnim()
     {
-        FindObjectOfType<SoundManager>().Play("PlayerHit");
+        if (soundManager != null) soundManager.Play("PlayerHit");
         animatorPlayer.SetTrigger("Hit");
         charMove.canMove = false;
         animatorPlayer.SetBool("CastAttack", false);
@@ -60,7 +64,7 @@ public class AnimationController : MonoBehaviour
 
     public void DieAnim()
     {
-        FindObjectOfType<SoundManager>().Play("PlayerDead");
+        if (soundManager != null) soundManager.Play("PlayerDead");
         animatorPlayer.SetTrigger("Die");
         charMove.canMove = false;
     }
@@ -225,7 +229,7 @@ public class AnimationController : MonoBehaviour
 
     public void PlayMeleeSound()
     {
-        FindObjectOfType<SoundManager>().Play("Melee");
+        if (soundManager != null) soundManager.Play("Melee");
     }
 }
 

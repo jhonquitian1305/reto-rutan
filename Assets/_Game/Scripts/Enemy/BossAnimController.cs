@@ -12,6 +12,7 @@ public class BossAnimController : MonoBehaviour, IEnemyAnimController
     private RangeEnemyNavMesh enemyNavMesh;
     public string damageAudio;
     public string deadAudio;
+    private SoundManager soundManager;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class BossAnimController : MonoBehaviour, IEnemyAnimController
         enemyAnim = GetComponent<Animator>();
         enemyNavMesh = GetComponent<RangeEnemyNavMesh>();
         enemyNavMesh.canMove = true;
+        soundManager = FindObjectOfType<SoundManager>();
 
     }
 
@@ -72,7 +74,7 @@ public class BossAnimController : MonoBehaviour, IEnemyAnimController
 
     public void GetHitAnim()
     {
-        FindObjectOfType<SoundManager>().Play(damageAudio);
+        if (soundManager != null && damageAudio != "") soundManager.Play(damageAudio);
         enemyAnim.SetTrigger("GetHit");
         enemyAnim.SetBool("isWalking", false);
         enemyAnim.SetBool("isWalkingBack", false);
@@ -88,7 +90,7 @@ public class BossAnimController : MonoBehaviour, IEnemyAnimController
     }
     public void DieAnim()
     {
-        FindObjectOfType<SoundManager>().Play(deadAudio);
+        if (soundManager != null && deadAudio != "") soundManager.Play(deadAudio);
         enemyAnim.SetTrigger("Die");
         enemyNavMesh.isDead=true;
     }

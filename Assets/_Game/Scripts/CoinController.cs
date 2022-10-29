@@ -9,7 +9,8 @@ public class CoinController : MonoBehaviour
     {
         if (collider.gameObject.transform.CompareTag("Player"))
         {
-            FindObjectOfType<SoundManager>().Play("Libro");
+            SoundManager soundManager = FindObjectOfType<SoundManager>();
+            if(soundManager!=null) soundManager.Play("Libro");
             playerData.score++;
             collider.gameObject.GetComponent<PlayerHealthSystem>().UpdateHealth(10,false);
             Destroy(gameObject);
