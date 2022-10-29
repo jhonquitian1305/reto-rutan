@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e169b197-f1a0-4366-a7d4-7bcc44cf0da7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.reto-rutan/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.reto-rutan/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Canvas/_Transition/_Epilogo.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Canvas/_Transition/_Epilogo.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +108,7 @@
       <workItem from="1666838877484" duration="4806000" />
       <workItem from="1667004765918" duration="409000" />
       <workItem from="1667011164785" duration="3009000" />
-      <workItem from="1667052823697" duration="853000" />
+      <workItem from="1667052823697" duration="1251000" />
     </task>
     <servers />
   </component>
