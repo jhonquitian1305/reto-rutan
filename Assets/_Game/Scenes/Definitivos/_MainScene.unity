@@ -1387,13 +1387,13 @@ MonoBehaviour:
   sounds:
   - name: FireBall
     clip: {fileID: 8300000, guid: a3636ac2a03cb68449136165478842af, type: 3}
-    volumen: 0.5
+    volumen: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: ThunderBall
     clip: {fileID: 8300000, guid: 288ba8e1760925e429f8c511046974ff, type: 3}
-    volumen: 0.5
+    volumen: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -1447,7 +1447,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HolyBall
     clip: {fileID: 8300000, guid: ce1d93169d31b1d4b87a45de1fe7f158, type: 3}
-    volumen: 0.6
+    volumen: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
