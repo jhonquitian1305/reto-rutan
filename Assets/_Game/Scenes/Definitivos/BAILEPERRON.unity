@@ -9055,56 +9055,6 @@ Transform:
   m_Father: {fileID: 5245569554657384017}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5245569554298649681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245569554298649692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 233a2a3aaa4e3594a959531072f405d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 8
-  cooldown: 3
-  meleeAnimController: {fileID: 0}
---- !u!114 &5245569554298649682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245569554298649692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8105621e1a56044aa7188df4d069229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyAnim: {fileID: 0}
-  damageAudio: huesitosHit
-  deadAudio: huesitosDead
---- !u!114 &5245569554298649683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245569554298649692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c858eb2832592419baacb9857390eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  criticDamageMultiplier: 1
-  weaknessElementType: 0
-  isDead: 0
-  deathAnimTime: 5
-  sceneHandler: {fileID: 0}
-  bossHandler: {fileID: 0}
-  isEssential: 0
 --- !u!136 &5245569554298649684
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9168,9 +9118,6 @@ GameObject:
   - component: {fileID: 5245569554298649685}
   - component: {fileID: 5245569554298649684}
   - component: {fileID: 5245569554298649687}
-  - component: {fileID: 5245569554298649681}
-  - component: {fileID: 5245569554298649683}
-  - component: {fileID: 5245569554298649682}
   - component: {fileID: 5245569554298649693}
   m_Layer: 7
   m_Name: Huesitos (2)
@@ -12306,9 +12253,6 @@ GameObject:
   - component: {fileID: 5245569555162774251}
   - component: {fileID: 5245569555162774250}
   - component: {fileID: 5245569555162774249}
-  - component: {fileID: 5245569555162774255}
-  - component: {fileID: 5245569555162774253}
-  - component: {fileID: 5245569555162774252}
   - component: {fileID: 5245569555162774243}
   m_Layer: 7
   m_Name: Huesitos (1)
@@ -12382,56 +12326,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 195.865, z: 0}
---- !u!114 &5245569555162774252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245569555162774242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8105621e1a56044aa7188df4d069229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyAnim: {fileID: 0}
-  damageAudio: huesitosHit
-  deadAudio: huesitosDead
---- !u!114 &5245569555162774253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245569555162774242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c858eb2832592419baacb9857390eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  criticDamageMultiplier: 1
-  weaknessElementType: 0
-  isDead: 0
-  deathAnimTime: 5
-  sceneHandler: {fileID: 0}
-  bossHandler: {fileID: 0}
-  isEssential: 0
---- !u!114 &5245569555162774255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245569555162774242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 233a2a3aaa4e3594a959531072f405d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 8
-  cooldown: 3
-  meleeAnimController: {fileID: 0}
 --- !u!1 &5245569555166572952
 GameObject:
   m_ObjectHideFlags: 0
@@ -14035,9 +13929,6 @@ GameObject:
   - component: {fileID: 5245569555576301966}
   - component: {fileID: 5245569555576301967}
   - component: {fileID: 5245569555576301964}
-  - component: {fileID: 5245569555576301962}
-  - component: {fileID: 5245569555576301960}
-  - component: {fileID: 5245569555576301961}
   - component: {fileID: 5245569555576301958}
   m_Layer: 7
   m_Name: Huesitos (3)
@@ -14046,56 +13937,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5245569555576301960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245569555576301959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c858eb2832592419baacb9857390eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  criticDamageMultiplier: 1
-  weaknessElementType: 0
-  isDead: 0
-  deathAnimTime: 5
-  sceneHandler: {fileID: 0}
-  bossHandler: {fileID: 0}
-  isEssential: 0
---- !u!114 &5245569555576301961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245569555576301959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8105621e1a56044aa7188df4d069229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyAnim: {fileID: 0}
-  damageAudio: huesitosHit
-  deadAudio: huesitosDead
---- !u!114 &5245569555576301962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245569555576301959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 233a2a3aaa4e3594a959531072f405d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 8
-  cooldown: 3
-  meleeAnimController: {fileID: 0}
 --- !u!95 &5245569555576301964
 Animator:
   serializedVersion: 4
@@ -14556,56 +14397,6 @@ Transform:
   m_Father: {fileID: 5245569554627115818}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5245569555696425728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245569555696425742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8105621e1a56044aa7188df4d069229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyAnim: {fileID: 0}
-  damageAudio: huesitosHit
-  deadAudio: huesitosDead
---- !u!114 &5245569555696425729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245569555696425742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c858eb2832592419baacb9857390eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  criticDamageMultiplier: 1
-  weaknessElementType: 0
-  isDead: 0
-  deathAnimTime: 5
-  sceneHandler: {fileID: 0}
-  bossHandler: {fileID: 0}
-  isEssential: 0
---- !u!114 &5245569555696425731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245569555696425742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 233a2a3aaa4e3594a959531072f405d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 8
-  cooldown: 3
-  meleeAnimController: {fileID: 0}
 --- !u!95 &5245569555696425733
 Animator:
   serializedVersion: 4
@@ -14669,9 +14460,6 @@ GameObject:
   - component: {fileID: 5245569555696425735}
   - component: {fileID: 5245569555696425734}
   - component: {fileID: 5245569555696425733}
-  - component: {fileID: 5245569555696425731}
-  - component: {fileID: 5245569555696425729}
-  - component: {fileID: 5245569555696425728}
   - component: {fileID: 5245569555696425743}
   m_Layer: 7
   m_Name: Huesitos
@@ -17117,26 +16905,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: -0.145, y: -24.577, z: 1.576}
---- !u!114 &6272916371010333096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6272916371010333097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c858eb2832592419baacb9857390eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  criticDamageMultiplier: 2
-  weaknessElementType: 2
-  isDead: 0
-  deathAnimTime: 2
-  sceneHandler: {fileID: 0}
-  bossHandler: {fileID: 0}
-  isEssential: 0
 --- !u!1 &6272916371010333097
 GameObject:
   m_ObjectHideFlags: 0
@@ -17148,9 +16916,6 @@ GameObject:
   - component: {fileID: 6272916371010333009}
   - component: {fileID: 6272916371010333102}
   - component: {fileID: 6272916371010333100}
-  - component: {fileID: 6272916371010333101}
-  - component: {fileID: 6272916371010333099}
-  - component: {fileID: 6272916371010333096}
   m_Layer: 7
   m_Name: MagicSkeleton
   m_TagString: Enemy
@@ -17158,28 +16923,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6272916371010333099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6272916371010333097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18e35a1f3b4181b4f9bf4031067a0b07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellDamage: 8
-  spellMoveSpeed: 15
-  spellRange: 30
-  spellCooldown: 4
-  spellBallPrefab: {fileID: 7249752852710803602, guid: 00c9e50aa64465442aca7c7a358e73f9, type: 3}
-  originPoint: {fileID: 6272916370476054907}
-  ignoreLayers:
-    serializedVersion: 2
-    m_Bits: 128
-  cooldownLeft: 0
 --- !u!95 &6272916371010333100
 Animator:
   serializedVersion: 4
@@ -17200,21 +16943,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6272916371010333101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6272916371010333097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 844b6e63b728cd14cb2528b313686337, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyAnim: {fileID: 6272916371010333100}
-  damageAudio: huesitosHit
-  deadAudio: huesitosDead
 --- !u!136 &6272916371010333102
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -32316,10 +32044,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8246000097067324490}
   - component: {fileID: 8729240287261003512}
-  - component: {fileID: 8729240287261003513}
-  - component: {fileID: 8729240287261003518}
-  - component: {fileID: 8729240287261003519}
-  - component: {fileID: 8729240287261003517}
   - component: {fileID: 8729240287261003507}
   m_Layer: 7
   m_Name: Boss
@@ -32362,78 +32086,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8729240287261003513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8729240287261003504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c828a7f376e6b8048a493086045d55cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyAnim: {fileID: 0}
-  damageAudio: BossHit
-  deadAudio: BossDead
---- !u!114 &8729240287261003517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8729240287261003504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03a271db667cd504cb04d6e49a15baca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5245569555248581931, guid: f7a173e06d0e3844699185c00d980008, type: 3}
-  cooldown: 25
-  cooldownLeft: 10
---- !u!114 &8729240287261003518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8729240287261003504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c858eb2832592419baacb9857390eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 500
-  criticDamageMultiplier: 2
-  weaknessElementType: 1
-  isDead: 0
-  deathAnimTime: 7
-  sceneHandler: {fileID: 0}
-  bossHandler: {fileID: 0}
-  isEssential: 0
---- !u!114 &8729240287261003519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8729240287261003504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18e35a1f3b4181b4f9bf4031067a0b07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellDamage: 10
-  spellMoveSpeed: 20
-  spellRange: 20
-  spellCooldown: 5
-  spellBallPrefab: {fileID: 3889930295139717891, guid: b45349f5821fc274c8d0ebf48bf2c6e7, type: 3}
-  originPoint: {fileID: 4923022853652674511}
-  ignoreLayers:
-    serializedVersion: 2
-    m_Bits: 128
-  cooldownLeft: 0
 --- !u!1 &8738179924179614850
 GameObject:
   m_ObjectHideFlags: 0

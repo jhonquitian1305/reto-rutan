@@ -9,9 +9,11 @@ public class CreditsController : MonoBehaviour
     private SoundManager soundManager;
     public void Start()
     {
-        if (soundManager != null) soundManager.Play("Background" + SceneManager.GetActiveScene().buildIndex);
         soundManager = FindObjectOfType<SoundManager>();
-
+        if (soundManager != null)
+        {
+            soundManager.Play("Background8");
+        }
     }
     public void Update()
     {
