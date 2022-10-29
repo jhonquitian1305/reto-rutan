@@ -1409,27 +1409,27 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - name: Background1
-    clip: {fileID: 8300000, guid: 5eace0b3aa392b74caccef8e9ba1762d, type: 3}
-    volumen: 1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
   - name: Background2
-    clip: {fileID: 8300000, guid: 0cb34b9064d5a7f4cb54766a224cbe17, type: 3}
-    volumen: 1
+    clip: {fileID: 8300000, guid: 5eace0b3aa392b74caccef8e9ba1762d, type: 3}
+    volumen: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Background3
-    clip: {fileID: 8300000, guid: 306de2d1cdd1f3a488d71ccd509c6330, type: 3}
-    volumen: 0.55
+    clip: {fileID: 8300000, guid: 0cb34b9064d5a7f4cb54766a224cbe17, type: 3}
+    volumen: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Background4
+    clip: {fileID: 8300000, guid: 306de2d1cdd1f3a488d71ccd509c6330, type: 3}
+    volumen: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Background5
     clip: {fileID: 8300000, guid: 1e55b6f0b4eb6e144b83f932b09c56d1, type: 3}
-    volumen: 0.8
+    volumen: 0.2
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -1495,13 +1495,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: jotunDead
     clip: {fileID: 8300000, guid: 4541830af77d0f34ab2c86a5758baf2a, type: 3}
-    volumen: 1
+    volumen: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: jotunHit
     clip: {fileID: 8300000, guid: 564a1e23d266b0f479e3d80e307d5ed2, type: 3}
-    volumen: 0.35
+    volumen: 0.15
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -1555,6 +1555,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: pantallaPlayerDead
     clip: {fileID: 8300000, guid: ebae8e780aa299f4594ef1c6bf7c8398, type: 3}
+    volumen: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Background1
+    clip: {fileID: 8300000, guid: 3260735694833b84fa8458484a65f7a8, type: 3}
     volumen: 0.5
     pitch: 1
     loop: 0
