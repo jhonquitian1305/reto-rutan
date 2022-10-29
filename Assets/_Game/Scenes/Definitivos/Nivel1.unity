@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.687373, g: 0.6070921, b: 0.2837997, a: 1}
+  m_IndirectSpecularColor: {r: 0.68736905, g: 0.60709447, b: 0.2838032, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10786,7 +10786,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823059408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.35, y: -48.23, z: 69.9}
+  m_LocalPosition: {x: -12.35, y: -48.23, z: 69.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17702,7 +17702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5245569555248581922, guid: f7a173e06d0e3844699185c00d980008, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.2
+      value: -26.52
       objectReference: {fileID: 0}
     - target: {fileID: 5245569555248581924, guid: f7a173e06d0e3844699185c00d980008, type: 3}
       propertyPath: maxHealth
@@ -22574,7 +22574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579189139}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.35, y: -48.23, z: -48.2}
+  m_LocalPosition: {x: -12.35, y: -48.23, z: -44.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30264,7 +30264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &707213868521976396
 Transform:
   m_ObjectHideFlags: 0
@@ -30273,7 +30273,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707213868521976395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.35, y: -48.23, z: -46.4}
+  m_LocalPosition: {x: -12.35, y: -48.23, z: -48.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30292,7 +30292,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fbb63a90b68c6745a3e6328781a9c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: 
+  text: "Transcurridos algunos a\xF1os y luego de dominar los poderes oscuros que
+    obtuvo de Masuku, Bacon puso en marcha sus planes e inici\xF3 el ataque en un
+    peque\xF1o pueblo al norte del bosque de Tarkine y en donde pretend\xEDa poner
+    a pruebas sus nuevos y desarrollados poderes nigromantes, dejando a su paso muerte
+    y desolaci\xF3n.  Pero Bacon desconoc\xEDa toda la historia y no imagin\xF3 que,
+    al atacar aquel peque\xF1o pueblo, har\xEDa despertar al nuevo elegido para hacerle
+    frente y alcanzar de nuevo el equilibrio.  \u201CUna luz brilla con fuerza, una
+    gran voluntad nace de la destrucci\xF3n, un nuevo h\xE9roe yace aqu\xED, t\xFA
+    traer\xE1s equilibrio al mundo y tendr\xE1s mi conocimiento\u2026\u201D "
   title: "CAP\xCDTULO 1"
   secs: 20
 --- !u!65 &707213868521976399

@@ -3008,7 +3008,7 @@ MonoBehaviour:
   spellMoveSpeed: 20
   spellRange: 20
   spellCooldown: 5
-  spellBallPrefab: {fileID: 3889930295139717891, guid: 9fb53b32a71d02340bd1d2f3ca5b26d7, type: 3}
+  spellBallPrefab: {fileID: 3889930295139717891, guid: b45349f5821fc274c8d0ebf48bf2c6e7, type: 3}
   originPoint: {fileID: 4923022854683525504}
   ignoreLayers:
     serializedVersion: 2
