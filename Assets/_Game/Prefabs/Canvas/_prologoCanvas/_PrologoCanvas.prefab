@@ -94,8 +94,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2315.1448}
-  m_SizeDelta: {x: 1440.1816, y: 5610.291}
+  m_AnchoredPosition: {x: 0, y: -1849.9783}
+  m_SizeDelta: {x: 1440.1816, y: 4679.958}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4613710069852223579
 CanvasRenderer:
@@ -142,10 +142,10 @@ MonoBehaviour:
     hasta la tumba eterna del h\xE9roe de las leyendas, pero al igual que en el pasado,
     su destino estaba sellado para despertar los poderes oscuros de la M\xE1scara,
     y fue as\xED que se retir\xF3 para dominarlos, y esta vez intentar destruir por
-    completo al mundo.\r\n"
+    completo al mundo.\r\n\n\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d08c1b0e9a4fd2146842602edc2b38ca, type: 2}
+  m_sharedMaterial: {fileID: -397654196465182457, guid: d08c1b0e9a4fd2146842602edc2b38ca, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -169,15 +169,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 65
+  m_fontSizeBase: 65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -279,15 +279,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\nPR\xD3LOGO:"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d08c1b0e9a4fd2146842602edc2b38ca, type: 2}
+  m_sharedMaterial: {fileID: -397654196465182457, guid: d08c1b0e9a4fd2146842602edc2b38ca, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
+    rgba: 16711679
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
