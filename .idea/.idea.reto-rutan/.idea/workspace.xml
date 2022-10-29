@@ -6,10 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e169b197-f1a0-4366-a7d4-7bcc44cf0da7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.reto-rutan/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.reto-rutan/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/Definitivos/Nivel1W.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scenes/Definitivos/Nivel1W.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Canvas/_SceneCanvas/_MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Canvas/_SceneCanvas/_MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Canvas/_Scripts/MainCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Canvas/_Scripts/MainCanvas.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Canvas/_Scripts/PausaCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Canvas/_Scripts/PausaCanvas.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Werewolf/StatusIndicators/Prefabs/Materials/SpellIndicators/AngleMissile/AngleMissileBasic/MissileBody.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Werewolf/StatusIndicators/Prefabs/Materials/SpellIndicators/AngleMissile/AngleMissileBasic/MissileBody.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Spells/EnemyBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Spells/EnemyBall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/Definitivos/CreditosYHistoria/_Prologo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scenes/Definitivos/CreditosYHistoria/_Prologo.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/Definitivos/prologoFinal.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scenes/Definitivos/prologoFinal.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Canvas/_SceneCanvas/EdwarParticles.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Canvas/_SceneCanvas/EdwarParticles.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Canvas/_SceneCanvas/EdwarParticles.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Canvas/_SceneCanvas/EdwarParticles.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Canvas/_Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +22,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/InputSystem/UIInputController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Game/_Canvas/_Scripts/PausaCanvas.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.3/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.3/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
@@ -110,6 +113,8 @@
       <workItem from="1666670262125" duration="878000" />
       <workItem from="1666713669429" duration="1562000" />
       <workItem from="1666838877484" duration="4806000" />
+      <workItem from="1667004765918" duration="409000" />
+      <workItem from="1667011164785" duration="1526000" />
     </task>
     <servers />
   </component>
