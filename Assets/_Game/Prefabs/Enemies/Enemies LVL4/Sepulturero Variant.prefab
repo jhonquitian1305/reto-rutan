@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3984415595203843410, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
       propertyPath: maxHealth
-      value: 130
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843410, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: criticDamageMultiplier
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3984415595203843415, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
       propertyPath: enemyPrefab
@@ -61,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 1985903694446760865, guid: 7e6e7d3754596ee4d99139ba8896f61d, type: 3}
     - target: {fileID: 3984415595203843415, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
       propertyPath: cooldownLeft
-      value: 7.5
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3984415595203843432, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
       propertyPath: m_Name
