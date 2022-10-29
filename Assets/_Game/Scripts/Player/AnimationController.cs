@@ -46,6 +46,7 @@ public class AnimationController : MonoBehaviour
     }
     public void HitAnim()
     {
+        FindObjectOfType<SoundManager>().Play("PlayerHit");
         animatorPlayer.SetTrigger("Hit");
         charMove.canMove = false;
         animatorPlayer.SetBool("CastAttack", false);
@@ -59,6 +60,7 @@ public class AnimationController : MonoBehaviour
 
     public void DieAnim()
     {
+        FindObjectOfType<SoundManager>().Play("PlayerDead");
         animatorPlayer.SetTrigger("Die");
         charMove.canMove = false;
     }

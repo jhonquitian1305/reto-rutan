@@ -412,6 +412,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnim: {fileID: 8782854522632519989}
+  damageAudio: jotunHit
+  deadAudio: jotunDead
 --- !u!114 &1406698736404414915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +476,7 @@ MonoBehaviour:
   isDead: 0
   deathAnimTime: 3
   sceneHandler: {fileID: 0}
+  bossHandler: {fileID: 0}
   isEssential: 0
 --- !u!1 &1949157574521565773
 GameObject:

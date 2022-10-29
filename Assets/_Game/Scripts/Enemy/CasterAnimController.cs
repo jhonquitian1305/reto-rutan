@@ -10,6 +10,8 @@ public class CasterAnimController : MonoBehaviour, IEnemyAnimController
 {
     public Animator enemyAnim;
     private RangeEnemyNavMesh enemyNavMesh;
+    public string damageAudio;
+    public string deadAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +72,7 @@ public class CasterAnimController : MonoBehaviour, IEnemyAnimController
 
     public void GetHitAnim()
     {
-        FindObjectOfType<SoundManager>().Play("HitEnemy");
+        FindObjectOfType<SoundManager>().Play(damageAudio);
         enemyAnim.SetTrigger("GetHit");
         enemyAnim.SetBool("isWalking", false);
         enemyAnim.SetBool("isWalkingBack", false);
@@ -86,7 +88,7 @@ public class CasterAnimController : MonoBehaviour, IEnemyAnimController
     }
     public void DieAnim()
     {
-        FindObjectOfType<SoundManager>().Play("DeadEnemy");
+        FindObjectOfType<SoundManager>().Play(deadAudio);
         enemyAnim.SetTrigger("Die");
         enemyNavMesh.isDead=true;
     }

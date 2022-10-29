@@ -1469,13 +1469,13 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: HitEnemy
+  - name: huesitosHit
     clip: {fileID: 8300000, guid: 0b7cd95af64fdd2439dd69743601faa6, type: 3}
     volumen: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: DeadEnemy
+  - name: huesitosDead
     clip: {fileID: 8300000, guid: e7b052218117d6547be94fad856a4852, type: 3}
     volumen: 0.6
     pitch: 1
@@ -1484,6 +1484,78 @@ MonoBehaviour:
   - name: Portal
     clip: {fileID: 8300000, guid: af28efaf171a9bf42a2b7ff626b9169f, type: 3}
     volumen: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 1up
+    clip: {fileID: 8300000, guid: 64fb4d69cc7646d43af66526e33a8e31, type: 3}
+    volumen: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: jotunDead
+    clip: {fileID: 8300000, guid: 4541830af77d0f34ab2c86a5758baf2a, type: 3}
+    volumen: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: jotunHit
+    clip: {fileID: 8300000, guid: 564a1e23d266b0f479e3d80e307d5ed2, type: 3}
+    volumen: 0.35
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: InvocadorHit
+    clip: {fileID: 8300000, guid: c56855a6955f00a438e0ff8aad702f1e, type: 3}
+    volumen: 0.35
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: InvocadorDead
+    clip: {fileID: 8300000, guid: 2c25d3e268bf1d541acc367165355e18, type: 3}
+    volumen: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: KnightHit
+    clip: {fileID: 8300000, guid: 0a7cb4e91d5e4e54581c28f03f3a6036, type: 3}
+    volumen: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: KnightDead
+    clip: {fileID: 8300000, guid: 8bef7c2018c5e714da54dbe623cf5868, type: 3}
+    volumen: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossHit
+    clip: {fileID: 8300000, guid: 3243e28fd0774ac40b86afa202b1a3f5, type: 3}
+    volumen: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossDead
+    clip: {fileID: 8300000, guid: 048ff56faa7dcb24c9685c1b67b79a94, type: 3}
+    volumen: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHit
+    clip: {fileID: 8300000, guid: bbce543bb2372f54eb6822c9f7fe46dc, type: 3}
+    volumen: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDead
+    clip: {fileID: 8300000, guid: ebae8e780aa299f4594ef1c6bf7c8398, type: 3}
+    volumen: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: pantallaPlayerDead
+    clip: {fileID: 8300000, guid: ebae8e780aa299f4594ef1c6bf7c8398, type: 3}
+    volumen: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}

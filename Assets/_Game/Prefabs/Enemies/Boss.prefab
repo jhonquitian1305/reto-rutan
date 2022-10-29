@@ -2970,6 +2970,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnim: {fileID: 0}
+  damageAudio: BossHit
+  deadAudio: BossDead
 --- !u!114 &8729240288426129585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2988,6 +2990,7 @@ MonoBehaviour:
   isDead: 0
   deathAnimTime: 7
   sceneHandler: {fileID: 0}
+  bossHandler: {fileID: 0}
   isEssential: 0
 --- !u!114 &8729240288426129584
 MonoBehaviour:

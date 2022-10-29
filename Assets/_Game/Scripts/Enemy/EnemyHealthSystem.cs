@@ -13,7 +13,6 @@ public partial class EnemyHealthSystem : MonoBehaviour
     public SceneHandler sceneHandler;
     public BossHandler bossHandler;
 
-
     public bool isEssential = false;
     private float currentHealth;
     private float currentHealthPercentage;

@@ -1850,6 +1850,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnim: {fileID: 6272916371886222597}
+  damageAudio: huesitosHit
+  deadAudio: huesitosDead
 --- !u!114 &6272916371886222595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1912,6 +1914,7 @@ MonoBehaviour:
   isDead: 0
   deathAnimTime: 2
   sceneHandler: {fileID: 0}
+  bossHandler: {fileID: 0}
   isEssential: 0
 --- !u!1 &6272916371893851630
 GameObject:

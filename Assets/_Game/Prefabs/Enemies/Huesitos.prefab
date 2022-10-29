@@ -1465,6 +1465,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnim: {fileID: 0}
+  damageAudio: huesitosHit
+  deadAudio: huesitosDead
 --- !u!135 &5245569555248581930
 SphereCollider:
   m_ObjectHideFlags: 0

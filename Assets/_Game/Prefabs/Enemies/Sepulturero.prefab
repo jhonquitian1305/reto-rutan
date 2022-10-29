@@ -438,6 +438,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnim: {fileID: 3984415595203843408}
+  damageAudio: InvocadorHit
+  deadAudio: InvocadorDead
 --- !u!114 &3984415595203843410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,6 +458,7 @@ MonoBehaviour:
   isDead: 0
   deathAnimTime: 2
   sceneHandler: {fileID: 0}
+  bossHandler: {fileID: 0}
   isEssential: 0
 --- !u!114 &3984415595203843413
 MonoBehaviour:

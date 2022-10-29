@@ -1019,6 +1019,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnim: {fileID: 0}
+  damageAudio: KnightHit
+  deadAudio: KnightDead
 --- !u!135 &3891649931995382782
 SphereCollider:
   m_ObjectHideFlags: 0
