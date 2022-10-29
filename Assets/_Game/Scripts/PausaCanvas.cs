@@ -40,7 +40,6 @@ public class PausaCanvas : MonoBehaviour
     public void Reanudar()
     {
         if (menuPanel == null || !canPause || !isPaused) return;
-        Debug.Log("a");
         FindObjectOfType<SoundManager>().Play("Click");
         menuPanel.SetActive(false);
         isPaused = false;
