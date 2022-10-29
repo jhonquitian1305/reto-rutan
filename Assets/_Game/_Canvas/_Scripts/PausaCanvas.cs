@@ -56,9 +56,9 @@ public class PausaCanvas : MonoBehaviour
 
     public void Reiniciar(bool isDead)
     {
-        if (menuPanel == null || !canPause || !isPaused) return;
+        if (menuPanel == null || !canPause) return;
         isPaused = false;
-        FindObjectOfType<SoundManager>().Play("Click");
+        if(isPaused)FindObjectOfType<SoundManager>().Play("Click");
 
         StartCoroutine(ReiniciarEscena(isDead));
     }
