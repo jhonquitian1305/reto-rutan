@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da374cc7f17f56b47a052551e15c029d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimSensitivity: 1
+  aimSensitivity: 0.5
   mainFreeLookCamera: {fileID: 0}
 --- !u!114 &8867568596369687702
 MonoBehaviour:
