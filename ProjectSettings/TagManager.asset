@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - DeadZone
+  - Platform
+  - Ground
+  - ground
+  - SceneHandler
+  - TextShower
+  - MainFreeLookCamera
+  - PortalCambioNivel
+  - PauseEventSystem
+  - MenuPanel
+  - Transition
+  - jauilas
+  - BossHandler
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Ground
+  - Water
+  - UI
+  - Player
+  - Enemy
+  - PlayerSpell
+  - EnemySpell
+  - Wall
+  - Walkable
+  - IgnoreSpell
+  - IgnoreCineMachine
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

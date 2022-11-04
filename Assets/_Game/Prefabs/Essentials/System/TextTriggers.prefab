@@ -1,0 +1,489 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &564982053687484647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 564982053687484640}
+  - component: {fileID: 564982053687484642}
+  - component: {fileID: 564982053687484643}
+  m_Layer: 12
+  m_Name: HISTORIA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &564982053687484640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564982053687484647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.35, y: -48.23, z: -46.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 564982053936496431}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &564982053687484642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564982053687484647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbb63a90b68c6745a3e6328781a9c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: "Transcurridos algunos a\xF1os y luego de dominar los poderes oscuros que
+    obtuvo de Masuku, Bacon puso en marcha sus planes e inici\xF3 el ataque en un
+    peque\xF1o pueblo al norte del bosque de Tarkine y en donde pretend\xEDa poner
+    a pruebas sus nuevos y desarrollados poderes nigromantes, dejando a su paso muerte
+    y desolaci\xF3n.  Pero Bacon desconoc\xEDa toda la historia y no imagin\xF3 que,
+    al atacar aquel peque\xF1o pueblo, har\xEDa despertar al nuevo elegido para hacerle
+    frente y alcanzar de nuevo el equilibrio.  \u201CUna luz brilla con fuerza, una
+    gran voluntad nace de la destrucci\xF3n, un nuevo h\xE9roe yace aqu\xED, t\xFA
+    traer\xE1s equilibrio al mundo y tendr\xE1s mi conocimiento\u2026\u201D "
+  title: "CAP\xCDTULO 1"
+  secs: 20
+--- !u!65 &564982053687484643
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564982053687484647}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 180.53497, y: 9.306763, z: 6.5132904}
+  m_Center: {x: -9.875183, y: 1.4833488, z: -0.65361786}
+--- !u!1 &564982053936496430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 564982053936496431}
+  m_Layer: 0
+  m_Name: TextTriggers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &564982053936496431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564982053936496430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 564982053687484640}
+  - {fileID: 1010987109224845624}
+  - {fileID: 1010987108925825025}
+  - {fileID: 1010987108303476254}
+  - {fileID: 1010987108738278804}
+  - {fileID: 1010987109430211291}
+  - {fileID: 1010987108505416061}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1010987108303476253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010987108303476254}
+  - component: {fileID: 1010987108303476248}
+  - component: {fileID: 1010987108303476255}
+  m_Layer: 12
+  m_Name: libros
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010987108303476254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987108303476253}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.35, y: -48.23, z: -22.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 564982053936496431}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1010987108303476248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987108303476253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbb63a90b68c6745a3e6328781a9c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: "Alrededor del mundo encontrar\xE1s esparcidos diferentes libros que te ayudar\xE1n
+    en tu aventura. Recol\xE9ctalos para recuperar tu salud y aumentar tu n\xFAmero
+    de vidas a medida que avanzas en tus traves\xEDas."
+  title: "\xA1El conocimiento es tu aliado!"
+  secs: 20
+--- !u!65 &1010987108303476255
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987108303476253}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 180.53497, y: 9.306763, z: 6.5132904}
+  m_Center: {x: -9.875183, y: 1.4833488, z: -0.65361786}
+--- !u!1 &1010987108505416060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010987108505416061}
+  - component: {fileID: 1010987108505416063}
+  - component: {fileID: 1010987108505416062}
+  m_Layer: 12
+  m_Name: mensaje de portal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010987108505416061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987108505416060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.35, y: -48.23, z: 69.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 564982053936496431}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1010987108505416063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987108505416060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbb63a90b68c6745a3e6328781a9c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: "Al finalizar cada nivel, encontrar\xE1s un portal que te llevar\xE1 a otras
+    zonas. Para abrirlo, primero debes derrotar a todos los enemigos de tu zona."
+  title: "\xA1Elimina a todos tus enemigos!"
+  secs: 20
+--- !u!65 &1010987108505416062
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987108505416060}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.623617, y: 9.306763, z: 3.7187805}
+  m_Center: {x: 0.33321953, y: 1.4833488, z: -2.0508728}
+--- !u!1 &1010987108738278811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010987108738278804}
+  - component: {fileID: 1010987108738278806}
+  - component: {fileID: 1010987108738278805}
+  m_Layer: 12
+  m_Name: magia
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010987108738278804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987108738278811}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.35, y: -48.23, z: -6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 564982053936496431}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1010987108738278806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987108738278811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbb63a90b68c6745a3e6328781a9c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: "Algunos enemigo te atacar\xE1n desde la distancia y se ver\xE1n m\xE1s afectados
+    por tu magia. At\xE1calos lanzando tus hechizos con los botones R2 / RT / Y del
+    mando o con el click derecho del rat\xF3n. Tambi\xE9n puedes apuntar con LT /
+    L2 o Shift izquierdo."
+  title: "\xA1Utiliza tus poderes!"
+  secs: 20
+--- !u!65 &1010987108738278805
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987108738278811}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 180.53497, y: 9.306763, z: 6.5132904}
+  m_Center: {x: -9.875183, y: 1.4833488, z: -0.65361786}
+--- !u!1 &1010987108925825024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010987108925825025}
+  - component: {fileID: 1010987108925825027}
+  - component: {fileID: 1010987108925825026}
+  m_Layer: 12
+  m_Name: ataque
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010987108925825025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987108925825024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.35, y: -48.23, z: -41.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 564982053936496431}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1010987108925825027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987108925825024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbb63a90b68c6745a3e6328781a9c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: "En este mundo hay diversas criaturas que se interpondr\xE1n en tus caminos.
+    Ac\xE9rcate a ellas y elim\xEDnalas atacando con el bot\xF3n X / \u25A0  del
+    mando o con el click izquierdo del rat\xF3n. Si presionas el bot\xF3n de ataque
+    consecutivamente y en el momento adecuado, podr\xE1s infligir m\xE1s da\xF1o."
+  title: "\xA1Defi\xE9ndente!"
+  secs: 20
+--- !u!65 &1010987108925825026
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987108925825024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 180.53497, y: 9.306763, z: 6.5132904}
+  m_Center: {x: -9.875183, y: 1.4833488, z: -0.65361786}
+--- !u!1 &1010987109224845631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010987109224845624}
+  - component: {fileID: 1010987109224845626}
+  - component: {fileID: 1010987109224845625}
+  m_Layer: 12
+  m_Name: movimiento
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010987109224845624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987109224845631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.35, y: -48.23, z: -44.49}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 564982053936496431}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1010987109224845626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987109224845631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbb63a90b68c6745a3e6328781a9c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: "Te aguardan grandes aventuras en este mundo a punto de ser descubiertas. 
+    Mu\xE9vete por los diversos mapas con los siguientes controles y explora cada
+    rinc\xF3n: An\xE1logo izquierdo / WASD"
+  title: "\xA1Aprende a moverte!"
+  secs: 20
+--- !u!65 &1010987109224845625
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987109224845631}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 180.53497, y: 9.306763, z: 2.851429}
+  m_Center: {x: -9.875183, y: 1.4833488, z: -2.4845486}
+--- !u!1 &1010987109430211290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010987109430211291}
+  - component: {fileID: 1010987109430211285}
+  - component: {fileID: 1010987109430211284}
+  m_Layer: 12
+  m_Name: cambio de magia
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010987109430211291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987109430211290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.35, y: -48.23, z: 30.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 564982053936496431}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1010987109430211285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987109430211290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbb63a90b68c6745a3e6328781a9c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: "Alrededor del mundo habr\xE1n distintos tipos de enemigos esper\xE1ndote.
+    Puedes utilizar distintos tipos de magias, alternando entre ellas con los siguientes
+    botones:  Q-E / LI-R1 / LB-RB. Averigua a qu\xE9 tipo de magia son vulnerables
+    tus enemigos."
+  title: "\xA1Conoce a tus enemigos!"
+  secs: 20
+--- !u!65 &1010987109430211284
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010987109430211290}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 180.53497, y: 9.306763, z: 6.5132904}
+  m_Center: {x: -9.875183, y: 1.4833488, z: -0.65361786}

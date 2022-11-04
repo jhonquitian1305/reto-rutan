@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8205903618382277163
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3984415595203843409, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843409, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843409, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0760751
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843409, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.6661615
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843409, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843409, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843409, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843409, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843409, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843409, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843409, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843410, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: maxHealth
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843410, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: criticDamageMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843415, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 1985903694446760865, guid: 7e6e7d3754596ee4d99139ba8896f61d, type: 3}
+    - target: {fileID: 3984415595203843415, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: cooldownLeft
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984415595203843432, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
+      propertyPath: m_Name
+      value: Sepulturero Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 02b90e83e09cba54b91b3def65b8dbf5, type: 3}
